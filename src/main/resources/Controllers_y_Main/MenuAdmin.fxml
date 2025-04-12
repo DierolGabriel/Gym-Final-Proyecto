@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="815.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.MenuController">
+
+    <!-- Top panel -->
+    <top>
+        <Pane prefHeight="34.0" prefWidth="870.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER" />
+    </top>
+
+    <!-- Left panel -->
+    <left>
+        <VBox prefWidth="200.0" spacing="10.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+
+            <!-- Panel de perfil -->
+            <VBox alignment="TOP_CENTER" prefHeight="208.0" spacing="10.0" style="-fx-background-color: white;">
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10" />
+                </padding>
+                <ImageView fitHeight="150.0" fitWidth="150.0" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/avatarperfil.png" />
+               </image>
+                </ImageView>
+                <Label text="Administrador" />
+            </VBox>
+
+            <!-- Menú con Scroll y Accordion -->
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                <Accordion>
+                    <panes>
+
+                        <!-- Mantenimiento -->
+                        <TitledPane fx:id="Mantenimiento" mnemonicParsing="false" text="Mantenimiento">
+                            <VBox spacing="5">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="10" top="10" />
+                                </padding>
+                        <Button fx:id="ManUsuario" mnemonicParsing="false" onAction="#ManUsuario" prefWidth="180" text="Usuario" />
+                                <Button fx:id="ManEntrenador" mnemonicParsing="false" onAction="#ManEntrenador" prefWidth="180" text="Entrenador" />
+                                <Button fx:id="ManLocalizacion" mnemonicParsing="false" onAction="#ManLocalizacion" prefWidth="180" text="Localización" />
+                                <Button fx:id="ManSalas" mnemonicParsing="false" onAction="#ManSalas" prefWidth="180" text="Salas" />
+                                <Button fx:id="ManActividades" mnemonicParsing="false" onAction="#ManActividades" prefWidth="180" text="Actividades" />
+                                <Button fx:id="ManHorarios" mnemonicParsing="false" onAction="#ManHorarios" prefWidth="180" text="Horarios Actividades" />
+                                <Button fx:id="ManClientes" mnemonicParsing="false" onAction="#ManClientes" prefWidth="180" text="Clientes" />
+                                <Button fx:id="ManEstados" mnemonicParsing="false" onAction="#ManEstados" prefWidth="180" text="Estados Reservas" />
+                                <Button fx:id="ManReserva" mnemonicParsing="false" onAction="#ManReserva" prefWidth="180" text="Reserva" />
+                                <Button fx:id="ManReservaAc" mnemonicParsing="false" onAction="#ManReservaAc" prefWidth="180" text="Reserva Actividades" />
+                            </VBox>
+                        </TitledPane>
+
+                        <!-- Movimientos -->
+                        <TitledPane fx:id="Movimientos" mnemonicParsing="false" text="Movimientos">
+                            <VBox spacing="5">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="10" top="10" />
+                                </padding>
+                                <Button mnemonicParsing="false" prefWidth="180" text="Cuotas" />
+                            </VBox>
+                        </TitledPane>
+
+                        <!-- Procesos -->
+                        <TitledPane fx:id="Procesos" mnemonicParsing="false" text="Procesos">
+                            <VBox spacing="5">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="10" top="10" />
+                                </padding>
+                                <Button mnemonicParsing="false" prefWidth="180" text="Generar Cobro" />
+                                <Button mnemonicParsing="false" prefWidth="180" text="Reversar Cobro" />
+                                <Button mnemonicParsing="false" prefWidth="180" text="Actualiza Cuota" />
+
+                            </VBox>
+                        </TitledPane>
+
+                        <!-- Consultas -->
+                        <TitledPane fx:id="Consultas" mnemonicParsing="false" text="Consultas">
+                            <VBox spacing="5">
+                                <padding>
+                                    <Insets bottom="10" left="10" right="10" top="10" />
+                                </padding>
+                                <Button fx:id="ConUsuarios" mnemonicParsing="false" onAction="#ConUsuarios" text="Usuarios" />
+                                <Button fx:id="ConEntrenador" mnemonicParsing="false" onAction="#ConEntrenador" text="Entrenador" />
+                                <Button fx:id="ConLocalización" mnemonicParsing="false" onAction="#ConLocalización" text="Localización" />
+                                <Button fx:id="ConSalas" mnemonicParsing="false" onAction="#ConSalas" text="Salas" />
+                                <Button fx:id="ConActividades" mnemonicParsing="false" onAction="#ConActividades" text="Actividades" />
+                                <Button fx:id="ConHorarios" mnemonicParsing="false" onAction="#ConHorarios" text="Horarios Actividades" />
+                                <Button fx:id="ConCobroFecha" mnemonicParsing="false" onAction="#ConCobroFecha" text="Cobro por rango de fecha" />
+                                <Button fx:id="ConCobroCliente" mnemonicParsing="false" onAction="#ConCobroCliente" text="Cobro por cliente" />
+                                <Button fx:id="ConCuotaFecha" mnemonicParsing="false" onAction="#ConCuotaFecha" text="Cuota por fecha" />
+                                <Button fx:id="ConCuotaClientes" mnemonicParsing="false" onAction="#ConCuotaClientes" text="Cuota por Clientes" />
+                                <Button fx:id="ConClientes" mnemonicParsing="false" onAction="#ConClientes" text="Clientes" />
+                            </VBox>
+                        </TitledPane>
+
+                    </panes>
+                </Accordion>
+            </ScrollPane>
+        </VBox>
+    </left>
+
+    <!-- Centro -->
+    <center>
+        <Pane prefHeight="721.0" prefWidth="759.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER" />
+    </center>
+
+</BorderPane>

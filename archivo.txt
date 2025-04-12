@@ -1,0 +1,6 @@
+Dierol:123:0:Dierol:Sarante:Dierol@gmail.com
+Admin:Admin:1:Admin:Administrado:Admin@gmail.com
+Juan:321:0:Juan:Perez:JuanPerez@gmail.com
+Usuario:Usuario:0:UsuarioNombre:UsuarioApellido:Usuario@gmail.com
+Jorlin:321:1:Jorlin:Taveras:Jorlin@gmail.com
+fmj:123:0:Fausto Antonio:Martinez:martinez@gmail.com

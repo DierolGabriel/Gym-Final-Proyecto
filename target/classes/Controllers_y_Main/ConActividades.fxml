@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="542.0" prefWidth="738.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Consultas.ConActividadesController">
+   <children>
+      <Label layoutX="257.0" layoutY="14.0" text="Consulta de Actividades">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TextField" layoutX="24.0" layoutY="123.0" onAction="#Consultar" />
+      <Button fx:id="Limpiar" layoutX="432.0" layoutY="123.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="26.0" prefWidth="26.0" text="X" textFill="RED" />
+      <Button fx:id="Consultar" layoutX="566.0" layoutY="123.0" mnemonicParsing="false" onAction="#Consultar" text="Consultar" />
+      <RadioButton fx:id="Filtro1" layoutX="192.0" layoutY="127.0" mnemonicParsing="false" selected="true" text="ID Actividad">
+         <toggleGroup>
+            <ToggleGroup fx:id="Grupo1" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Filtro2" layoutX="304.0" layoutY="127.0" mnemonicParsing="false" text="Nombre Actividad" toggleGroup="$Grupo1" />
+      <Label layoutX="178.0" layoutY="105.0" text="Filtros:" />
+      <TableView fx:id="Table" layoutX="3.0" layoutY="161.0" prefHeight="411.0" prefWidth="732.0">
+         <columns>
+            <TableColumn fx:id="colIdAct" prefWidth="75.0" text="ID Act" />
+            <TableColumn fx:id="colNombreAct" prefWidth="150.0" text="Nombre Act" />
+            <TableColumn fx:id="colDescripcionAct" prefWidth="200.0" text="Descripción" />
+            <TableColumn fx:id="colIdLocalizacionAct" prefWidth="91.20001220703125" text="ID Localización" />
+            <TableColumn fx:id="colIdEntrenadorAct" prefWidth="88.79998779296875" text="ID Entrenador" />
+            <TableColumn fx:id="colIdEntrenadorNombreAct" prefWidth="122.39996337890625" text="Nombre Entrenador" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>

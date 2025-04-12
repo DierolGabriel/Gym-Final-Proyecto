@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="212.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.LocalizacionController">
+    <children>
+        <Text layoutX="152.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id_Localizacion" />
+        <TextField fx:id="Localizacion" layoutX="259.0" layoutY="44.0"/>
+        <Text layoutX="162.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" />
+        <TextField fx:id="Tipo" disable="true" layoutX="259.0" layoutY="84.0" />
+        <Text layoutX="265.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localizacion">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Text>
+      <Button fx:id="Guardar" layoutX="292.0" layoutY="147.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
+      <Button fx:id="Salir" layoutX="408.0" layoutY="147.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
+      <Button fx:id="Limpiar" layoutX="174.0" layoutY="147.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
+      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="463.0" layoutY="44.0" prefHeight="25.0" prefWidth="113.0" />
+    </children>
+</Pane>

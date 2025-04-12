@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="Usuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.UsuarioControl">
+    <children>
+        <!-- Título -->
+        <Text layoutX="190.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mantenimiento de Usuario">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Text>
+
+        <!-- Campos de texto -->
+        <Text layoutX="50.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login de Usuario" />
+        <TextField fx:id="loginField" layoutX="200.0" layoutY="85.0" prefWidth="300.0" />
+
+        <Text layoutX="50.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" />
+        <PasswordField fx:id="passwordField" layoutX="200.0" layoutY="155.0" onAction="#Detectar" prefWidth="300.0" />
+
+        <Text layoutX="50.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel de Acceso" />
+
+        <Text layoutX="50.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del Usuario" />
+        <TextField fx:id="nombreField" disable="true" layoutX="200.0" layoutY="295.0" prefWidth="300.0" />
+
+        <Text layoutX="50.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido del Usuario" />
+        <TextField fx:id="apellidoField" disable="true" layoutX="200.0" layoutY="365.0" prefWidth="300.0" />
+
+        <Text layoutX="50.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo del Usuario" />
+        <TextField fx:id="correoField" disable="true" layoutX="200.0" layoutY="435.0" prefWidth="300.0" />
+
+        <Button fx:id="Guardar" layoutX="200.0" layoutY="510.0" mnemonicParsing="false" onAction="#Guardar" prefHeight="32.0" prefWidth="300.0" text="Guardar" />
+      <TextField fx:id="statusLabel" disable="true" layoutX="672.0" layoutY="46.0" prefHeight="25.0" prefWidth="114.0" />
+      <Button fx:id="Salir" layoutX="536.0" layoutY="510.0" mnemonicParsing="false" onAction="#Salir" prefHeight="32.0" prefWidth="136.0" text="Salir" />
+      <Button fx:id="Limpiar" layoutX="36.0" layoutY="510.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="32.0" prefWidth="136.0" text="Limpiar" />
+      <RadioButton fx:id="Administrador" disable="true" layoutX="200.0" layoutY="227.0" mnemonicParsing="false" text="Adminustrador">
+         <toggleGroup>
+            <ToggleGroup fx:id="Grupo1" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="User" disable="true" layoutX="391.0" layoutY="227.0" mnemonicParsing="false" text="Usuario" toggleGroup="$Grupo1" />
+    </children>
+</Pane>

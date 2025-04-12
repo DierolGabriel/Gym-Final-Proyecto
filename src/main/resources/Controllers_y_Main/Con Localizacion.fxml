@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="542.0" prefWidth="738.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Consultas.ConLocalizacionController">
+   <children>
+      <Label layoutX="257.0" layoutY="14.0" text="Consulta de localización">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TextField" layoutX="24.0" layoutY="123.0" onAction="#Consultar" />
+      <Button fx:id="Limpiar" layoutX="411.0" layoutY="122.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="26.0" prefWidth="26.0" text="X" textFill="RED" />
+      <Button fx:id="Consultar" layoutX="566.0" layoutY="123.0" mnemonicParsing="false" onAction="#Consultar" text="Consultar" />
+      <RadioButton fx:id="Filtro1" layoutX="192.0" layoutY="127.0" mnemonicParsing="false" selected="true" text="ID">
+         <toggleGroup>
+            <ToggleGroup fx:id="Grupo1" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="Filtro2" layoutX="304.0" layoutY="127.0" mnemonicParsing="false" text="Tipo" toggleGroup="$Grupo1" />
+      <Label layoutX="178.0" layoutY="105.0" text="Filtros:" />
+      <TableView fx:id="Table" layoutX="3.0" layoutY="161.0" prefHeight="411.0" prefWidth="732.0">
+         <columns>
+            <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="colTipo" prefWidth="75.0" text="Tipo" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>

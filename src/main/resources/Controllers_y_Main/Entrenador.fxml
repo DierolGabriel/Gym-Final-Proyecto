@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="641.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controllers_y_Main.EntrenadorController">
+   <children>
+      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="349.0" layoutY="118.0" prefHeight="25.0" prefWidth="114.0" />
+      <TextField fx:id="IDEnt" layoutX="147.0" layoutY="160.0"/>
+      <TextField fx:id="NombreEnt" disable="true" editable="false" layoutX="147.0" layoutY="207.0" />
+      <Label layoutX="40.0" layoutY="164.0" text="Id del Entrenador" />
+      <Label layoutX="40.0" layoutY="211.0" text="Nombre" />
+      <Label layoutX="40.0" layoutY="252.0" text="Apellido" />
+      <TextField fx:id="ApellidoEnt" disable="true" editable="false" layoutX="147.0" layoutY="248.0" />
+      <Label layoutX="40.0" layoutY="294.0" text="Telefono" />
+      <Label layoutX="155.0" layoutY="68.0" text="Mantenimiento  Entrenadores" />
+      <TextField fx:id="TelefonoEnt" disable="true" editable="false" layoutX="147.0" layoutY="290.0" />
+      <Label layoutX="39.0" layoutY="339.0" text="Correo" />
+      <TextField fx:id="CorreoEnt" disable="true" editable="false" layoutX="147.0" layoutY="335.0" />
+      <Button fx:id="Guardar" layoutX="50.0" layoutY="409.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
+      <Button fx:id="Limpiar" layoutX="206.0" layoutY="409.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
+      <Button fx:id="Salir" layoutX="349.0" layoutY="409.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
+   </children>
+</AnchorPane>

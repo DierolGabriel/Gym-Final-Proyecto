@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.ReservaController">
+    <children>
+        <!-- Títulos -->
+        <Text layoutX="50.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Reserva" />
+
+        <!-- Campo Id_Reserva -->
+        <Text layoutX="50.0" layoutY="100.0" text="Id_Reserva" />
+        <TextField fx:id="idReserva" layoutX="200.0" layoutY="85.0" onAction="#initialize" prefWidth="300.0" />
+
+        <!-- Campo Id_Sala_Reserva -->
+        <Text layoutX="50.0" layoutY="130.0" text="Id_Sala_Reserva" />
+        <TextField fx:id="idSalaReserva" disable="true" layoutX="200.0" layoutY="115.0" prefWidth="300.0" />
+
+        <!-- Campo Id_Cliente_Reserva -->
+        <Text layoutX="50.0" layoutY="160.0" text="Id_Cliente_Reserva" />
+        <TextField fx:id="idClienteReserva" disable="true" layoutX="200.0" layoutY="145.0" prefWidth="300.0" />
+
+        <!-- Campo Fecha_Reserva -->
+        <Text layoutX="50.0" layoutY="190.0" text="Fecha_Reserva" />
+        <DatePicker fx:id="fechaReserva" disable="true" editable="false" layoutX="200.0" layoutY="175.0" prefWidth="300.0" />
+
+        <!-- Campo Id_Horario_Reserva -->
+        <Text layoutX="50.0" layoutY="220.0" text="Id_Horario_Reserva" />
+        <TextField fx:id="idHorarioReserva" disable="true" layoutX="200.0" layoutY="205.0" prefWidth="300.0" />
+
+        <!-- Campo Id_Estado_Reserva -->
+        <Text layoutX="50.0" layoutY="250.0" text="Id_Estado_Reserva" />
+        <TextField fx:id="IdEstadoReserva" disable="true" layoutX="200.0" layoutY="235.0" prefWidth="300.0" />
+      <Button fx:id="Guardar" layoutX="274.0" layoutY="301.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
+      <Button fx:id="Salir" layoutX="448.0" layoutY="301.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
+      <Button fx:id="Limpiar" layoutX="133.0" layoutY="301.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
+      <TextField fx:id="Notificador" layoutX="467.0" layoutY="29.0" prefHeight="25.0" prefWidth="120.0" />
+    </children>
+</Pane>

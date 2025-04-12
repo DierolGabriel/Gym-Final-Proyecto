@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-size: cover; -fx-background-position: center; -fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.LoginController">
+   <ImageView fitHeight="1136.0" fitWidth="1765.0" layoutX="-83.0" layoutY="-124.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Imagenes/interiorgym.png" />
+      </image>
+   </ImageView>
+
+         <VBox alignment="CENTER" layoutX="646.0" layoutY="266.0" prefHeight="320.0" prefWidth="306.0" spacing="15" style="-fx-background-color: rgba(255,255,255,0.1);                  -fx-background-radius: 15;                  -fx-border-radius: 15;                  -fx-border-color: rgba(255,255,255,0.3);                  -fx-border-width: 1;">
+
+            <Text style="-fx-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="Iniciar Sesión" />
+
+            <TextField fx:id="usuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="158.0" promptText="Usuario" style="-fx-background-color: rgba(255,255,255,0.2);                           -fx-text-fill: white;                           -fx-prompt-text-fill: #dddddd;                           -fx-background-radius: 8;">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <Blend />
+         </effect></TextField>
+
+            <PasswordField fx:id="contra" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="161.0" promptText="Contraseña" style="-fx-background-color: rgba(255,255,255,0.2);                               -fx-text-fill: white;                               -fx-prompt-text-fill: #dddddd;                               -fx-background-radius: 8;">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <effect>
+            <Blend />
+         </effect></PasswordField>
+
+            <Button fx:id="Login" defaultButton="true" onAction="#Login" style="-fx-background-color: rgba(255,255,255,0.3);                        -fx-text-fill: white;                        -fx-background-radius: 8;                        -fx-font-weight: bold;" text="Entrar">
+         <effect>
+            <Blend />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </VBox>
+</AnchorPane>

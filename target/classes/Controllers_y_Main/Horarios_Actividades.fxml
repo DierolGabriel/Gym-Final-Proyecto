@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="507.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.HorariosController">
+   <children>
+      <Text layoutX="210.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Horario Actividades" wrappingWidth="130.14019775390625" />
+      <Text layoutX="135.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id_Horario_Act" />
+      <Text layoutX="135.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dia_Act" />
+      <Text layoutX="135.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora_Act" />
+      <Text layoutX="135.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id_Actividad" />
+      <TextField fx:id="IdHorarioActividad" layoutX="134.0" layoutY="100.0" prefHeight="26.0" prefWidth="158.0" />
+      <TextField fx:id="HoraAct" disable="true" layoutX="134.0" layoutY="207.0" prefHeight="26.0" prefWidth="158.0" />
+      <TextField fx:id="Notificador" layoutX="352.0" layoutY="46.0" prefHeight="26.0" prefWidth="130.0" />
+      <Button fx:id="Guardar" layoutX="215.0" layoutY="317.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
+      <Button fx:id="Salir" layoutX="356.0" layoutY="317.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
+      <Button fx:id="Limpiar" layoutX="74.0" layoutY="317.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
+      <DatePicker fx:id="DiaAct" disable="true" layoutX="134.0" layoutY="153.0" prefHeight="26.0" prefWidth="158.0" />
+      <ComboBox layoutX="134.0" layoutY="266.0" prefHeight="26.0" prefWidth="157.0" />
+   </children>
+</AnchorPane>
