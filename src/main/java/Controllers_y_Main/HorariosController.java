@@ -1,56 +1,77 @@
 package Controllers_y_Main;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.time.chrono.Chronology;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HorariosController {
 
-    @FXML
-    private DatePicker DiaAct;
-
-
-    @FXML
-    private Button Guardar;
-
-    @FXML
-    private TextField HoraAct;
-
-    @FXML
-    private TextField IdActividad;
-
-    @FXML
-    private TextField IdHorarioActividad;
-
-    @FXML
-    private Button Limpiar;
-
-    @FXML
-    private TextField Notificador;
-
-    @FXML
-    private Button Salir;
+    @FXML private DatePicker DiaAct;
+    @FXML private Button Guardar;
+    @FXML private TextField HoraAct;
+    @FXML private ComboBox<String> ComboActividades;
+    @FXML private TextField IdHorarioActividad;
+    @FXML private Button Limpiar;
+    @FXML private TextField Notificador;
+    @FXML private Button Salir;
 
     private static final String ARCHIVO_HORARIOS = "Horarios_Actividades.txt";
     private static final String ARCHIVO_ACTIVIDADES = "Actividades.txt";
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private boolean modificando = false;
 
     @FXML
     public void initialize() {
+        IdHorarioActividad.textProperty().addListener((observable, oldValue, newValue) -> {
+            validarIdHorarioOnChange();
+        });
+
+        cargarActividades();
     }
 
-    //TODO:SI STATUS FALSO =MODIFIVACAR TRUE=NO MODIFICAR
-//TRUE MENSAJE QUE EL CLIENTE NO TIENE VALANCE PENDIENTE
+    private void cargarActividades() {
+        ObservableList<String> actividades = FXCollections.observableArrayList();
+        File archivo = new File(ARCHIVO_ACTIVIDADES);
+
+        if (archivo.exists()) {
+            try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    if (!linea.trim().isEmpty()) {
+                        String[] partes = linea.split(":");
+                        if (partes.length > 0) {
+                            actividades.add(partes[0]);
+                        }
+                    }
+                }
+                ComboActividades.setItems(actividades);
+            } catch (IOException e) {
+                mostrarAlerta("Error al cargar actividades: " + e.getMessage());
+            }
+        }
+    }
+
+    @FXML
+    void validarIdHorarioOnChange() {
+        String idHorario = IdHorarioActividad.getText().trim();
+        if (!idHorario.isEmpty()) {
+            validarIdHorario(idHorario);
+        } else {
+            limpiarCampos(false);
+            Notificador.clear();
+            modificando = false;
+        }
+    }
 
     private void validarIdHorario(String idHorario) {
         File archivo = new File(ARCHIVO_HORARIOS);
@@ -88,36 +109,16 @@ public class HorariosController {
         }
     }
 
-    private boolean validarActividad(String idActividad) {
-        File archivo = new File(ARCHIVO_ACTIVIDADES);
-
-        if (!archivo.exists()) {
-            mostrarAlerta("El archivo de actividades no existe");
-            return false;
-        }
-
-        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
-            String linea;
-
-            while ((linea = br.readLine()) != null && !linea.isEmpty()) {
-                String[] partes = linea.split(":");
-                if (partes.length >= 1 && partes[0].equals(idActividad)) {
-                    return true;
-                }
-            }
-
-        } catch (IOException e) {
-            mostrarAlerta("Error al leer el archivo de actividades: " + e.getMessage());
-        }
-
-        return false;
-    }
-
     private void cargarDatosHorario(String[] datos) {
         if (datos.length >= 4) {
-            DiaAct.setChronology(Chronology.of(datos[1]));
-            HoraAct.setText(datos[2]);
-            IdActividad.setText(datos[3]);
+            try {
+                LocalDate fecha = LocalDate.parse(datos[1], DATE_FORMATTER);
+                DiaAct.setValue(fecha);
+                HoraAct.setText(datos[2]+":"+datos[3]);
+                ComboActividades.setValue(datos[4]);
+            } catch (Exception e) {
+                mostrarAlerta("Formato de fecha inválido en el archivo");
+            }
         }
     }
 
@@ -127,18 +128,17 @@ public class HorariosController {
             return;
         }
 
-        // Validar que la actividad exista (solo al guardar)
-        if (!validarActividad(IdActividad.getText().trim())) {
-            mostrarAlerta("No existe una actividad con ese ID");
+        String idActividad = ComboActividades.getValue();
+        if (idActividad == null || idActividad.isEmpty()) {
+            mostrarAlerta("Debe seleccionar una actividad");
             return;
         }
 
         String idHorario = IdHorarioActividad.getText().trim();
-        Chronology dia = DiaAct.getChronology();
+        String dia = DiaAct.getValue() != null ? DiaAct.getValue().format(DATE_FORMATTER) : "";
         String hora = HoraAct.getText().trim();
-        String idActividad = IdActividad.getText().trim();
 
-        String linea = String.join(":", idHorario, dia.getCalendarType(), hora, idActividad);
+        String linea = String.join(":", idHorario, dia, hora, idActividad);
 
         File archivo = new File(ARCHIVO_HORARIOS);
         List<String> lineas = new ArrayList<>();
@@ -194,27 +194,16 @@ public class HorariosController {
         stageActual.close();
     }
 
-    private void limpiarCampos(boolean incluirId) {
-        if (incluirId) {
-            IdHorarioActividad.clear();
-        }
-        DiaAct.setValue(null);
-        HoraAct.clear();
-        IdActividad.clear();
-        desactivarCampos();
-    }
-
     private boolean validarCampos() {
         if (IdHorarioActividad.getText().trim().isEmpty() ||
-                DiaAct.getChronology() == null ||
+                DiaAct.getValue() == null ||
                 HoraAct.getText().trim().isEmpty() ||
-                IdActividad.getText().trim().isEmpty()) {
+                ComboActividades.getValue() == null) {
 
             mostrarAlerta("Todos los campos son obligatorios");
             return false;
         }
 
-        // Validar formato de hora (HH:MM)
         if (!HoraAct.getText().trim().matches("^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$")) {
             mostrarAlerta("Formato de hora inválido. Use HH:MM");
             return false;
@@ -223,16 +212,26 @@ public class HorariosController {
         return true;
     }
 
+    private void limpiarCampos(boolean incluirId) {
+        if (incluirId) {
+            IdHorarioActividad.clear();
+        }
+        DiaAct.setValue(null);
+        HoraAct.clear();
+        ComboActividades.setValue(null);
+        desactivarCampos();
+    }
+
     private void activarCampos() {
         DiaAct.setDisable(false);
         HoraAct.setDisable(false);
-        IdActividad.setDisable(false);
+        ComboActividades.setDisable(false);
     }
 
     private void desactivarCampos() {
         DiaAct.setDisable(true);
         HoraAct.setDisable(true);
-        IdActividad.setDisable(true);
+        ComboActividades.setDisable(true);
     }
 
     private void mostrarAlerta(String mensaje) {
