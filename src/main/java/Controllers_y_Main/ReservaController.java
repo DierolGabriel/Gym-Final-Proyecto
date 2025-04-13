@@ -15,11 +15,11 @@ import java.util.List;
 public class ReservaController {
 
     @FXML private TextField idReserva;
-    @FXML private TextField idSalaReserva;
-    @FXML private TextField idClienteReserva;
+    @FXML private ComboBox idSalaReserva;
+    @FXML private ComboBox idClienteReserva;
     @FXML private DatePicker fechaReserva;
-    @FXML private TextField idHorarioReserva;
-    @FXML private TextField IdEstadoReserva;
+    @FXML private ComboBox idHorarioReserva;
+    @FXML private ComboBox IdEstadoReserva;
     @FXML private TextField Notificador;
     @FXML private Button Guardar;
     @FXML private Button Limpiar;
@@ -44,6 +44,10 @@ public class ReservaController {
                 desactivarCampos();
             }
         });
+        cargarSalas();
+        cargarClientes();
+        cargarHorarios();
+        cargarEstados();
     }
 
     private void validarIdReserva(String idReserva) {
@@ -85,11 +89,11 @@ public class ReservaController {
 
     private void cargarDatosReserva(String[] datos) {
         if (datos.length >= 6) {
-            idSalaReserva.setText(datos[1]);
-            idClienteReserva.setText(datos[2]);
+            idSalaReserva.setValue(datos[1]);
+            idClienteReserva.setValue(datos[2]);
             fechaReserva.setValue(LocalDate.parse(datos[3], DateTimeFormatter.ofPattern("d/M/yyyy")));
-            idHorarioReserva.setText(datos[4]);
-            IdEstadoReserva.setText(datos[5]);
+            idHorarioReserva.setValue(datos[4]);
+            IdEstadoReserva.setValue(datos[5]);
         }
     }
 
@@ -100,16 +104,12 @@ public class ReservaController {
             return;
         }
 
-        if (!validarReferencias()) {
-            return;
-        }
-
         String id = idReserva.getText().trim();
-        String idSala = idSalaReserva.getText().trim();
-        String idCliente = idClienteReserva.getText().trim();
+        String idSala = idSalaReserva.getValue().toString().trim();
+        String idCliente = idClienteReserva.getValue().toString().trim();
         String fecha = fechaReserva.getValue().format(DateTimeFormatter.ofPattern("d/M/yyyy"));
-        String idHorario = idHorarioReserva.getText().trim();
-        String idEstado = IdEstadoReserva.getText().trim();
+        String idHorario = idHorarioReserva.getValue().toString().trim();
+        String idEstado = IdEstadoReserva.getValue().toString().trim();
 
         String linea = String.join(":", id, idSala, idCliente, fecha, idHorario, idEstado);
 
@@ -154,30 +154,6 @@ public class ReservaController {
         }
     }
 
-    private boolean validarReferencias() {
-        if (!existeEnArchivo(idSalaReserva.getText().trim(), ARCHIVO_SALAS)) {
-            mostrarAlerta("No existe una sala con ese ID");
-            return false;
-        }
-
-        if (!existeEnArchivo(idClienteReserva.getText().trim(), ARCHIVO_CLIENTES)) {
-            mostrarAlerta("No existe un cliente con ese ID");
-            return false;
-        }
-
-        if (!existeEnArchivo(idHorarioReserva.getText().trim(), ARCHIVO_HORARIOS)) {
-            mostrarAlerta("No existe un horario con ese ID");
-            return false;
-        }
-
-        if (!existeEnArchivo(IdEstadoReserva.getText().trim(), ARCHIVO_ESTADOS)) {
-            mostrarAlerta("No existe un estado con ese ID");
-            return false;
-        }
-
-        return true;
-    }
-
     private boolean existeEnArchivo(String id, String archivoRuta) {
         File archivo = new File(archivoRuta);
         if (!archivo.exists()) return false;
@@ -217,22 +193,23 @@ public class ReservaController {
         if (incluirId) {
             idReserva.clear();
         }
-        idSalaReserva.clear();
-        idClienteReserva.clear();
+        idSalaReserva.setValue(null);
+        idClienteReserva.setValue(null);
         fechaReserva.setValue(null);
-        idHorarioReserva.clear();
-        IdEstadoReserva.clear();
+        idHorarioReserva.setValue(null);
+        IdEstadoReserva.setValue(null);
         desactivarCampos();
     }
 
-    private boolean validarCampos() {
-        if (idReserva.getText().trim().isEmpty() ||
-                idSalaReserva.getText().trim().isEmpty() ||
-                idClienteReserva.getText().trim().isEmpty() ||
+    private boolean validarCampos()
+    {
+        if (idReserva.getText() == null ||
+                idSalaReserva.getValue() == null ||
+                idClienteReserva.getValue() == null ||
                 fechaReserva.getValue() == null ||
-                idHorarioReserva.getText().trim().isEmpty() ||
-                IdEstadoReserva.getText().trim().isEmpty()) {
-
+                idHorarioReserva.getValue() == null||
+                IdEstadoReserva.getValue() == null)
+        {
             mostrarAlerta("Todos los campos son obligatorios");
             return false;
         }
@@ -263,4 +240,85 @@ public class ReservaController {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
+
+    private void cargarSalas() {
+        File archivo = new File("Salas.txt");
+        if (!archivo.exists()) return;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            idSalaReserva.getItems().clear();
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (!linea.trim().isEmpty()) {
+                    String[] partes = linea.split(":");
+                    if (partes.length >= 1) {
+                        idSalaReserva.getItems().add(partes[1].trim());
+                    }
+                }
+            }
+        } catch (IOException e) {
+            mostrarAlerta("Error al cargar Salas: " + e.getMessage());
+        }
+    }//Fin de cargarSalas
+
+    private void cargarClientes() {
+        File archivo = new File("Clientes.txt");
+        if (!archivo.exists()) return;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            idClienteReserva.getItems().clear();
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (!linea.trim().isEmpty()) {
+                    String[] partes = linea.split(":");
+                    if (partes.length >= 1) {
+                        idClienteReserva.getItems().add(partes[0].trim());
+                    }
+                }
+            }
+        } catch (IOException e) {
+            mostrarAlerta("Error al cargar Clientes: " + e.getMessage());
+        }
+    }//Fin de cargarClientes
+
+    private void cargarHorarios() {
+        File archivo = new File("Horarios_Actividades.txt");
+        if (!archivo.exists()) return;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            idHorarioReserva.getItems().clear();
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (!linea.trim().isEmpty()) {
+                    String[] partes = linea.split(":");
+                    if (partes.length >= 1) {
+                        idHorarioReserva.getItems().add(partes[0].trim());
+                    }
+                }
+            }
+        } catch (IOException e) {
+            mostrarAlerta("Error al cargar Horario: " + e.getMessage());
+        }
+    }//fin de horarios
+
+    private void cargarEstados() {
+        File archivo = new File("ReservasEstado.txt");
+        if (!archivo.exists()) return;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            IdEstadoReserva.getItems().clear();
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (!linea.trim().isEmpty()) {
+                    String[] partes = linea.split(":");
+                    if (partes.length >= 1) {
+                        IdEstadoReserva.getItems().add(partes[0].trim());
+                    }
+                }
+            }
+        } catch (IOException e) {
+            mostrarAlerta("Error al cargar Estado: " + e.getMessage());
+        }
+    }//fin de Estados
+
 }
