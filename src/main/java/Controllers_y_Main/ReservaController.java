@@ -26,10 +26,6 @@ public class ReservaController {
     @FXML private Button Salir;
 
     private static final String ARCHIVO_RESERVAS = "Reserva.txt";
-    private static final String ARCHIVO_SALAS = "Salas.txt";
-    private static final String ARCHIVO_CLIENTES = "Clientes.txt";
-    private static final String ARCHIVO_HORARIOS = "Horarios_Actividades.txt";
-    private static final String ARCHIVO_ESTADOS = "ReservasEstado.txt";
     private boolean modificando = false;
 
     @FXML

@@ -7,7 +7,7 @@
 <Pane prefHeight="510.0" prefWidth="691.0" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.ReservaActController">
     <children>
         <!-- Título -->
-        <Text layoutX="214.0" layoutY="68.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Reserva Actividades" />
+        <Text layoutX="256.0" layoutY="55.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Reserva Actividades" />
 
         <!-- Campo Id_Reserva_Actividad -->
         <Text layoutX="102.0" layoutY="95.0" text="Id_Reserva_Actividad" />
@@ -23,24 +23,24 @@
 
         <!-- Campo Id_Cliente_Res_Act -->
         <Text layoutX="100.0" layoutY="344.0" text="Id_Cliente_Res_Act" />
-        <TextField fx:id="txtIdClienteResAct" disable="true" layoutX="98.0" layoutY="363.0" prefWidth="200.0" />
 
         <!-- Campo Id_Est_Reserva_Act -->
         <Text layoutX="100.0" layoutY="290.0" text="Id_Est_Reserva_Act" />
-        <TextField fx:id="txtIdEstadoReservaAct" disable="true" layoutX="98.0" layoutY="306.0" prefWidth="200.0" />
 
         <!-- Campo Id_Actividad -->
-        <Text layoutX="409.0" layoutY="95.0" text="Id_Actividad" />
-        <TextField fx:id="txtIdActividad" disable="true" layoutX="383.0" layoutY="116.0" prefWidth="200.0" />
+        <Text layoutX="401.0" layoutY="95.0" text="Id_Actividad" />
 
         <!-- Campo Id_Res_Hor_Act -->
-        <Text layoutX="401.0" layoutY="185.0" text="Id_Res_Hor_Act" />
-        <TextField fx:id="txtIdResHorAct" disable="true" layoutX="383.0" layoutY="210.0" prefWidth="200.0" />
+        <Text layoutX="401.0" layoutY="193.0" text="Id_Res_Hor_Act" />
 
         <!-- Botón Guardar -->
         <Button fx:id="Guardar" layoutX="280.0" layoutY="440.0" onAction="#Guardar" prefWidth="120.0" style="-fx-background-color: #0078D7; -fx-text-fill: white; -fx-font-weight: bold;" text="Guardar" />
       <TextField fx:id="Notificador" disable="true" editable="false" layoutX="574.0" layoutY="48.0" prefHeight="25.0" prefWidth="99.0" />
       <Button fx:id="Salir" layoutX="413.0" layoutY="440.0" onAction="#Salir" prefWidth="120.0" style="-fx-background-color: #0078D7; -fx-text-fill: white; -fx-font-weight: bold;" text="Salir" />
       <Button fx:id="Limpiar" layoutX="149.0" layoutY="440.0" onAction="#Limpiar" prefWidth="120.0" style="-fx-background-color: #0078D7; -fx-text-fill: white; -fx-font-weight: bold;" text="Limpiar" />
+      <ComboBox fx:id="txtIdClienteResAct" disable="true" layoutX="98.0" layoutY="364.0" prefHeight="25.0" prefWidth="200.0" />
+      <ComboBox fx:id="txtIdEstadoReservaAct" disable="true" layoutX="99.0" layoutY="300.0" prefHeight="25.0" prefWidth="200.0" />
+      <ComboBox fx:id="txtIdActividad" disable="true" layoutX="400.0" layoutY="116.0" prefHeight="25.0" prefWidth="200.0" />
+      <ComboBox fx:id="txtIdResHorAct" disable="true" layoutX="400.0" layoutY="210.0" prefHeight="25.0" prefWidth="200.0" />
     </children>
 </Pane>
