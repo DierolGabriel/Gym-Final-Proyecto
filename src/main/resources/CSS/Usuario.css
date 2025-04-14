@@ -1,0 +1,52 @@
+/* FONDO PRINCIPAL DEL LOGIN */
+.anchor-pane {
+    -fx-background-color: black;
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
+/* CONTENEDOR DEL LOGIN (VBox estilo vidrio) */
+.vbox {
+    -fx-background-color: rgba(255,255,255,0.1); /* glassmorphism */
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: rgba(255,255,255,0.3);
+    -fx-border-width: 1;
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    -fx-alignment: center;
+}
+
+/* TÍTULO */
+.text {
+    -fx-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* CAMPOS DE TEXTO (usuario y contraseña) */
+.text-field,
+.password-field {
+    -fx-background-color: rgba(255,255,255,0.2); /* fondo vidrio translúcido */
+    -fx-text-fill: white;                        /* texto blanco */
+    -fx-prompt-text-fill: #dddddd;               /* placeholder gris claro */
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 6 10;
+    -fx-font-size: 13px;
+}
+
+/* BOTÓN DE ENTRAR */
+.button {
+    -fx-background-color: rgba(255,255,255,0.3); /* glass button */
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 8 16;
+    -fx-font-size: 14px;
+}
+
+.button:hover {
+    -fx-background-color: rgba(255,255,255,0.5);
+}

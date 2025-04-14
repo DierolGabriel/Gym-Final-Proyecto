@@ -1,0 +1,51 @@
+/* FONDO GENERAL */
+.anchor-pane {
+    -fx-background-color: #000000; /* Fondo completamente negro */
+}
+
+/* ETIQUETAS */
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+}
+
+.label:nth-of-type(6) { /* Título principal */
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* CAMPOS DE TEXTO */
+.text-field {
+    -fx-background-color: rgba(255, 255, 255, 0.08); /* efecto vidrio */
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #bbbbbb;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-padding: 8 12;
+}
+
+/* CAMPOS DESHABILITADOS */
+.text-field:disabled {
+    -fx-opacity: 0.5;
+    -fx-text-fill: #cccccc;
+}
+
+/* BOTONES */
+.button {
+    -fx-background-color: #e50914; /* rojo Netflix */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(229, 9, 20, 0.4), 5, 0.3, 0, 2);
+}
+
+/* HOVER EN BOTONES */
+.button:hover {
+    -fx-background-color: #ff1a1a;
+}

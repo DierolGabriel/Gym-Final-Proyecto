@@ -4,24 +4,36 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="358.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.SalasController">
+<Pane prefHeight="451.0" prefWidth="600.0" style="-fx-background-color: black;" stylesheets="@../CSS/Salas.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.SalasController">
     <children>
-        <TextField fx:id="Nombre" disable="true" layoutX="235.0" layoutY="105.0" prefWidth="200.0" />
-        <Text layoutX="101.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id de la Sala" />
-        <TextField fx:id="idSala" layoutX="235.0" layoutY="63.0" />
-        <Text layoutX="265.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salas">
+        <TextField fx:id="Nombre" disable="true" layoutX="233.0" layoutY="125.0" prefWidth="200.0" />
+        <Text fill="WHITE" layoutX="151.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id de la Sala">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Text>
+        <TextField fx:id="idSala" layoutX="236.0" layoutY="72.0" />
+        <Text fill="WHITE" layoutX="172.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mantenimiento de Salas">
             <font>
-                <Font size="20.0" />
+                <Font name="Arial Black" size="20.0" />
             </font>
         </Text>
-      <Text layoutX="101.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de la Sala" />
-      <Text layoutX="101.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion de la Sala" />
-      <Text layoutX="95.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id_Localizacion de la Sala" />
-      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="470.0" layoutY="34.0" prefHeight="25.0" prefWidth="120.0" />
-      <Button fx:id="Guardar" layoutX="268.0" layoutY="308.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
-      <Button fx:id="Salir" layoutX="384.0" layoutY="308.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
-      <Button fx:id="Limpiar" layoutX="152.0" layoutY="308.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
-      <TextArea fx:id="Descripcion" disable="true" layoutX="235.0" layoutY="140.0" prefHeight="108.0" prefWidth="200.0" />
-        <ComboBox fx:id="IdLocalizacion" disable="true" layoutX="234.0" layoutY="258.0" prefHeight="25.0" prefWidth="200.0" />
+      <Text fill="WHITE" layoutX="117.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de la Sala">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Text>
+      <Text fill="WHITE" layoutX="93.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion de la Sala">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Text>
+      <Text fill="WHITE" layoutX="71.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id_Localizacion de la Sala">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Text>
+      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="466.0" layoutY="45.0" prefHeight="25.0" prefWidth="120.0" />
+      <Button fx:id="Guardar" layoutX="270.0" layoutY="388.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
+      <Button fx:id="Salir" layoutX="385.0" layoutY="388.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
+      <Button fx:id="Limpiar" layoutX="154.0" layoutY="388.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
+      <TextArea fx:id="Descripcion" disable="true" layoutX="235.0" layoutY="180.0" prefHeight="108.0" prefWidth="200.0" style="-fx-control-inner-background: Black; -fx-background-color: Black;" />
+        <ComboBox fx:id="IdLocalizacion" disable="true" layoutX="233.0" layoutY="306.0" prefHeight="37.0" prefWidth="200.0" />
     </children>
 </Pane>

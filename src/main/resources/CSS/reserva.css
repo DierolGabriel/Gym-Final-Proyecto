@@ -1,0 +1,137 @@
+/* FONDO GENERAL */
+.pane {
+    -fx-background-color: #000000; /* fondo negro absoluto */
+    -fx-border-color: #333;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+}
+
+/* TEXTOS */
+.text {
+    -fx-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-family: "Verdana";
+}
+
+.text:first-of-type {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* TEXTFIELDS */
+.text-field {
+    -fx-background-color: rgba(255, 255, 255, 0.07); /* efecto vidrio */
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #bbbbbb;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-padding: 8 12;
+    -fx-font-size: 13px;
+}
+
+.text-field:disabled {
+    -fx-opacity: 0.5;
+    -fx-text-fill: #cccccc;
+}
+
+/* COMBOBOX */
+.combo-box {
+    -fx-background-color: rgba(255, 255, 255, 0.07);
+    -fx-text-fill: white;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-padding: 5;
+    -fx-font-size: 13px;
+}
+
+.combo-box:disabled {
+    -fx-opacity: 0.5;
+}
+.combo-box-popup .list-cell {
+    -fx-background-color: Black; /* Fondo de cada ítem */
+    -fx-text-fill: #006064; /* Color del texto */
+}
+.combo-box-popup .list-cell:hover
+{
+    -fx-background-color: Red;
+}
+
+/* DATEPICKER */
+.date-picker {
+    -fx-background-color: rgba(255, 255, 255, 0.07);
+    -fx-text-fill: white;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-font-size: 13px;
+}
+
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #bbbbbb;
+}
+
+.date-picker:disabled {
+    -fx-opacity: 0.5;
+}
+/* ===== ESTILOS PARA EL DATEPICKER (POPUP) ===== */
+/* Fondo del menú desplegable */
+.date-picker-popup {
+    -fx-background-color: black; /* Fondo negro */
+    -fx-border-color: rgba(255, 255, 255, 0.2); /* Borde sutil */
+}
+
+/* Celdas del calendario */
+.date-cell {
+    -fx-background-color: black; /* Fondo negro */
+    -fx-text-fill: white; /* Texto blanco */
+    -fx-border-color: rgba(255, 255, 255, 0.1); /* Bordes sutiles */
+}
+
+/* Día seleccionado */
+.date-cell:selected {
+    -fx-background-color: #e50914; /* Rojo Netflix al seleccionar */
+    -fx-text-fill: white;
+}
+
+/* Efecto hover en días */
+.date-cell:hover {
+    -fx-background-color: #ff1a1a; /* Rojo más claro al pasar el mouse */
+    -fx-text-fill: white;
+}
+
+/* Cabecera del calendario (mes/año) */
+.month-year-pane {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+/* Botones de navegación (flechas) */
+.left-arrow, .right-arrow {
+    -fx-background-color: white; /* Flechas blancas */
+}
+
+/* BOTONES */
+.button {
+    -fx-background-color: #e50914; /* rojo estilo Netflix */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(229, 9, 20, 0.4), 5, 0.3, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: #ff1a1a;
+}
+
+.button:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #444;
+    -fx-effect: none;
+}

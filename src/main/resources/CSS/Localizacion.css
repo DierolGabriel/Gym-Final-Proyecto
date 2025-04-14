@@ -1,0 +1,50 @@
+/* FONDO PRINCIPAL */
+.pane {
+    -fx-background-color: #000000; /* Fondo negro */
+}
+
+/* TEXTOS */
+.text {
+    -fx-fill: white;
+    -fx-font-size: 14px;
+}
+
+.text:last-of-type {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-fill: white;
+}
+
+/* CAMPOS DE TEXTO */
+.text-field {
+    -fx-background-color: rgba(255, 255, 255, 0.08); /* Glass effect */
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #bbbbbb;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-padding: 8 12;
+}
+
+/* CAMPOS DESHABILITADOS */
+.text-field:disabled {
+    -fx-opacity: 0.5;
+    -fx-text-fill: #cccccc;
+}
+
+/* BOTONES */
+.button {
+    -fx-background-color: #e50914; /* Rojo Netflix */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(229, 9, 20, 0.3), 5, 0.3, 0, 2);
+}
+
+/* BOTONES HOVER */
+.button:hover {
+    -fx-background-color: #ff1a1a;
+}

@@ -1,0 +1,84 @@
+/* === Fondo principal del menú lateral === */
+.menu-lateral {
+    -fx-background-color: black;
+    -fx-padding: 10;
+}
+
+/* === Panel de perfil === */
+.perfil-box {
+    -fx-background-color: black;
+}
+
+/* === Texto general === */
+.label,
+.button,
+.titled-pane > .title > .text {
+    -fx-fill: white; /* Para títulos de TitledPane */
+    -fx-text-fill: white; /* Para Label y Button */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* === Botones minimalistas === */
+.button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-padding: 6 12;
+}
+
+/* === Hover rojo simple === */
+.button:hover {
+    -fx-background-color: rgb(255, 0, 0);
+    -fx-cursor: hand;
+}
+
+/* === Accordion fondo negro === */
+.accordion {
+    -fx-background-color: black;
+}
+
+/* === Título del TitledPane === */
+.titled-pane > .title {
+    -fx-background-color: black;
+    -fx-padding: 8 12;
+}
+
+/* === Contenido desplegable === */
+.titled-pane > .content {
+    -fx-background-color: black;
+}
+
+/* === ScrollPane transparente === */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* === Centro con fondo opcional === */
+.center-pane-glass {
+    -fx-background-color: black;
+}
+
+/* === Colores personalizados para títulos === */
+#Mantenimiento > .title > .text {
+    -fx-fill: rgb(255, 255, 255);
+}
+
+#Movimientos > .title > .text {
+    -fx-fill: rgb(255, 255, 255);
+}
+
+#Procesos > .title > .text {
+    -fx-fill: #ffffff;
+}
+
+#Consultas > .title > .text {
+    -fx-fill: #ffffff;
+}
+
+
+

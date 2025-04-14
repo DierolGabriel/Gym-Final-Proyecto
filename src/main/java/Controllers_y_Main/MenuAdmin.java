@@ -48,7 +48,7 @@ public class MenuAdmin extends Application
     public void Salas(Stage stage) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Salas.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 358);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 451);
         stage.setTitle("Salas");
         stage.setScene(scene);
         stage.show();
@@ -73,7 +73,7 @@ public class MenuAdmin extends Application
     public void Clientes(Stage stage) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Clientes.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1146, 582);
+        Scene scene = new Scene(fxmlLoader.load(), 1001, 533);
         stage.setTitle("Clientes");
         stage.setScene(scene);
         stage.show();
@@ -100,7 +100,7 @@ public class MenuAdmin extends Application
     public void Horarios(Stage stage) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Horarios_Actividades.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 507, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 488, 400);
         stage.setTitle("Horarios de actividades");
         stage.setScene(scene);
         stage.show();

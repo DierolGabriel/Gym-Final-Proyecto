@@ -1,0 +1,84 @@
+/* FONDO PRINCIPAL */
+.anchor-pane {
+    -fx-background-color: #000000; /* Fondo negro absoluto */
+}
+
+/* TÍTULO Y ETIQUETAS */
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+
+.label:first-of-type {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* CAMPO DE TEXTO */
+.text-field {
+    -fx-background-color: rgba(255, 255, 255, 0.07);
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #bbbbbb;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-padding: 8 12;
+}
+
+/* RADIO BUTTONS */
+.radio-button {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+/* BOTONES GENERALES (ROJO) */
+.button {
+    -fx-background-color: #e50914; /* Rojo intenso estilo Netflix */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(229, 9, 20, 0.4), 6, 0.4, 0, 2);
+}
+
+/* HOVER BOTONES */
+.button:hover {
+    -fx-background-color: #ff1a1a;
+}
+
+/* BOTÓN "LIMPIAR" (X) TAMBIÉN ROJO */
+#Limpiar {
+    -fx-background-color: #e50914;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 50%;
+    -fx-border-radius: 50%;
+    -fx-pref-width: 30px;
+    -fx-pref-height: 30px;
+    -fx-alignment: center;
+}
+
+/* TABLA DE RESULTADOS */
+.table-view {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-background-radius: 10;
+    -fx-border-color: rgba(255, 255, 255, 0.1);
+    -fx-border-radius: 10;
+    -fx-table-cell-border-color: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-selection-bar: rgba(229, 9, 20, 0.3);
+    -fx-selection-bar-non-focused: rgba(255, 255, 255, 0.08);
+}
+
+.table-row-cell {
+    -fx-text-fill: white;
+}
+
+.table-column {
+    -fx-text-fill: white;
+}

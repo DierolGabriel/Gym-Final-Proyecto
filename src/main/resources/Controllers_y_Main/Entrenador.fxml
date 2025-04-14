@@ -1,26 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="641.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="Controllers_y_Main.EntrenadorController">
+<AnchorPane prefHeight="641.0" prefWidth="477.0" style="-fx-background-color: black;" stylesheets="@../CSS/Entrenador.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.EntrenadorController">
    <children>
-      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="349.0" layoutY="118.0" prefHeight="25.0" prefWidth="114.0" />
-      <TextField fx:id="IDEnt" layoutX="147.0" layoutY="160.0"/>
-      <TextField fx:id="NombreEnt" disable="true" editable="false" layoutX="147.0" layoutY="207.0" />
-      <Label layoutX="40.0" layoutY="164.0" text="Id del Entrenador" />
-      <Label layoutX="40.0" layoutY="211.0" text="Nombre" />
-      <Label layoutX="40.0" layoutY="252.0" text="Apellido" />
-      <TextField fx:id="ApellidoEnt" disable="true" editable="false" layoutX="147.0" layoutY="248.0" />
-      <Label layoutX="40.0" layoutY="294.0" text="Telefono" />
-      <Label layoutX="155.0" layoutY="68.0" text="Mantenimiento  Entrenadores" />
-      <TextField fx:id="TelefonoEnt" disable="true" editable="false" layoutX="147.0" layoutY="290.0" />
-      <Label layoutX="39.0" layoutY="339.0" text="Correo" />
-      <TextField fx:id="CorreoEnt" disable="true" editable="false" layoutX="147.0" layoutY="335.0" />
-      <Button fx:id="Guardar" layoutX="50.0" layoutY="409.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
-      <Button fx:id="Limpiar" layoutX="206.0" layoutY="409.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
-      <Button fx:id="Salir" layoutX="349.0" layoutY="409.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
+      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="349.0" layoutY="118.0" prefHeight="25.0" prefWidth="114.0">
+         <cursor>
+            <Cursor fx:constant="NONE" />
+         </cursor></TextField>
+      <TextField fx:id="IDEnt" layoutX="147.0" layoutY="160.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <TextField fx:id="NombreEnt" disable="true" editable="false" layoutX="147.0" layoutY="207.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <Label layoutX="29.0" layoutY="168.0" text="Id del Entrenador" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="40.0" layoutY="211.0" text="Nombre" textFill="WHITE" />
+      <Label layoutX="40.0" layoutY="252.0" text="Apellido" textFill="WHITE" />
+      <TextField fx:id="ApellidoEnt" disable="true" editable="false" layoutX="147.0" layoutY="248.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <Label layoutX="40.0" layoutY="294.0" text="Telefono" textFill="WHITE" />
+      <TextField fx:id="TelefonoEnt" disable="true" editable="false" layoutX="147.0" layoutY="290.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <Label layoutX="39.0" layoutY="339.0" text="Correo" textFill="WHITE" />
+      <TextField fx:id="CorreoEnt" disable="true" editable="false" layoutX="147.0" layoutY="335.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <Button fx:id="Guardar" layoutX="50.0" layoutY="409.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="Limpiar" layoutX="206.0" layoutY="409.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="Salir" layoutX="349.0" layoutY="409.0" mnemonicParsing="false" onAction="#Salir" text="Salir">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label blendMode="ADD" depthTest="ENABLE" layoutX="137.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="204.0" text="Mantenimineto de Entrenadores">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
    </children>
 </AnchorPane>

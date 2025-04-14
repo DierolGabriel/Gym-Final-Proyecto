@@ -1,0 +1,71 @@
+/* FONDO GENERAL */
+.anchor-pane {
+    -fx-background-color: #000000; /* Negro sólido */
+}
+
+/* TÍTULO PRINCIPAL */
+.text:first-of-type {
+    -fx-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+/* OTROS TEXTOS */
+.text {
+    -fx-fill: white;
+    -fx-font-size: 14px;
+}
+
+/* ETIQUETA DE ESTADO */
+.label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* CAMPOS DE TEXTO */
+.text-field {
+    -fx-background-color: rgba(255, 255, 255, 0.07); /* glass style */
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #bbbbbb;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-padding: 8 12;
+    -fx-font-size: 13px;
+}
+
+/* COMBOBOX ESTILO GLASS */
+.combo-box {
+    -fx-background-color: rgba(255, 255, 255, 0.07);
+    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: Black; /* Fondo de cada ítem */
+    -fx-text-fill: #006064; /* Color del texto */
+}
+.combo-box-popup .list-cell:hover
+{
+    -fx-background-color: Red;
+}
+
+/* BOTONES ROJOS */
+.button {
+    -fx-background-color: #e50914; /* rojo Netflix */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(229, 9, 20, 0.3), 5, 0.3, 0, 2);
+}
+
+/* HOVER EN BOTONES */
+.button:hover {
+    -fx-background-color: #ff1a1a;
+}

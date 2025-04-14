@@ -1,43 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
 
-<Pane prefHeight="510.0" prefWidth="691.0" style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.ReservaActController">
+<Pane prefHeight="510.0" prefWidth="691.0" style="-fx-background-color: black; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" stylesheets="@../CSS/Reserva%20Actividades.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.ReservaActController">
     <children>
         <!-- Título -->
-        <Text layoutX="256.0" layoutY="55.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Reserva Actividades" />
+        <Text fill="WHITE" layoutX="256.0" layoutY="55.0" stroke="WHITE" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Reserva Actividades" />
 
         <!-- Campo Id_Reserva_Actividad -->
-        <Text layoutX="102.0" layoutY="95.0" text="Id_Reserva_Actividad" />
+        <Text fill="WHITE" layoutX="102.0" layoutY="95.0" stroke="WHITE" text="Id_Reserva_Actividad" />
         <TextField fx:id="txtIdReservaActividad" layoutX="99.0" layoutY="116.0" onAction="#initialize" prefWidth="200.0" />
 
         <!-- Campo Fecha_Reserva -->
-        <Text layoutX="100.0" layoutY="168.0" text="Fecha_Reserva" />
+        <Text fill="WHITE" layoutX="100.0" layoutY="168.0" stroke="WHITE" text="Fecha_Reserva" />
         <DatePicker fx:id="fechaReservaPicker" disable="true" editable="false" layoutX="99.0" layoutY="176.0" prefWidth="200.0" />
 
         <!-- Campo Fecha_Baja -->
-        <Text layoutX="100.0" layoutY="227.0" text="Fecha_Baja" />
+        <Text fill="WHITE" layoutX="100.0" layoutY="227.0" stroke="WHITE" text="Fecha_Baja" />
         <DatePicker fx:id="fechaBajaPicker" disable="true" editable="false" layoutX="99.0" layoutY="243.0" prefWidth="200.0" />
 
         <!-- Campo Id_Cliente_Res_Act -->
-        <Text layoutX="100.0" layoutY="344.0" text="Id_Cliente_Res_Act" />
+        <Text fill="WHITE" layoutX="100.0" layoutY="344.0" stroke="WHITE" text="Id_Cliente_Res_Act" />
 
         <!-- Campo Id_Est_Reserva_Act -->
-        <Text layoutX="100.0" layoutY="290.0" text="Id_Est_Reserva_Act" />
+        <Text fill="WHITE" layoutX="100.0" layoutY="290.0" stroke="WHITE" text="Id_Est_Reserva_Act" />
 
         <!-- Campo Id_Actividad -->
-        <Text layoutX="401.0" layoutY="95.0" text="Id_Actividad" />
+        <Text fill="WHITE" layoutX="401.0" layoutY="95.0" stroke="WHITE" text="Id_Actividad" />
 
         <!-- Campo Id_Res_Hor_Act -->
-        <Text layoutX="401.0" layoutY="193.0" text="Id_Res_Hor_Act" />
+        <Text fill="WHITE" layoutX="401.0" layoutY="193.0" stroke="WHITE" text="Id_Res_Hor_Act" />
 
         <!-- Botón Guardar -->
-        <Button fx:id="Guardar" layoutX="280.0" layoutY="440.0" onAction="#Guardar" prefWidth="120.0" style="-fx-background-color: #0078D7; -fx-text-fill: white; -fx-font-weight: bold;" text="Guardar" />
+        <Button fx:id="Guardar" layoutX="280.0" layoutY="440.0" onAction="#Guardar" prefWidth="120.0" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Guardar" />
       <TextField fx:id="Notificador" disable="true" editable="false" layoutX="574.0" layoutY="48.0" prefHeight="25.0" prefWidth="99.0" />
-      <Button fx:id="Salir" layoutX="413.0" layoutY="440.0" onAction="#Salir" prefWidth="120.0" style="-fx-background-color: #0078D7; -fx-text-fill: white; -fx-font-weight: bold;" text="Salir" />
-      <Button fx:id="Limpiar" layoutX="149.0" layoutY="440.0" onAction="#Limpiar" prefWidth="120.0" style="-fx-background-color: #0078D7; -fx-text-fill: white; -fx-font-weight: bold;" text="Limpiar" />
+      <Button fx:id="Salir" layoutX="413.0" layoutY="440.0" onAction="#Salir" prefWidth="120.0" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Salir" />
+      <Button fx:id="Limpiar" layoutX="149.0" layoutY="440.0" onAction="#Limpiar" prefWidth="120.0" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Limpiar" />
       <ComboBox fx:id="txtIdClienteResAct" disable="true" layoutX="98.0" layoutY="364.0" prefHeight="25.0" prefWidth="200.0" />
       <ComboBox fx:id="txtIdEstadoReservaAct" disable="true" layoutX="99.0" layoutY="300.0" prefHeight="25.0" prefWidth="200.0" />
       <ComboBox fx:id="txtIdActividad" disable="true" layoutX="400.0" layoutY="116.0" prefHeight="25.0" prefWidth="200.0" />
