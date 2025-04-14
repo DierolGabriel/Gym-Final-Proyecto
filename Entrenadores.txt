@@ -1,4 +1,5 @@
 001:Dierol:Sarante:8097761:Dierol@gmail.com
 123:Enmanuel:Diaz:8029314:Enma@gmail.com
 12:Luis Carlos:Martinez:809-234-1234:luis@gmail.com
-25:Entrenador sin nombre
+25:Entrenador Prueba
+002:Entrenador 2:Entrenador A:890981234:Entrenador@gmail.com

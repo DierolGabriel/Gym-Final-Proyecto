@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class ConActividadesController {
 
@@ -46,6 +47,9 @@ public class ConActividadesController {
     @FXML
     private TableColumn<Actividad, String> colIdEntrenadorAct;
 
+    @FXML
+    private TableColumn<Actividad, String> colIdEntrenadorNombreAct;
+
     private static final String ARCHIVO_ACTIVIDADES = "Actividades.txt";
     private ObservableList<Actividad> listaActividades = FXCollections.observableArrayList();
 
@@ -60,29 +64,55 @@ public class ConActividadesController {
 
         // Cargar los datos del archivo
         cargarActividades();
+        colIdEntrenadorNombreAct.setCellValueFactory(new PropertyValueFactory<>("nombreEntrenadorAct"));
     }
 
     private void cargarActividades() {
         listaActividades.clear();
-        File archivo = new File(ARCHIVO_ACTIVIDADES);
+        File archivoActividades = new File(ARCHIVO_ACTIVIDADES);
+        File archivoEntrenadores = new File("Entrenadores.txt");
 
-        if (!archivo.exists()) {
-            mostrarAlerta("El archivo de actividades no existe");
+        if (!archivoActividades.exists() || !archivoEntrenadores.exists()) {
+            mostrarAlerta("Alguno de los archivos necesarios no existe");
             return;
         }
 
-        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+        // Cargar entrenadores a un mapa para búsqueda rápida
+        HashMap<Object, Object> entrenadores = new HashMap<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(archivoEntrenadores))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (!linea.trim().isEmpty()) {
+                    String[] partes = linea.split(":");
+                    if (partes.length >= 2) {
+                        String id = partes[0].trim();
+                        String nombre = partes[1].trim() + (partes.length > 2 ? " " + partes[2].trim() : "");
+                        entrenadores.put(id, nombre);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            mostrarAlerta("Error al leer el archivo de entrenadores: " + e.getMessage());
+            return;
+        }
+
+        // Cargar actividades
+        try (BufferedReader br = new BufferedReader(new FileReader(archivoActividades))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 if (!linea.trim().isEmpty()) {
                     String[] partes = linea.split(":");
                     if (partes.length == 5) {
+                        String idEntrenador = partes[4].trim();
+                        String nombreEntrenador = (String) entrenadores.getOrDefault(idEntrenador, "Desconocido");
+
                         Actividad actividad = new Actividad(
                                 partes[0].trim(), // idAct
                                 partes[1].trim(), // nombreAct
                                 partes[2].trim(), // descripcionAct
                                 partes[3].trim(), // idLocalizacionAct
-                                partes[4].trim()  // idEntrenadorAct
+                                idEntrenador,
+                                nombreEntrenador
                         );
                         listaActividades.add(actividad);
                     }
@@ -145,13 +175,17 @@ public class ConActividadesController {
         private String descripcionAct;
         private String idLocalizacionAct;
         private String idEntrenadorAct;
+        private String nombreEntrenadorAct;
 
-        public Actividad(String idAct, String nombreAct, String descripcionAct, String idLocalizacionAct, String idEntrenadorAct) {
+        public Actividad(String idAct, String nombreAct, String descripcionAct,
+                         String idLocalizacionAct, String idEntrenadorAct,
+                         String nombreEntrenadorAct) { // Modificado constructor
             this.idAct = idAct;
             this.nombreAct = nombreAct;
             this.descripcionAct = descripcionAct;
             this.idLocalizacionAct = idLocalizacionAct;
             this.idEntrenadorAct = idEntrenadorAct;
+            this.nombreEntrenadorAct = nombreEntrenadorAct;
         }
 
         public String getIdAct() { return idAct; }
@@ -159,5 +193,6 @@ public class ConActividadesController {
         public String getDescripcionAct() { return descripcionAct; }
         public String getIdLocalizacionAct() { return idLocalizacionAct; }
         public String getIdEntrenadorAct() { return idEntrenadorAct; }
+        public String getNombreEntrenadorAct() { return nombreEntrenadorAct; }
     }
 }

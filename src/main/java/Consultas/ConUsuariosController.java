@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -115,9 +117,8 @@ public class ConUsuariosController {
 
     @FXML
     void Limpiar(ActionEvent event) {
-        TextField.clear();
-        Table.setItems(listaUsuarios);
-        grupo1.selectToggle(null);
+        Stage stageActual = (Stage) TextField.getScene().getWindow();
+        stageActual.close();
     }
 
     private void mostrarAlerta(String mensaje) {
