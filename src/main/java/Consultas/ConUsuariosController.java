@@ -15,7 +15,6 @@ import java.util.List;
 
 public class ConUsuariosController {
 
-    @FXML private Button Consultar;
     @FXML private RadioButton Filtro1;
     @FXML private RadioButton Filtro2;
     @FXML private Button Limpiar;
@@ -41,6 +40,19 @@ public class ConUsuariosController {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
 
         cargarUsuarios();
+        configurarListenerID();
+    }
+    private void configurarListenerID() {
+        TextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null && !newValue.isEmpty())
+            {
+                Consultar(null);
+            }
+            else
+            {
+                Consultar(null);
+            }
+        });
     }
 
     private void cargarUsuarios() {

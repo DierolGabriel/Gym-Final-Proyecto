@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="373.0" prefWidth="464.0" style="-fx-background-color: black;" stylesheets="@../CSS/EstadoR.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.EstadoRController">
+<AnchorPane prefHeight="288.0" prefWidth="464.0" style="-fx-background-color: black;" stylesheets="@../CSS/EstadoR.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.EstadoRController">
    <children>
       <Text fill="WHITE" layoutX="122.0" layoutY="37.0" stroke="WHITE" text="Estado de las Reservas">
          <font>
             <Font name="Verdana" size="19.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="12.0" layoutY="150.0" stroke="WHITE" text="Id de la reserva">
+      <Text fill="WHITE" layoutX="14.0" layoutY="124.0" stroke="WHITE" text="Id de la reserva">
          <font>
             <Font name="Verdana" size="12.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="12.0" layoutY="225.0" stroke="WHITE" text="Estado">
+      <Text fill="WHITE" layoutX="14.0" layoutY="176.0" stroke="WHITE" text="Estado">
          <font>
             <Font name="Verdana" size="12.0" />
          </font>
       </Text>
-      <TextField fx:id="idReserva" layoutX="122.0" layoutY="150.0" />
-      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="344.0" layoutY="101.0" prefHeight="25.0" prefWidth="106.0" />
-      <Button fx:id="Limpiar" layoutX="65.0" layoutY="298.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
-      <Button fx:id="Guardar" layoutX="188.0" layoutY="298.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
-      <Button fx:id="Salir" layoutX="318.0" layoutY="298.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
-      <CheckBox fx:id="Estado" disable="true" layoutX="122.0" layoutY="229.0" mnemonicParsing="false" text="Disponible" />
+      <TextField fx:id="idReserva" layoutX="124.0" layoutY="101.0" />
+      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="342.0" layoutY="64.0" prefHeight="25.0" prefWidth="106.0" />
+      <Button fx:id="Limpiar" layoutX="61.0" layoutY="229.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
+      <Button fx:id="Guardar" layoutX="184.0" layoutY="229.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
+      <Button fx:id="Salir" layoutX="314.0" layoutY="229.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
+      <CheckBox fx:id="Estado" disable="true" layoutX="126.0" layoutY="162.0" mnemonicParsing="false" text="Disponible" />
    </children>
 </AnchorPane>

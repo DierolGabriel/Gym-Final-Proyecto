@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -12,59 +13,119 @@
          </font></Text>
 
       <Text fill="WHITE" layoutX="96.0" layoutY="85.0" stroke="WHITE" text="Id_Cliente" />
-      <TextField fx:id="txtIdCliente" layoutX="164.0" layoutY="62.0" prefWidth="300.0" />
+      <TextField fx:id="txtIdCliente" layoutX="164.0" layoutY="62.0" prefWidth="300.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
 
       <Text fill="WHITE" layoutX="100.0" layoutY="131.0" stroke="WHITE" text="Nombre" />
-      <TextField fx:id="txtNombreCliente" disable="true" layoutX="164.0" layoutY="108.0" prefWidth="300.0" />
+      <TextField fx:id="txtNombreCliente" disable="true" layoutX="164.0" layoutY="108.0" prefWidth="300.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
 
       <Text fill="WHITE" layoutX="552.0" layoutY="94.0" stroke="WHITE" text="Apellido Paterno" />
-      <TextField fx:id="txtApellidoPat" disable="true" layoutX="667.0" layoutY="71.0" prefWidth="300.0" />
+      <TextField fx:id="txtApellidoPat" disable="true" layoutX="667.0" layoutY="71.0" prefWidth="300.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
 
       <Text fill="WHITE" layoutX="550.0" layoutY="150.0" stroke="WHITE" text="Apellido materno" />
-      <TextField fx:id="txtApellidoMat" disable="true" layoutX="667.0" layoutY="131.0" prefWidth="300.0" />
+      <TextField fx:id="txtApellidoMat" disable="true" layoutX="667.0" layoutY="131.0" prefWidth="300.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
 
       <Text fill="WHITE" layoutX="93.0" layoutY="180.0" stroke="WHITE" text="Dirección" />
-      <TextField fx:id="txtDireccion" disable="true" layoutX="166.0" layoutY="157.0" prefWidth="300.0" />
+      <TextField fx:id="txtDireccion" disable="true" layoutX="166.0" layoutY="157.0" prefWidth="300.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
 
       <Text layoutX="528.0" layoutY="204.0" stroke="WHITE" text="Fecha de nacimiento" />
-      <DatePicker fx:id="fechaNacPicker" disable="true" editable="false" layoutX="667.0" layoutY="179.0" />
+      <DatePicker fx:id="fechaNacPicker" disable="true" editable="false" layoutX="667.0" layoutY="179.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></DatePicker>
 
       <Text fill="WHITE" layoutX="95.0" layoutY="223.0" stroke="WHITE" text="Telefono" />
-      <TextField fx:id="txtTelefono" disable="true" layoutX="166.0" layoutY="199.0" prefWidth="300.0" />
+      <TextField fx:id="txtTelefono" disable="true" layoutX="166.0" layoutY="199.0" prefWidth="300.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
 
       <Text layoutX="614.0" layoutY="282.0" text="Celular_Cliente" />
-      <TextField fx:id="txtCelular" disable="true" layoutX="667.0" layoutY="239.0" prefWidth="300.0" />
+      <TextField fx:id="txtCelular" disable="true" layoutX="667.0" layoutY="239.0" prefWidth="300.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
 
       <Text fill="WHITE" layoutX="60.0" layoutY="281.0" stroke="WHITE" text="Fecha de Ingreso" />
-      <DatePicker fx:id="fechaIngresoPicker" disable="true" editable="false" layoutX="167.0" layoutY="257.0" />
+      <DatePicker fx:id="fechaIngresoPicker" disable="true" editable="false" layoutX="167.0" layoutY="257.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></DatePicker>
 
       <Text fill="WHITE" layoutX="598.0" layoutY="309.0" stroke="WHITE" text="Status" />
 
       <Text fill="WHITE" layoutX="65.0" layoutY="339.0" stroke="WHITE" text="Tipo de Cliente" />
 
       <Text fill="WHITE" layoutX="596.0" layoutY="349.0" stroke="WHITE" text="Correo" />
-      <TextField fx:id="txtCorreo" disable="true" layoutX="667.0" layoutY="329.0" prefWidth="300.0" />
+      <TextField fx:id="txtCorreo" disable="true" layoutX="667.0" layoutY="329.0" prefWidth="300.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
 
       <Text fill="WHITE" layoutX="98.0" layoutY="392.0" stroke="WHITE" text="Balance" />
-      <TextField fx:id="txtBalance" disable="true" editable="false" layoutX="163.0" layoutY="369.0" prefHeight="25.0" prefWidth="177.0" />
+      <TextField fx:id="txtBalance" disable="true" editable="false" layoutX="163.0" layoutY="369.0" prefHeight="25.0" prefWidth="177.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
 
       <Text fill="WHITE" layoutX="563.0" layoutY="392.0" stroke="WHITE" text="Valor de Cuota" />
-      <TextField fx:id="txtValorCuota" disable="true" layoutX="667.0" layoutY="369.0" prefWidth="300.0" />
+      <TextField fx:id="txtValorCuota" disable="true" layoutX="667.0" layoutY="369.0" prefWidth="300.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
       <RadioButton fx:id="SocioActivo" disable="true" layoutX="163.0" layoutY="324.0" mnemonicParsing="false" text="Socio Activo">
          <toggleGroup>
             <ToggleGroup fx:id="GrupoTipo" />
-         </toggleGroup></RadioButton>
-      <RadioButton fx:id="Invitado" disable="true" layoutX="345.0" layoutY="324.0" mnemonicParsing="false" text="Invitado" toggleGroup="$GrupoTipo" />
+         </toggleGroup>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
+      <RadioButton fx:id="Invitado" disable="true" layoutX="345.0" layoutY="324.0" mnemonicParsing="false" text="Invitado" toggleGroup="$GrupoTipo">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
       <RadioButton fx:id="Activo" disable="true" layoutX="667.0" layoutY="293.0" mnemonicParsing="false" text="Activo">
          <toggleGroup>
             <ToggleGroup fx:id="GrupoStatus" />
-         </toggleGroup></RadioButton>
-      <RadioButton fx:id="Pasivo" disable="true" layoutX="806.0" layoutY="294.0" mnemonicParsing="false" text="Pasivo" toggleGroup="$GrupoStatus" />
+         </toggleGroup>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
+      <RadioButton fx:id="Pasivo" disable="true" layoutX="806.0" layoutY="294.0" mnemonicParsing="false" text="Pasivo" toggleGroup="$GrupoStatus">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
       <TextField fx:id="Notificador" disable="true" editable="false" layoutX="818.0" layoutY="20.0" prefHeight="37.0" prefWidth="152.0" />
-      <Button fx:id="btnGuardar" layoutX="448.0" layoutY="463.0" mnemonicParsing="false" onAction="#guardarCliente" style="-fx-background-color: red;" text="Guardar" textFill="#efefef" />
-      <Button fx:id="btnBorrar" layoutX="573.0" layoutY="462.0" mnemonicParsing="false" onAction="#borrarCliente" style="-fx-background-color: red;" text="Borrar" textFill="#efefef" />
-      <Button fx:id="btnLimpiar" layoutX="338.0" layoutY="463.0" mnemonicParsing="false" onAction="#limpiarCampos" style="-fx-background-color: red;" text="Limpiar" textFill="#efefef" />
-      <Button fx:id="Salir" layoutX="670.0" layoutY="462.0" mnemonicParsing="false" onAction="#salir" style="-fx-background-color: red;" text="Salir" textFill="#efefef" />
+      <Button fx:id="btnGuardar" layoutX="448.0" layoutY="463.0" mnemonicParsing="false" onAction="#guardarCliente" style="-fx-background-color: red;" text="Guardar" textFill="#efefef">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnBorrar" layoutX="573.0" layoutY="462.0" mnemonicParsing="false" onAction="#borrarCliente" style="-fx-background-color: red;" text="Borrar" textFill="#efefef">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnLimpiar" layoutX="338.0" layoutY="463.0" mnemonicParsing="false" onAction="#limpiarCampos" style="-fx-background-color: red;" text="Limpiar" textFill="#efefef">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="Salir" layoutX="670.0" layoutY="462.0" mnemonicParsing="false" onAction="#salir" style="-fx-background-color: red;" text="Salir" textFill="#efefef">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Text layoutX="596.0" layoutY="262.0" stroke="WHITE" text="Celular" />
    </children>
 </Pane>

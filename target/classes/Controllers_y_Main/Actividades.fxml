@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -13,19 +14,28 @@
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Text>
-      <TextField fx:id="txtIdAct" layoutX="180.0" layoutY="70.0" prefWidth="250.0" />
+      <TextField fx:id="txtIdAct" layoutX="180.0" layoutY="70.0" prefWidth="250.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
 
       <Text fill="WHITE" layoutX="40.0" layoutY="130.0" text="Nombre">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Text>
-      <TextField fx:id="txtNombreAct" layoutX="180.0" layoutY="110.0" prefWidth="250.0" />
+      <TextField fx:id="txtNombreAct" layoutX="180.0" layoutY="110.0" prefWidth="250.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
 
       <Text fill="#f7f7f7" layoutX="40.0" layoutY="170.0" text="Descripción">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Text>
-      <TextField fx:id="txtDescripcionAct" layoutX="180.0" layoutY="150.0" prefWidth="250.0" />
+      <TextField fx:id="txtDescripcionAct" layoutX="180.0" layoutY="150.0" prefWidth="250.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
 
       <Text fill="WHITE" layoutX="40.0" layoutY="210.0" text="Id_Localizacion">
          <font>
@@ -39,11 +49,26 @@
 
       <Label fx:id="lblEstado" layoutX="40.0" layoutY="290.0" style="-fx-text-fill: red;" text="Estado: " />
 
-      <Button fx:id="btnGuardar" layoutX="240.0" layoutY="348.0" onAction="#guardarActividad" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Guardar" />
-      <Button fx:id="Salir" layoutX="368.0" layoutY="348.0" onAction="#Salir" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Salir" />
-      <Button fx:id="Limpiar" layoutX="105.0" layoutY="348.0" onAction="#Limpiar" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Limpiar" />
-      <ComboBox fx:id="txtIdEntrenadorAct" layoutX="180.0" layoutY="232.0" prefHeight="26.0" prefWidth="250.0" />
-      <ComboBox fx:id="txtIdLocalizacionAct" layoutX="180.0" layoutY="192.0" prefHeight="26.0" prefWidth="250.0" />
+      <Button fx:id="btnGuardar" layoutX="240.0" layoutY="348.0" onAction="#guardarActividad" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Guardar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="Salir" layoutX="368.0" layoutY="348.0" onAction="#Salir" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Salir">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="Limpiar" layoutX="105.0" layoutY="348.0" onAction="#Limpiar" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Limpiar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <ComboBox fx:id="txtIdEntrenadorAct" layoutX="180.0" layoutY="232.0" prefHeight="26.0" prefWidth="250.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <ComboBox fx:id="txtIdLocalizacionAct" layoutX="180.0" layoutY="192.0" prefHeight="26.0" prefWidth="250.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
 
    </children>
 </AnchorPane>

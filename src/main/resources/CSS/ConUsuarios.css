@@ -65,7 +65,6 @@
 
 .radio-button:selected .radio {
     -fx-background-color: #e50914;
-    -fx-border-color: white;
 }
 
 /* === TABLEVIEW === */
@@ -77,6 +76,9 @@
     -fx-background-radius: 10;
     -fx-text-fill: white;
     -fx-font-size: 13px;
+}
+.table-cell {
+    -fx-text-fill: #aaaaaa;
 }
 
 .table-row-cell {
@@ -92,5 +94,5 @@
 .table-column-header {
     -fx-background-color: #111111;
     -fx-text-fill: white;
-    -fx-border-color: #333333;
+    -fx-border-color: #664848;
 }
