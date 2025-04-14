@@ -4,63 +4,67 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="1146.0" style="-fx-background-color: #ffffff;              -fx-border-color: #cccccc;              -fx-border-width: 1;              -fx-border-radius: 8;              -fx-background-radius: 8;              -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.3, 0, 4);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.ClienteController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0" prefWidth="1001.0" style="-fx-background-color: black; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.3, 0, 4);" stylesheets="@../CSS/Clientes.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.ClienteController">
    <children>
-      <Text layoutX="502.0" layoutY="36.0" text="CLIENTE" />
+      <Text fill="WHITE" layoutX="375.0" layoutY="40.0" stroke="WHITE" text="Mantenimiento de clientes">
+         <font>
+            <Font name="Arial Black" size="24.0" />
+         </font></Text>
 
-      <Text layoutX="180.0" layoutY="110.0" text="Id_Cliente" />
-      <TextField fx:id="txtIdCliente" layoutX="250.0" layoutY="93.0" prefWidth="300.0" />
+      <Text fill="WHITE" layoutX="96.0" layoutY="85.0" stroke="WHITE" text="Id_Cliente" />
+      <TextField fx:id="txtIdCliente" layoutX="164.0" layoutY="62.0" prefWidth="300.0" />
 
-      <Text layoutX="634.0" layoutY="121.0" text="Nombre_Cliente" />
-      <TextField fx:id="txtNombreCliente" disable="true" layoutX="740.0" layoutY="105.0" prefWidth="300.0" />
+      <Text fill="WHITE" layoutX="100.0" layoutY="131.0" stroke="WHITE" text="Nombre" />
+      <TextField fx:id="txtNombreCliente" disable="true" layoutX="164.0" layoutY="108.0" prefWidth="300.0" />
 
-      <Text layoutX="122.0" layoutY="158.0" text="Apellido_Pat_Cliente" />
-      <TextField fx:id="txtApellidoPat" disable="true" layoutX="250.0" layoutY="141.0" prefWidth="300.0" />
+      <Text fill="WHITE" layoutX="552.0" layoutY="94.0" stroke="WHITE" text="Apellido Paterno" />
+      <TextField fx:id="txtApellidoPat" disable="true" layoutX="667.0" layoutY="71.0" prefWidth="300.0" />
 
-      <Text layoutX="611.0" layoutY="173.0" text="Apellido_Mat_Cliente" />
-      <TextField fx:id="txtApellidoMat" disable="true" layoutX="740.0" layoutY="153.0" prefWidth="300.0" />
+      <Text fill="WHITE" layoutX="550.0" layoutY="150.0" stroke="WHITE" text="Apellido materno" />
+      <TextField fx:id="txtApellidoMat" disable="true" layoutX="667.0" layoutY="131.0" prefWidth="300.0" />
 
-      <Text layoutX="136.0" layoutY="199.0" text="Direccion_Cliente" />
-      <TextField fx:id="txtDireccion" disable="true" layoutX="250.0" layoutY="182.0" prefWidth="300.0" />
+      <Text fill="WHITE" layoutX="93.0" layoutY="180.0" stroke="WHITE" text="Dirección" />
+      <TextField fx:id="txtDireccion" disable="true" layoutX="166.0" layoutY="157.0" prefWidth="300.0" />
 
-      <Text layoutX="618.0" layoutY="211.0" text="Fecha_Nac_Cliente" />
-      <DatePicker fx:id="fechaNacPicker" disable="true" editable="false" layoutX="740.0" layoutY="194.0" />
+      <Text layoutX="528.0" layoutY="204.0" stroke="WHITE" text="Fecha de nacimiento" />
+      <DatePicker fx:id="fechaNacPicker" disable="true" editable="false" layoutX="667.0" layoutY="179.0" />
 
-      <Text layoutX="165.0" layoutY="241.0" text="Telf_Cliente" />
-      <TextField fx:id="txtTelefono" disable="true" layoutX="250.0" layoutY="224.0" prefWidth="300.0" />
+      <Text fill="WHITE" layoutX="95.0" layoutY="223.0" stroke="WHITE" text="Telefono" />
+      <TextField fx:id="txtTelefono" disable="true" layoutX="166.0" layoutY="199.0" prefWidth="300.0" />
 
       <Text layoutX="614.0" layoutY="282.0" text="Celular_Cliente" />
-      <TextField fx:id="txtCelular" disable="true" layoutX="740.0" layoutY="265.0" prefWidth="300.0" />
+      <TextField fx:id="txtCelular" disable="true" layoutX="667.0" layoutY="239.0" prefWidth="300.0" />
 
-      <Text layoutX="157.0" layoutY="312.0" text="Fecha_Ingreso" />
-      <DatePicker fx:id="fechaIngresoPicker" disable="true" editable="false" layoutX="250.0" layoutY="295.0" />
+      <Text fill="WHITE" layoutX="60.0" layoutY="281.0" stroke="WHITE" text="Fecha de Ingreso" />
+      <DatePicker fx:id="fechaIngresoPicker" disable="true" editable="false" layoutX="167.0" layoutY="257.0" />
 
-      <Text layoutX="614.0" layoutY="332.0" text="Status_Cliente" />
+      <Text fill="WHITE" layoutX="598.0" layoutY="309.0" stroke="WHITE" text="Status" />
 
-      <Text layoutX="173.0" layoutY="352.0" text="Tipo_Cliente" />
+      <Text fill="WHITE" layoutX="65.0" layoutY="339.0" stroke="WHITE" text="Tipo de Cliente" />
 
-      <Text layoutX="612.0" layoutY="372.0" text="Correo_Cliente" />
-      <TextField fx:id="txtCorreo" disable="true" layoutX="740.0" layoutY="355.0" prefWidth="300.0" />
+      <Text fill="WHITE" layoutX="596.0" layoutY="349.0" stroke="WHITE" text="Correo" />
+      <TextField fx:id="txtCorreo" disable="true" layoutX="667.0" layoutY="329.0" prefWidth="300.0" />
 
-      <Text layoutX="154.0" layoutY="392.0" text="Balance_Cliente" />
-      <TextField fx:id="txtBalance" disable="true" editable="false" layoutX="250.0" layoutY="375.0" prefHeight="25.0" prefWidth="177.0" />
+      <Text fill="WHITE" layoutX="98.0" layoutY="392.0" stroke="WHITE" text="Balance" />
+      <TextField fx:id="txtBalance" disable="true" editable="false" layoutX="163.0" layoutY="369.0" prefHeight="25.0" prefWidth="177.0" />
 
-      <Text layoutX="614.0" layoutY="411.0" text="Valor_Cuota_Cliente" />
-      <TextField fx:id="txtValorCuota" disable="true" layoutX="740.0" layoutY="395.0" prefWidth="300.0" />
-      <RadioButton fx:id="SocioActivo" disable="true" layoutX="250.0" layoutY="339.0" mnemonicParsing="false" text="Socio Activo">
+      <Text fill="WHITE" layoutX="563.0" layoutY="392.0" stroke="WHITE" text="Valor de Cuota" />
+      <TextField fx:id="txtValorCuota" disable="true" layoutX="667.0" layoutY="369.0" prefWidth="300.0" />
+      <RadioButton fx:id="SocioActivo" disable="true" layoutX="163.0" layoutY="324.0" mnemonicParsing="false" text="Socio Activo">
          <toggleGroup>
             <ToggleGroup fx:id="GrupoTipo" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="Invitado" disable="true" layoutX="432.0" layoutY="339.0" mnemonicParsing="false" text="Invitado" toggleGroup="$GrupoTipo" />
-      <RadioButton fx:id="Activo" disable="true" layoutX="740.0" layoutY="319.0" mnemonicParsing="false" text="Activo">
+      <RadioButton fx:id="Invitado" disable="true" layoutX="345.0" layoutY="324.0" mnemonicParsing="false" text="Invitado" toggleGroup="$GrupoTipo" />
+      <RadioButton fx:id="Activo" disable="true" layoutX="667.0" layoutY="293.0" mnemonicParsing="false" text="Activo">
          <toggleGroup>
             <ToggleGroup fx:id="GrupoStatus" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="Pasivo" disable="true" layoutX="890.0" layoutY="319.0" mnemonicParsing="false" text="Pasivo" toggleGroup="$GrupoStatus" />
-      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="915.0" layoutY="40.0" prefHeight="25.0" prefWidth="128.0" />
-      <Button fx:id="btnGuardar" layoutX="584.0" layoutY="467.0" mnemonicParsing="false" onAction="#guardarCliente" style="-fx-background-color: #0056b3;" text="Guardar" textFill="#efefef" />
-      <Button fx:id="btnBorrar" layoutX="698.0" layoutY="467.0" mnemonicParsing="false" onAction="#borrarCliente" style="-fx-background-color: #0056b3;" text="Borrar" textFill="#efefef" />
-      <Button fx:id="btnLimpiar" layoutX="474.0" layoutY="467.0" mnemonicParsing="false" onAction="#limpiarCampos" style="-fx-background-color: #0056b3;" text="Limpiar" textFill="#efefef" />
-      <Button fx:id="Salir" layoutX="795.0" layoutY="467.0" mnemonicParsing="false" onAction="#salir" style="-fx-background-color: #0056b3;" text="Salir" textFill="#efefef" />
+      <RadioButton fx:id="Pasivo" disable="true" layoutX="806.0" layoutY="294.0" mnemonicParsing="false" text="Pasivo" toggleGroup="$GrupoStatus" />
+      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="818.0" layoutY="20.0" prefHeight="37.0" prefWidth="152.0" />
+      <Button fx:id="btnGuardar" layoutX="448.0" layoutY="463.0" mnemonicParsing="false" onAction="#guardarCliente" style="-fx-background-color: red;" text="Guardar" textFill="#efefef" />
+      <Button fx:id="btnBorrar" layoutX="573.0" layoutY="462.0" mnemonicParsing="false" onAction="#borrarCliente" style="-fx-background-color: red;" text="Borrar" textFill="#efefef" />
+      <Button fx:id="btnLimpiar" layoutX="338.0" layoutY="463.0" mnemonicParsing="false" onAction="#limpiarCampos" style="-fx-background-color: red;" text="Limpiar" textFill="#efefef" />
+      <Button fx:id="Salir" layoutX="670.0" layoutY="462.0" mnemonicParsing="false" onAction="#salir" style="-fx-background-color: red;" text="Salir" textFill="#efefef" />
+      <Text layoutX="596.0" layoutY="262.0" stroke="WHITE" text="Celular" />
    </children>
 </Pane>

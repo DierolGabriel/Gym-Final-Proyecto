@@ -1,0 +1,61 @@
+/* FONDO GENERAL */
+.anchor-pane {
+    -fx-background-color: #000000; /* Fondo negro absoluto */
+}
+
+/* ETIQUETAS */
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-family: "Verdana";
+}
+
+.label:first-of-type {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* CAMPOS DE TEXTO */
+.text-field {
+    -fx-background-color: rgba(255, 255, 255, 0.07); /* efecto vidrio */
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #bbbbbb;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-padding: 8 12;
+    -fx-font-size: 13px;
+}
+
+/* CAMPOS DESHABILITADOS */
+.text-field:disabled {
+    -fx-opacity: 0.5;
+    -fx-text-fill: #cccccc;
+}
+
+/* CHECKBOX */
+.check-box {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.check-box:disabled {
+    -fx-opacity: 0.6;
+}
+
+/* BOTONES ROJOS */
+.button {
+    -fx-background-color: #e50914; /* rojo estilo Netflix */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(229, 9, 20, 0.4), 5, 0.3, 0, 2);
+}
+
+/* HOVER BOTONES */
+.button:hover {
+    -fx-background-color: #ff1a1a;
+}

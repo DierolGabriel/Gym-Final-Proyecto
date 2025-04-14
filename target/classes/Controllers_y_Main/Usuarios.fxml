@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="Usuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.UsuarioControl">
+<Pane fx:id="Usuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;" stylesheets="@../CSS/Usuario.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.UsuarioControl">
     <children>
         <!-- Título -->
         <Text layoutX="190.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mantenimiento de Usuario">
@@ -14,28 +14,46 @@
         </Text>
 
         <!-- Campos de texto -->
-        <Text layoutX="50.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login de Usuario" />
+        <Text fill="#dfdfdf" fontSmoothingType="LCD" layoutX="50.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login de Usuario">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Text>
         <TextField fx:id="loginField" layoutX="200.0" layoutY="85.0" prefWidth="300.0" />
 
-        <Text layoutX="50.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" />
+        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="50.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Text>
         <PasswordField fx:id="passwordField" layoutX="200.0" layoutY="155.0" onAction="#Detectar" prefWidth="300.0" />
 
-        <Text layoutX="50.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel de Acceso" />
+        <Text fill="#e4dada" fontSmoothingType="LCD" layoutX="50.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel de Acceso">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Text>
 
-        <Text layoutX="50.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del Usuario" />
+        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="50.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del Usuario">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Text>
         <TextField fx:id="nombreField" disable="true" layoutX="200.0" layoutY="295.0" prefWidth="300.0" />
 
-        <Text layoutX="50.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido del Usuario" />
+        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="50.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido del Usuario">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Text>
         <TextField fx:id="apellidoField" disable="true" layoutX="200.0" layoutY="365.0" prefWidth="300.0" />
 
-        <Text layoutX="50.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo del Usuario" />
+        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="50.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo del Usuario">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></Text>
         <TextField fx:id="correoField" disable="true" layoutX="200.0" layoutY="435.0" prefWidth="300.0" />
 
         <Button fx:id="Guardar" layoutX="200.0" layoutY="510.0" mnemonicParsing="false" onAction="#Guardar" prefHeight="32.0" prefWidth="300.0" text="Guardar" />
       <TextField fx:id="statusLabel" disable="true" layoutX="672.0" layoutY="46.0" prefHeight="25.0" prefWidth="114.0" />
       <Button fx:id="Salir" layoutX="536.0" layoutY="510.0" mnemonicParsing="false" onAction="#Salir" prefHeight="32.0" prefWidth="136.0" text="Salir" />
       <Button fx:id="Limpiar" layoutX="36.0" layoutY="510.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="32.0" prefWidth="136.0" text="Limpiar" />
-      <RadioButton fx:id="Administrador" disable="true" layoutX="200.0" layoutY="227.0" mnemonicParsing="false" text="Adminustrador">
+      <RadioButton fx:id="Administrador" disable="true" layoutX="200.0" layoutY="227.0" mnemonicParsing="false" text="Administrador">
          <toggleGroup>
             <ToggleGroup fx:id="Grupo1" />
          </toggleGroup></RadioButton>

@@ -1,0 +1,95 @@
+/* === FONDO GENERAL === */
+.anchor-pane {
+    -fx-background-color: #000000;
+}
+
+/* === TÍTULO Y ETIQUETAS === */
+.label {
+    -fx-text-fill: white;
+    -fx-font-family: "Verdana";
+    -fx-font-size: 13px;
+}
+
+.label:first-of-type {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+/* === TEXTFIELD === */
+.text-field {
+    -fx-background-color: rgba(255, 255, 255, 0.07);
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #bbbbbb;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-padding: 8 12;
+    -fx-font-size: 13px;
+}
+
+/* === BOTONES === */
+.button {
+    -fx-background-color: #e50914;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(229, 9, 20, 0.4), 5, 0.3, 0, 2);
+}
+
+/* Botón X (Limpiar) estilo especial */
+#Limpiar {
+    -fx-background-color: transparent;
+    -fx-text-fill: red;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: #ff1a1a;
+}
+
+#Limpiar:hover {
+    -fx-text-fill: #ff4444;
+}
+
+/* === RADIOBUTTONS === */
+.radio-button {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.radio-button:selected .radio {
+    -fx-background-color: #e50914;
+    -fx-border-color: white;
+}
+
+/* === TABLEVIEW === */
+.table-view {
+    -fx-background-color: rgba(255,255,255,0.05);
+    -fx-table-cell-border-color: #444444;
+    -fx-border-color: rgba(255,255,255,0.1);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.table-row-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #e50914;
+    -fx-text-fill: white;
+}
+
+.table-column-header {
+    -fx-background-color: #111111;
+    -fx-text-fill: white;
+    -fx-border-color: #333333;
+}
