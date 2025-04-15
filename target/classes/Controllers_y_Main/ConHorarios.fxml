@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="625.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Consultas.ConHorariosController">
+<AnchorPane prefHeight="625.0" prefWidth="819.0" style="-fx-background-color: Black;" stylesheets="@../CSS/ConUsuarios.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Consultas.ConHorariosController">
    <children>
       <Label layoutX="274.0" layoutY="24.0" text="Consulta de Horarios">
          <font>
@@ -12,21 +12,20 @@
          </font>
       </Label>
       <TextField fx:id="TextField" layoutX="21.0" layoutY="128.0" onAction="#Consultar" />
-      <Button fx:id="Limpiar" layoutX="408.0" layoutY="127.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="26.0" prefWidth="26.0" text="X" textFill="RED" />
-      <Button fx:id="Consultar" layoutX="563.0" layoutY="128.0" mnemonicParsing="false" onAction="#Consultar" text="Consultar" />
-      <RadioButton fx:id="Filtro1" layoutX="189.0" layoutY="132.0" mnemonicParsing="false" selected="true" text="ID">
+      <Button fx:id="Limpiar" layoutX="758.0" layoutY="31.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="26.0" prefWidth="26.0" text="X" textFill="RED" />
+      <RadioButton fx:id="Filtro1" layoutX="223.0" layoutY="135.0" mnemonicParsing="false" selected="true" text="ID">
          <toggleGroup>
             <ToggleGroup fx:id="Grupo1" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="Filtro2" layoutX="301.0" layoutY="132.0" mnemonicParsing="false" text="ID Actividad" toggleGroup="$Grupo1" />
-      <Label layoutX="175.0" layoutY="110.0" text="Filtros:" />
+      <RadioButton fx:id="Filtro2" layoutX="335.0" layoutY="135.0" mnemonicParsing="false" text="ID Actividad" toggleGroup="$Grupo1" />
+      <Label layoutX="209.0" layoutY="113.0" text="Filtros:" />
       <TableView fx:id="Table" layoutX="13.0" layoutY="187.0" prefHeight="437.0" prefWidth="798.0">
          <columns>
-            <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
-            <TableColumn fx:id="colDia" prefWidth="75.0" text="ID Actividad" />
-            <TableColumn fx:id="colIdActividad" prefWidth="100.0" text="Día" />
-            <TableColumn fx:id="colHora" prefWidth="100.0" text="Hora (HH:MM)" />
+            <TableColumn fx:id="colId" prefWidth="75.0" style="-fx-background-color: Black;" text="ID" />
+            <TableColumn fx:id="colDia" prefWidth="75.0" style="-fx-background-color: Black;" text="ID Actividad" />
+            <TableColumn fx:id="colIdActividad" prefWidth="100.0" style="-fx-background-color: Black;" text="Día" />
+            <TableColumn fx:id="colHora" prefWidth="100.0" style="-fx-background-color: Black;" text="Hora (HH:MM)" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

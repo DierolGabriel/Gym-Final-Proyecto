@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -63,6 +65,20 @@ public class ConHorariosController {
 
         // Cargar los datos del archivo
         cargarHorarios();
+        configurarListenerID();
+    }
+
+    private void configurarListenerID() {
+        TextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null && !newValue.isEmpty())
+            {
+                Consultar(null);
+            }
+            else
+            {
+                Consultar(null);
+            }
+        });
     }
 
     private void cargarHorarios() {
@@ -129,9 +145,8 @@ public class ConHorariosController {
 
     @FXML
     void Limpiar(ActionEvent event) {
-        TextField.clear();
-        Table.setItems(listaHorarios);
-        Filtro1.setSelected(true);
+        Stage stageActual = (Stage) TextField.getScene().getWindow();
+        stageActual.close();
     }
 
     private void mostrarAlerta(String mensaje) {

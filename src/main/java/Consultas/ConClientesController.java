@@ -49,6 +49,7 @@ public class ConClientesController {
 
         // Cargar los datos del archivo
         cargarClientes();
+        configurarListenerID();
     }
 
     private void configurarColumnas() {
@@ -66,6 +67,19 @@ public class ConClientesController {
         colCorreo.setCellValueFactory(new PropertyValueFactory<>("correo"));
         colCorreo2.setCellValueFactory(new PropertyValueFactory<>("balance"));
         colCorreo21.setCellValueFactory(new PropertyValueFactory<>("valorCuota"));
+    }
+
+    private void configurarListenerID() {
+        TextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null && !newValue.isEmpty())
+            {
+                Consultar(null);
+            }
+            else
+            {
+                Consultar(null);
+            }
+        });
     }
 
     private void cargarClientes() {

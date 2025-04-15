@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane prefHeight="815.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.MenuUsuarioController">
 
@@ -23,10 +24,13 @@
                 </padding>
                 <ImageView fitHeight="150.0" fitWidth="150.0" preserveRatio="true">
                     <image>
-                        <Image url="@../Imagenes/usuario.png" />
+                        <Image url="@../Imagenes/avatarperfil.png" />
                     </image>
                 </ImageView>
-                <Label text="Usuario" />
+                <Label text="Usuario">
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
             </VBox>
 
             <!-- Menú con Scroll y Accordion -->
