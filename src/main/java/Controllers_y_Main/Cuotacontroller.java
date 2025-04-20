@@ -239,7 +239,8 @@ public class Cuotacontroller {
             while ((linea = br.readLine()) != null) {
                 if (!linea.trim().isEmpty()) {
                     String[] partes = linea.split(":");
-                    if (partes.length >= 1) {
+                    if (partes.length >= 14 && partes[12].equals("Activo") && partes[13].equals("Socio Activo"))
+                    {
                         Idcliente.getItems().add(partes[0].trim());
                     }
                 }
@@ -280,7 +281,7 @@ public class Cuotacontroller {
             while ((linea = br.readLine()) != null) {
                 if (!linea.trim().isEmpty()) {
                     String[] partes = linea.split(":");
-                    if (partes.length >= 6 && partes[2].equals(idCliente)) {
+                    if (partes.length >= 6 && partes[2].equals(idCliente) && !partes[5].equals("true")) {
                         int idCobro = Integer.parseInt(partes[0]);
                         String fecha = partes[1];
                         double valor = Double.parseDouble(partes[3]);
@@ -390,10 +391,6 @@ public class Cuotacontroller {
                     if (partes.length >= 6 && partes[2].equals(idCliente)) {
                         for (Cobro cobro : cobrosData) {
                             if (cobro.getIdCobro() == Integer.parseInt(partes[0])) {
-                                // Solo actualizamos el status si el cobro está seleccionado
-                                if (cobro.isSeleccionado()) {
-                                    partes[5] = "true";
-                                }
                                 break;
                             }
                         }
