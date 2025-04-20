@@ -4,65 +4,116 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="815.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.MenuUsuarioController">
+<BorderPane prefHeight="815.0" prefWidth="1051.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.MenuUsuarioController">
 
     <!-- Top panel -->
     <top>
-        <Pane prefHeight="42.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER" />
+        <Pane prefHeight="34.0" prefWidth="870.0" style="-fx-background-color: Black;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="14.0" layoutY="-3.0" prefHeight="31.0" prefWidth="321.0" text="Gimnasio FitnesFinal">
+               <font>
+                  <Font name="Arial Black" size="27.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5441988950276243" centerY="0.2535545023696682" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.5657894611358643" green="0.22788742184638977" blue="0.22788742184638977" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+         </children></Pane>
     </top>
 
     <!-- Left panel -->
     <left>
-        <VBox prefWidth="200.0" spacing="10.0" style="-fx-background-color: black;" stylesheets="@../CSS/MenuAdmin.css" BorderPane.alignment="CENTER">
+        <VBox prefHeight="781.0" prefWidth="250.0" spacing="10.0" style="-fx-background-color: black;" stylesheets="@../CSS/MenuAdmin.css" BorderPane.alignment="CENTER">
 
             <!-- Panel de perfil -->
-            <VBox alignment="TOP_CENTER" prefHeight="208.0" spacing="10.0" style="-fx-background-color: white;">
+            <VBox alignment="TOP_CENTER" prefHeight="195.0" prefWidth="171.0" spacing="10.0" style="-fx-background-color: white;">
                 <padding>
                     <Insets bottom="10" left="10" right="10" top="10" />
                 </padding>
                 <ImageView fitHeight="150.0" fitWidth="150.0" preserveRatio="true">
-                    <image>
-                        <Image url="@../Imagenes/avatarperfil.png" />
-                    </image>
+               <image>
+                  <Image url="@../Imagenes/avatarperfil.png" />
+               </image>
                 </ImageView>
-                <Label text="Usuario">
-               <font>
-                  <Font size="13.0" />
-               </font></Label>
+                <Label style="-fx-text-fill: black;" text="Usuario" />
             </VBox>
 
             <!-- Menú con Scroll y Accordion -->
-            <ScrollPane fitToWidth="true" prefHeight="317.0" prefWidth="71.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS">
-                <Accordion>
+            <ScrollPane fitToWidth="true" prefHeight="626.0" prefWidth="250.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS">
+                <Accordion prefHeight="562.0" prefWidth="246.0" style="-fx-background-color: black;">
                     <panes>
 
                         <!-- Mantenimiento -->
                         <TitledPane fx:id="Mantenimiento" mnemonicParsing="false" text="Mantenimiento">
-                            <VBox spacing="5">
+                            <VBox prefHeight="449.0" prefWidth="239.0" spacing="5">
                                 <padding>
-                                    <Insets bottom="10" left="10" right="10" top="10" />
+                                    <Insets bottom="10.0" left="25.0" right="10.0" top="10.0" />
                                 </padding>
-                                <Button fx:id="ManEntrenador" mnemonicParsing="false" onAction="#ManEntrenador" prefWidth="180" text="Entrenador" />
-                                <Button fx:id="ManLocalizacion" mnemonicParsing="false" onAction="#ManLocalizacion" prefWidth="180" text="Localización" />
-                                <Button fx:id="ManSalas" mnemonicParsing="false" onAction="#ManSalas" prefWidth="180" text="Salas" />
-                                <Button fx:id="ManActividades" mnemonicParsing="false" onAction="#ManActividades" prefWidth="180" text="Actividades" />
-                                <Button fx:id="ManHorarios" mnemonicParsing="false" onAction="#ManHorarios" prefWidth="180" text="Horarios Actividades" />
-                                <Button fx:id="ManClientes" mnemonicParsing="false" onAction="#ManClientes" prefWidth="180" text="Clientes" />
-                                <Button fx:id="ManEstados" mnemonicParsing="false" onAction="#ManEstados" prefWidth="180" text="Estados Reservas" />
-                                <Button fx:id="ManReserva" mnemonicParsing="false" onAction="#ManReserva" prefWidth="180" text="Reserva" />
-                                <Button fx:id="ManReservaAc" mnemonicParsing="false" onAction="#ManReservaAc" prefWidth="180" text="Reserva Actividades" />
+                                <Button fx:id="ManEntrenador" layoutX="18.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ManEntrenador" prefHeight="38.0" prefWidth="223.0" scaleZ="-5.0" text="Entrenador" textAlignment="RIGHT">
+                           <VBox.margin>
+                              <Insets left="-11.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ManLocalizacion" layoutX="18.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ManLocalizacion" prefHeight="38.0" prefWidth="223.0" scaleZ="-5.0" text="Localización">
+                           <VBox.margin>
+                              <Insets left="-11.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ManSalas" layoutX="18.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ManSalas" prefHeight="38.0" prefWidth="223.0" scaleZ="-5.0" text="Salas">
+                           <VBox.margin>
+                              <Insets left="-11.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ManActividades" layoutX="18.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ManActividades" prefHeight="38.0" prefWidth="223.0" scaleZ="-5.0" text="Actividades">
+                           <VBox.margin>
+                              <Insets left="-11.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ManHorarios" layoutX="18.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ManHorarios" prefHeight="38.0" prefWidth="223.0" scaleZ="-5.0" text="Horarios Actividades">
+                           <VBox.margin>
+                              <Insets left="-11.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ManClientes" layoutX="18.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ManClientes" prefHeight="38.0" prefWidth="223.0" scaleZ="-5.0" text="Clientes">
+                           <VBox.margin>
+                              <Insets left="-11.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ManEstados" layoutX="18.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ManEstados" prefHeight="38.0" prefWidth="223.0" scaleZ="-5.0" text="Estados Reservas">
+                           <VBox.margin>
+                              <Insets left="-11.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ManReserva" layoutX="18.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ManReserva" prefHeight="38.0" prefWidth="223.0" scaleZ="-5.0" text="Reserva">
+                           <VBox.margin>
+                              <Insets left="-11.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ManReservaAc" layoutX="18.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ManReservaAc" prefHeight="38.0" prefWidth="223.0" scaleZ="-5.0" text="Reserva Actividades">
+                           <VBox.margin>
+                              <Insets left="-11.0" />
+                           </VBox.margin></Button>
                             </VBox>
                         </TitledPane>
 
                         <!-- Movimientos -->
-                        <TitledPane fx:id="Movimientos" mnemonicParsing="false" style="-fx-background-color: black;" text="Movimientos">
-                            <VBox spacing="5">
+                        <TitledPane fx:id="Movimientos" mnemonicParsing="false" prefHeight="0.0" prefWidth="198.0" text="Movimientos">
+                            <VBox prefHeight="3373.0" prefWidth="208.0" spacing="5">
                                 <padding>
                                     <Insets bottom="10" left="10" right="10" top="10" />
                                 </padding>
-                                <Button mnemonicParsing="false" prefWidth="180" text="Cuotas" />
+                                <Button fx:id="AdCuotas" mnemonicParsing="false" onAction="#AdCuotas" prefHeight="32.0" prefWidth="186.0" text="Cuotas">
+                           <VBox.margin>
+                              <Insets left="-11.0" />
+                           </VBox.margin></Button>
                             </VBox>
                         </TitledPane>
 
@@ -72,38 +123,111 @@
                                 <padding>
                                     <Insets bottom="10" left="10" right="10" top="10" />
                                 </padding>
-                                <Button mnemonicParsing="false" prefWidth="180" text="Actualizar Cuota" />
+                                <Button fx:id="GenerarCobro" mnemonicParsing="false" onAction="#GenerarCobro" prefHeight="36.0" prefWidth="186.0" text="Generar Cobro">
+
+
+                                    <VBox.margin>
+                              <Insets left="-11.0" />
+                           </VBox.margin></Button>
+                                <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="186.0" text="Reversar Cobro">
+                           <VBox.margin>
+                              <Insets left="-11.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ActualizaCuota" mnemonicParsing="false" onAction="#ActualizaCuota" prefHeight="36.0" prefWidth="186.0" text="Actualiza Cuota">
+                           <VBox.margin>
+                              <Insets left="-11.0" />
+                           </VBox.margin></Button>
+
                             </VBox>
                         </TitledPane>
 
                         <!-- Consultas -->
-                        <TitledPane fx:id="Consultas" mnemonicParsing="false" text="Consultas">
-                            <VBox spacing="5">
+                        <TitledPane fx:id="Consultas" mnemonicParsing="false" prefHeight="424.0" prefWidth="250.0" text="Consultas">
+                            <VBox spacing="5" style="-fx-background-color: black;">
                                 <padding>
                                     <Insets bottom="10" left="10" right="10" top="10" />
                                 </padding>
-                                <Button fx:id="ConEntrenador" mnemonicParsing="false" onAction="#ConEntrenador" prefWidth="180" text="Entrenador" />
-                                <Button fx:id="ConLocalización" mnemonicParsing="false" onAction="#ConLocalización" prefWidth="180" text="Localización" />
-                                <Button fx:id="ConSalas" mnemonicParsing="false" onAction="#ConSalas" prefWidth="180" text="Salas" />
-                                <Button fx:id="ConActividades" mnemonicParsing="false" onAction="#ConActividades" prefWidth="180" text="Actividades" />
-                                <Button fx:id="ConHorarios" mnemonicParsing="false" onAction="#ConHorarios" prefWidth="180" text="Horarios Actividades" />
-                                <Button fx:id="ConCobroFecha" mnemonicParsing="false" onAction="#ConCobroFecha" prefWidth="180" text="Cobro por rango de fecha" />
-                                <Button fx:id="ConCobroCliente" mnemonicParsing="false" onAction="#ConCobroCliente" prefWidth="180" text="Cobro por Cliente" />
-                                <Button fx:id="ConCuotaFecha" mnemonicParsing="false" onAction="#ConCuotaFecha" prefWidth="180" text="Cuota por fecha" />
-                        <Button fx:id="ConCuotaClientes" mnemonicParsing="false" onAction="#ConCuotaClientes" prefWidth="180" text="Cuota por Clientes" />
-                                <Button fx:id="ConClientes" mnemonicParsing="false" onAction="#ConClientes" prefWidth="180" text="Clientes" />
+                                <Button fx:id="ConUsuarios" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConUsuarios" prefHeight="32.0" prefWidth="265.0" text="Usuarios">
+                           <padding>
+                              <Insets left="-26.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets left="-38.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ConEntrenador" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConEntrenador" prefHeight="32.0" prefWidth="265.0" text="Entrenador">
+                           <VBox.margin>
+                              <Insets left="-38.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ConLocalización" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConLocalización" prefHeight="32.0" prefWidth="265.0" text="Localización">
+                           <VBox.margin>
+                              <Insets left="-38.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ConSalas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConSalas" prefHeight="32.0" prefWidth="265.0" text="Salas">
+                           <VBox.margin>
+                              <Insets left="-38.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ConActividades" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConActividades" prefHeight="32.0" prefWidth="265.0" text="Actividades">
+                           <VBox.margin>
+                              <Insets left="-38.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ConHorarios" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConHorarios" prefHeight="32.0" prefWidth="265.0" text="Horarios Actividades">
+                           <VBox.margin>
+                              <Insets left="-38.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ConCobroFecha" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCobroFecha" prefHeight="32.0" prefWidth="265.0" text="Cobro por rango de fecha">
+                           <VBox.margin>
+                              <Insets left="-38.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ConCobroCliente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCobroCliente" prefHeight="32.0" prefWidth="265.0" text="Cobro por cliente">
+                           <VBox.margin>
+                              <Insets left="-38.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ConCuotaFecha" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCuotaFecha" prefHeight="32.0" prefWidth="265.0" text="Cuota por fecha">
+                           <VBox.margin>
+                              <Insets left="-38.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ConCuotaClientes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCuotaClientes" prefHeight="32.0" prefWidth="265.0" text="Cuota por Clientes">
+                           <VBox.margin>
+                              <Insets left="-38.0" />
+                           </VBox.margin></Button>
+                                <Button fx:id="ConClientes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConClientes" prefHeight="32.0" prefWidth="265.0" text="Clientes">
+                           <VBox.margin>
+                              <Insets left="-38.0" />
+                           </VBox.margin></Button>
                             </VBox>
                         </TitledPane>
 
                     </panes>
+               <padding>
+                  <Insets left="-4.0" />
+               </padding>
                 </Accordion>
+            <VBox.margin>
+               <Insets bottom="-25.0" />
+            </VBox.margin>
+            <opaqueInsets>
+               <Insets bottom="6.0" />
+            </opaqueInsets>
+            <padding>
+               <Insets bottom="20.0" />
+            </padding>
             </ScrollPane>
+         <BorderPane.margin>
+            <Insets left="-1.0" right="-16.0" />
+         </BorderPane.margin>
         </VBox>
     </left>
 
     <!-- Centro -->
     <center>
-        <Pane prefHeight="773.0" prefWidth="647.0" style="-fx-background-color: Grey;" BorderPane.alignment="CENTER" />
+        <Pane layoutX="21.0" prefHeight="721.0" prefWidth="897.0" style="-fx-background-color: Grey;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="782.0" fitWidth="1179.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/catalogo-de-nombres-para-gimnasios-3213781001.jpg" />
+               </image>
+            </ImageView>
+         </children></Pane>
     </center>
 
 </BorderPane>

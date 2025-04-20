@@ -11,9 +11,8 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <TextField fx:id="TextField" layoutX="34.0" layoutY="128.0" onAction="#Consultar" />
-      <Button fx:id="Limpiar" layoutX="636.0" layoutY="129.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="26.0" prefWidth="26.0" text="X" textFill="RED" />
-      <Button fx:id="Consultar" layoutX="934.0" layoutY="128.0" mnemonicParsing="false" onAction="#Consultar" text="Consultar" />
+      <TextField fx:id="TextField" layoutX="34.0" layoutY="128.0" onAction="#Consultar" promptText="Consultar" />
+      <Button fx:id="Limpiar" layoutX="921.0" layoutY="27.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="26.0" prefWidth="26.0" text="X" textFill="RED" />
       <RadioButton fx:id="Filtro1" layoutX="202.0" layoutY="132.0" mnemonicParsing="false" selected="true" text="ID">
          <toggleGroup>
             <ToggleGroup fx:id="Grupo1" />

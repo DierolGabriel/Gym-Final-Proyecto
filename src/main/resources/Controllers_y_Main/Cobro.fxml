@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.Cobro">
+   <children>
+      <Pane layoutY="3.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Text layoutX="260.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cobro" />
+            <TableView layoutX="26.0" layoutY="113.0" prefHeight="200.0" prefWidth="504.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Id cobro" />
+                <TableColumn prefWidth="75.0" text="fecha de cobro" />
+                  <TableColumn prefWidth="75.0" text="Id de Cliente" />
+                  <TableColumn prefWidth="75.0" text="Valor " />
+                  <TableColumn prefWidth="75.0" text="Concepto " />
+                  <TableColumn prefWidth="75.0" text="Status" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

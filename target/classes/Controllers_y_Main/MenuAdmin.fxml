@@ -4,12 +4,37 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane prefHeight="815.0" prefWidth="1051.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.MenuController">
 
     <!-- Top panel -->
     <top>
-        <Pane prefHeight="34.0" prefWidth="870.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER" />
+        <Pane prefHeight="34.0" prefWidth="870.0" style="-fx-background-color: Black;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="14.0" prefHeight="31.0" prefWidth="321.0" text="Gimnasio FitnesFinal">
+               <font>
+                  <Font name="Arial Black" size="27.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5441988950276243" centerY="0.2535545023696682" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.5657894611358643" green="0.22788742184638977" blue="0.22788742184638977" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+         </children></Pane>
     </top>
 
     <!-- Left panel -->
@@ -26,11 +51,11 @@
                   <Image url="@../Imagenes/avatarperfil.png" />
                </image>
                 </ImageView>
-                <Label text="Administrador" />
+                <Label style="-fx-text-fill: black;" styleClass="text" text="Administrador" />
             </VBox>
 
             <!-- Menú con Scroll y Accordion -->
-            <ScrollPane fitToWidth="true" prefHeight="626.0" prefWidth="250.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS">
+            <ScrollPane fitToWidth="true" prefHeight="601.0" prefWidth="250.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS">
                 <Accordion prefHeight="562.0" prefWidth="246.0" style="-fx-background-color: black;">
                     <panes>
 
@@ -92,7 +117,7 @@
                                 <padding>
                                     <Insets bottom="10" left="10" right="10" top="10" />
                                 </padding>
-                                <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="186.0" text="Cuotas">
+                                <Button fx:id="AdCuotas" mnemonicParsing="false" onAction="#AdCuotas" prefHeight="32.0" prefWidth="186.0" text="Cuotas">
                            <VBox.margin>
                               <Insets left="-11.0" />
                            </VBox.margin></Button>
@@ -105,15 +130,17 @@
                                 <padding>
                                     <Insets bottom="10" left="10" right="10" top="10" />
                                 </padding>
-                                <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="186.0" text="Generar Cobro">
-                           <VBox.margin>
+                                <Button fx:id="GenerarCobro" mnemonicParsing="false" onAction="#GenerarCobro" prefHeight="36.0" prefWidth="186.0" text="Generar Cobro">
+
+
+                                    <VBox.margin>
                               <Insets left="-11.0" />
                            </VBox.margin></Button>
                                 <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="186.0" text="Reversar Cobro">
                            <VBox.margin>
                               <Insets left="-11.0" />
                            </VBox.margin></Button>
-                                <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="186.0" text="Actualiza Cuota">
+                                <Button fx:id="ActualizaCuota" mnemonicParsing="false" onAction="#ActualizaCuota" prefHeight="36.0" prefWidth="186.0" text="Actualiza Cuota">
                            <VBox.margin>
                               <Insets left="-11.0" />
                            </VBox.margin></Button>
@@ -200,7 +227,14 @@
 
     <!-- Centro -->
     <center>
-        <Pane layoutX="21.0" prefHeight="721.0" prefWidth="897.0" style="-fx-background-color: Grey;" BorderPane.alignment="CENTER" />
+        <Pane layoutX="21.0" prefHeight="721.0" prefWidth="897.0" style="-fx-background-color: Grey;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="782.0" fitWidth="1179.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/catalogo-de-nombres-para-gimnasios-3213781001.jpg" />
+               </image>
+            </ImageView>
+         </children></Pane>
     </center>
 
 </BorderPane>

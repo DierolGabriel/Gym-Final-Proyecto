@@ -11,7 +11,7 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <TextField fx:id="TextField" layoutX="21.0" layoutY="115.0" onAction="#Consultar" />
+      <TextField fx:id="TextField" layoutX="21.0" layoutY="115.0" onAction="#Consultar" promptText="Consultar" />
       <Button fx:id="Limpiar" layoutX="678.0" layoutY="21.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="26.0" prefWidth="26.0" text="X" textFill="RED" />
       <RadioButton fx:id="Filtro1" layoutX="221.0" layoutY="124.0" mnemonicParsing="false" selected="true" text="ID Actividad">
          <toggleGroup>

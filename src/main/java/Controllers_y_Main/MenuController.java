@@ -10,6 +10,19 @@ import java.io.IOException;
 
 public class MenuController {
 
+
+    @FXML
+    private Button ConCuotaFecha;
+
+    @FXML
+    private Button AdCuotas;
+
+    @FXML
+    private Button ActualizaCuota;
+
+    @FXML
+    private Button GenerarCobro;
+
     @FXML
     private Button ConActividades;
 
@@ -28,8 +41,7 @@ public class MenuController {
     @FXML
     private Button ConCuotaClientes;
 
-    @FXML
-    private Button ConCuotaFecha;
+
 
     @FXML
     private Button ConEntrenador;
@@ -119,11 +131,8 @@ public class MenuController {
     @FXML
     void ConCuotaClientes(ActionEvent event) {
 
-    }
 
-    @FXML
-    void ConCuotaFecha(ActionEvent event)
-    {
+
     }
 
     @FXML
@@ -217,4 +226,26 @@ public class MenuController {
         menuAdmin.Usuarios(new Stage());
     }
 
+    @FXML
+    void  GenerarCobro(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.GenerarCobro(new Stage());
+    }
+    @FXML
+    void  ActualizaCuota(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ActualizaCuota(new Stage());
+    }
+
+    @FXML
+    void  AdCuotas(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ActualizaCuota(new Stage());
+    }
+
+    @FXML
+    void  ConCuotaFecha(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ConCuotaFecha(new Stage());
+    }
 }

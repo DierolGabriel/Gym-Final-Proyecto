@@ -6,8 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -58,20 +56,6 @@ public class ConSalasController {
 
         // Cargar los datos del archivo
         cargarSalas();
-        configurarListenerID();
-    }
-
-    private void configurarListenerID() {
-        TextField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null && !newValue.isEmpty())
-            {
-                Consultar(null);
-            }
-            else
-            {
-                Consultar(null);
-            }
-        });
     }
 
     private void cargarSalas() {
@@ -135,8 +119,10 @@ public class ConSalasController {
 
     @FXML
     void Limpiar(ActionEvent event) {
-        Stage stageActual = (Stage) TextField.getScene().getWindow();
-        stageActual.close();
+        TextField.clear();
+        Table.setItems(listaSalas);
+        // Seleccionar el primer filtro por defecto
+        Filtro1.setSelected(true);
     }
 
     private void mostrarAlerta(String mensaje) {
@@ -164,5 +150,8 @@ public class ConSalasController {
         public String getIdLocalizacion() { return idLocalizacion; }
         public String getNombre() { return nombre; }
         public String getDescripcion() { return descripcion; }
+    }
+
+    public static class CuotaporfechaControll {
     }
 }

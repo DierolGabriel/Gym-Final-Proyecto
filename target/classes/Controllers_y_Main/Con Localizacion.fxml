@@ -11,15 +11,15 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <TextField fx:id="TextField" layoutX="24.0" layoutY="123.0" onAction="#Consultar" />
+      <TextField fx:id="TextField" layoutX="20.0" layoutY="118.0" onAction="#Consultar" promptText="Consultar" />
       <Button fx:id="Limpiar" layoutX="679.0" layoutY="30.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="26.0" prefWidth="26.0" text="X" textFill="RED" />
-      <RadioButton fx:id="Filtro1" layoutX="205.0" layoutY="127.0" mnemonicParsing="false" selected="true" text="ID">
+      <RadioButton fx:id="Filtro1" layoutX="214.0" layoutY="119.0" mnemonicParsing="false" selected="true" text="ID">
          <toggleGroup>
             <ToggleGroup fx:id="Grupo1" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="Filtro2" layoutX="304.0" layoutY="127.0" mnemonicParsing="false" text="Tipo" toggleGroup="$Grupo1" />
-      <Label layoutX="178.0" layoutY="105.0" text="Filtros:" />
+      <RadioButton fx:id="Filtro2" layoutX="313.0" layoutY="119.0" mnemonicParsing="false" text="Tipo" toggleGroup="$Grupo1" />
+      <Label layoutX="187.0" layoutY="97.0" text="Filtros:" />
       <TableView fx:id="Table" layoutX="3.0" layoutY="161.0" prefHeight="411.0" prefWidth="732.0">
          <columns>
             <TableColumn fx:id="colID" prefWidth="75.0" style="-fx-background-color: Black;" text="ID" />
