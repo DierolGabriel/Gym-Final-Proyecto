@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="474.0" prefWidth="627.0" style="-fx-background-color: Black;" stylesheets="@../CSS/ConEntrenador.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.VolanteCobrosController">
+   <children>
+       <TableView fx:id="tablaCobros" layoutY="74.0" prefHeight="400.0" prefWidth="627.0">
+           <columns>
+               <TableColumn fx:id="IDCobro" prefWidth="90.0" style="-fx-background-color: black;" text="ID Cobro" />
+               <TableColumn fx:id="FechaCobro" prefWidth="96.0" style="-fx-background-color: black;" text="Fecha Cobro" />
+               <TableColumn fx:id="IDCliente" prefWidth="90.0" style="-fx-background-color: black;" text="ID Cliente" />
+               <TableColumn fx:id="ValorCobro" prefWidth="110.0" style="-fx-background-color: black;" text="Valor Cobro" />
+               <TableColumn fx:id="ConceptoCobro" prefWidth="151.0" style="-fx-background-color: black;" text="Concepto Cobro" />
+               <TableColumn fx:id="Status" prefWidth="88.0" style="-fx-background-color: black;" text="Status" />
+           </columns>
+       </TableView>
+      <Button fx:id="Imprimir" layoutX="24.0" layoutY="29.0" mnemonicParsing="false" onAction="#imprimirPDF" text="Imprimir en PDF" />
+      <Button fx:id="Salir" layoutX="545.0" layoutY="29.0" mnemonicParsing="false" onAction="#salir" text="Salir" />
+   </children>
+</AnchorPane>
