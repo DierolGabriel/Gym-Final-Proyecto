@@ -9,6 +9,7 @@ module org.example.demo {
     requires eu.hansolo.tilesfx;
     requires java.desktop;
     requires annotations;
+    requires org.apache.pdfbox;
 
     opens Controllers_y_Main to javafx.fxml;
     exports Controllers_y_Main;

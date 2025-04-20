@@ -305,4 +305,11 @@ public class GenerarCobroControll {
         }
         return ultimoId;
     }
+
+    @FXML
+    private void Imprimir()
+    {
+        VolanteCobrosController imprimir = new VolanteCobrosController();
+        imprimir.imprimirPDF();
+    }
 }

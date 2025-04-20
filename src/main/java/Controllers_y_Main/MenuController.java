@@ -41,8 +41,6 @@ public class MenuController {
     @FXML
     private Button ConCuotaClientes;
 
-
-
     @FXML
     private Button ConEntrenador;
 
@@ -113,10 +111,6 @@ public class MenuController {
         menuAdmin.ConClientes(new Stage());
     }
 
-    @FXML
-    void ConClientesPendiente(ActionEvent event) {
-
-    }
 
     @FXML
     void ConCobroCliente(ActionEvent event) {
@@ -240,7 +234,7 @@ public class MenuController {
     @FXML
     void  AdCuotas(ActionEvent event) throws IOException {
         MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.ActualizaCuota(new Stage());
+        menuAdmin.AdCuotas(new Stage());
     }
 
     @FXML

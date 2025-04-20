@@ -1,41 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.Cuotacontroller">
+<AnchorPane prefHeight="766.0" prefWidth="889.0" style="-fx-background-color: Black;" stylesheets="@../CSS/ConEntrenador.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.Cuotacontroller">
    <children>
-      <Pane layoutX="124.0" layoutY="42.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Text layoutX="55.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="N cuota" />
-            <Text layoutX="44.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id  Cliente" />
-            <DatePicker layoutX="480.0" layoutY="31.0" prefHeight="25.0" prefWidth="87.0" />
-            <Text layoutX="401.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="fecha" />
-            <TextField layoutX="112.0" layoutY="39.0" />
-            <TextField layoutX="107.0" layoutY="87.0" />
-            <Text layoutX="44.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="valor de cobro" />
-            <TableView layoutX="38.0" layoutY="186.0" prefHeight="200.0" prefWidth="524.0">
-              <columns>
-                <TableColumn prefWidth="75.0" text=" Id  cuota" />
-                <TableColumn prefWidth="75.0" text="Sec" />
-                  <TableColumn prefWidth="75.0" text="concepto" />
-                  <TableColumn prefWidth="75.0" text="valor " />
-                  <TableColumn prefWidth="75.0" text="Id cobro" />
-                  <TableColumn prefWidth="75.0" text="Sec" />
-                  <TableColumn prefWidth="75.0" text="check" />
-              </columns>
-            </TableView>
-            <Text layoutX="361.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre salida " />
-            <TextField disable="true" layoutX="483.0" layoutY="87.0" prefHeight="25.0" prefWidth="87.0" />
-            <TextField disable="true" layoutX="167.0" layoutY="137.0" prefHeight="25.0" prefWidth="87.0" />
-            <Text layoutX="250.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cuota" />
-         </children>
-      </Pane>
+      <DatePicker fx:id="Fecha" disable="true" editable="false" layoutX="425.0" layoutY="129.0" prefHeight="39.0" prefWidth="172.0" />
+      <Text fill="WHITE" layoutX="365.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="343.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cuota">
+         <font>
+            <Font name="Arial Black" size="31.0" />
+         </font>
+      </Text>
+      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="597.0" layoutY="58.0" />
+      <Text fill="WHITE" layoutX="34.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID cuota">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Text>
+      <TextField fx:id="IDCuota" layoutX="129.0" layoutY="130.0" />
+      <Text fill="WHITE" layoutX="23.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID cliente">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="Idcliente" disable="true" layoutX="129.0" layoutY="199.0" prefHeight="25.0" prefWidth="172.0" />
+      <Text fill="WHITE" layoutX="23.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor a cobrar">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Text>
+      <TextField fx:id="Valor" disable="true" editable="false" layoutX="152.0" layoutY="259.0" />
+      <Text fill="WHITE" layoutX="354.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Text>
+      <TextField fx:id="Nombre" disable="true" editable="false" layoutX="425.0" layoutY="195.0" />
+      <TableView fx:id="tablaCobros" layoutX="41.0" layoutY="330.0" prefHeight="328.0" prefWidth="825.0" style="-fx-background-color: B;">
+         <columns>
+            <TableColumn fx:id="IDCobro" prefWidth="86.0" style="-fx-background-color: black;" text="ID Cobro" />
+            <TableColumn fx:id="FechaCobro" prefWidth="168.0" style="-fx-background-color: black;" text="Fecha Cobro" />
+            <TableColumn fx:id="IDCliente" prefWidth="91.0" style="-fx-background-color: black;" text="ID Cliente" />
+            <TableColumn fx:id="ValorCobro" prefWidth="117.0" style="-fx-background-color: black;" text="Valor Cobro" />
+            <TableColumn fx:id="ConceptoCobro" prefWidth="174.0" style="-fx-background-color: black;" text="Concepto Cobro" />
+            <TableColumn fx:id="Status" prefWidth="100.0" style="-fx-background-color: black;" text="Status" />
+            <TableColumn fx:id="Seleccionado" minWidth="0.0" prefWidth="85.0" style="-fx-background-color: black;" text="Selección" />
+         </columns>
+      </TableView>
+      <Button fx:id="Guardar" layoutX="129.0" layoutY="688.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
+      <Button fx:id="Salir" layoutX="622.0" layoutY="688.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
+      <Button fx:id="Limpiar" layoutX="359.0" layoutY="688.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
    </children>
 </AnchorPane>

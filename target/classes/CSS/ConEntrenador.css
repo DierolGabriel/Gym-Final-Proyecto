@@ -40,14 +40,6 @@
     -fx-effect: dropshadow(gaussian, rgba(229, 9, 20, 0.4), 5, 0.3, 0, 2);
 }
 
-/* Botón de limpiar con estilo especial (la X roja) */
-#Limpiar {
-    -fx-background-color: transparent;
-    -fx-text-fill: red;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-}
-
 /* Hover efectos */
 .button:hover {
     -fx-background-color: #ff1a1a;
@@ -141,4 +133,39 @@
     -fx-border-radius: 12;
     -fx-border-color: rgba(255,255,255,0.2);
     -fx-font-size: 13px;
+}
+
+/* COMBOBOX */
+.combo-box {
+    -fx-background-color: rgba(255, 255, 255, 0.07);
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+}
+.combo-box-popup .list-cell {
+    -fx-background-color: Black; /* Fondo de cada ítem */
+    -fx-text-fill: white; /* Color del texto */
+}
+.combo-box-popup .list-cell:hover
+{
+    -fx-background-color: Red;
+}
+
+/* BOTONES ROJOS */
+.button {
+    -fx-background-color: #e50914; /* Rojo estilo Netflix */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(229, 9, 20, 0.4), 5, 0.3, 0, 2);
+}
+
+/* BOTONES HOVER */
+.button:hover {
+    -fx-background-color: #ff1a1a;
 }

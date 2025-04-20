@@ -195,7 +195,7 @@ public class MenuAdmin extends Application
     public void AdCuotas(Stage stage) throws  IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Cuota.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1123, 723);
+        Scene scene = new Scene(fxmlLoader.load(), 889, 766);
         stage.setTitle("Cuota");
         stage.setScene(scene);
         stage.show();

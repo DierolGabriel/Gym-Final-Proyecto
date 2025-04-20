@@ -1,6 +1,4 @@
-1:1/5/2025:001:1500:cobro de mayo:false
-2:1/5/2025:002:2000:cobro de mayo:false
-3:11/4/2025:001:1500:cobro de abril:false
-4:11/4/2025:002:2000:cobro de abril:false
-5:23/10/2025:001:1500:cobro de octubre:false
-6:23/10/2025:002:2000:cobro de octubre:false
+1:1/3/2025:001:1500:cobro de marzo:true
+2:1/3/2025:002:2000:cobro de marzo:true
+3:14/8/2025:001:1500:cobro de agosto:true
+4:14/8/2025:002:2000:cobro de agosto:true
