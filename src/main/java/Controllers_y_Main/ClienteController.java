@@ -321,7 +321,6 @@ public class ClienteController {
                 txtTelefono.getText().trim().isEmpty() ||
                 txtCelular.getText().trim().isEmpty() ||
                 txtCorreo.getText().trim().isEmpty() ||
-                txtBalance.getText().trim().isEmpty() ||
                 txtValorCuota.getText().trim().isEmpty() ||
                 GrupoTipo.getSelectedToggle() == null ||
                 GrupoStatus.getSelectedToggle() == null) {
@@ -359,12 +358,6 @@ public class ClienteController {
             return false;
         }
 
-        try {
-            Double.parseDouble(txtBalance.getText().trim());
-        } catch (NumberFormatException e) {
-            mostrarAlerta("El balance debe ser un valor numérico");
-            return false;
-        }
 
         try {
             Double.parseDouble(txtValorCuota.getText().trim());

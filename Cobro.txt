@@ -1,1 +1,6 @@
-001:Dierol:Diaz Perez:Sarante:Calle 99 Esq. Rompe iun dedo:13/1/2006:2134879:0992134897:6/4/2025:Dierol@gmail.com:436346:1500:Socio Activo:Pasivo
+1:1/5/2025:001:1500:cobro de mayo:false
+2:1/5/2025:002:2000:cobro de mayo:false
+3:11/4/2025:001:1500:cobro de abril:false
+4:11/4/2025:002:2000:cobro de abril:false
+5:23/10/2025:001:1500:cobro de octubre:false
+6:23/10/2025:002:2000:cobro de octubre:false

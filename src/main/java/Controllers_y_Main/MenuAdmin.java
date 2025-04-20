@@ -179,7 +179,7 @@ public class MenuAdmin extends Application
     public void GenerarCobro(Stage stage) throws  IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Generar_cobro.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1123, 723);
+        Scene scene = new Scene(fxmlLoader.load(), 1645, 533);
         stage.setTitle("Generar Cobro");
         stage.setScene(scene);
         stage.show();
@@ -206,6 +206,15 @@ public class MenuAdmin extends Application
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Cuota_por_fecha.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1123, 723);
         stage.setTitle("Cuota por fecha");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void PestanaDeCobros(Stage stage) throws  IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Pestaña de cobros.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 627, 400);
+        stage.setTitle("Cobros");
         stage.setScene(scene);
         stage.show();
     }

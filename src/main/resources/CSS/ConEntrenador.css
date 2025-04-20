@@ -96,3 +96,49 @@
     -fx-text-fill: white;
     -fx-border-color: #664848;
 }
+
+/* ===== ESTILOS PARA EL DATEPICKER (POPUP) ===== */
+/* Fondo del menú desplegable */
+.date-picker-popup {
+    -fx-background-color: black; /* Fondo negro */
+    -fx-border-color: rgba(255, 255, 255, 0.2); /* Borde sutil */
+}
+
+/* Celdas del calendario */
+.date-cell {
+    -fx-background-color: black; /* Fondo negro */
+    -fx-text-fill: white; /* Texto blanco */
+    -fx-border-color: rgba(255, 255, 255, 0.1); /* Bordes sutiles */
+}
+
+/* Día seleccionado */
+.date-cell:selected {
+    -fx-background-color: #e50914; /* Rojo Netflix al seleccionar */
+    -fx-text-fill: white;
+}
+
+/* Efecto hover en días */
+.date-cell:hover {
+    -fx-background-color: #ff1a1a; /* Rojo más claro al pasar el mouse */
+    -fx-text-fill: white;
+}
+
+/* Cabecera del calendario (mes/año) */
+.month-year-pane {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+/* Botones de navegación (flechas) */
+.left-arrow, .right-arrow {
+    -fx-background-color: white; /* Flechas blancas */
+}
+
+.date-picker {
+    -fx-background-color: rgba(255, 255, 255, 0.07);
+    -fx-text-fill: white;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-font-size: 13px;
+}
