@@ -200,7 +200,8 @@ public class Cuotacontroller {
 
             while ((linea = br.readLine()) != null && !linea.isEmpty()) {
                 String[] partes = linea.split(":");
-                if (partes.length >= 1 && partes[0].equals(idCuota)) {
+                if (partes.length >= 5 && partes[0].equals(idCuota) && partes[4].equals("false"))
+                {
                     cargarDatosCuota(partes);
                     encontrado = true;
                     modificando = true;
@@ -260,7 +261,7 @@ public class Cuotacontroller {
                 if (!linea.trim().isEmpty()) {
                     String[] partes = linea.split(":");
                     if (partes.length >= 2 && partes[0].equals(idCliente)) {
-                        Nombre.setText(partes[1].trim() + " " + partes[2].trim() + " " + partes[3].trim());
+                        Nombre.setText(partes[1].trim());
                         break;
                     }
                 }
@@ -281,7 +282,8 @@ public class Cuotacontroller {
             while ((linea = br.readLine()) != null) {
                 if (!linea.trim().isEmpty()) {
                     String[] partes = linea.split(":");
-                    if (partes.length >= 6 && partes[2].equals(idCliente) && !partes[5].equals("true")) {
+                    if (partes.length >= 6 && partes[2].equals(idCliente) && partes[5].equals("false"))
+                    {
                         int idCobro = Integer.parseInt(partes[0]);
                         String fecha = partes[1];
                         double valor = Double.parseDouble(partes[3]);

@@ -52,6 +52,9 @@
             <TableColumn fx:id="Status" prefWidth="100.0" style="-fx-background-color: black;" text="Status" />
             <TableColumn fx:id="Seleccionado" minWidth="0.0" prefWidth="85.0" style="-fx-background-color: black;" text="Selección" />
          </columns>
+         <placeholder>
+            <Label text="Este Cliente no tiene Cobros por pagar" />
+         </placeholder>
       </TableView>
       <Button fx:id="Guardar" layoutX="129.0" layoutY="688.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
       <Button fx:id="Salir" layoutX="622.0" layoutY="688.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />

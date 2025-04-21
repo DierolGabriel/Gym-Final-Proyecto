@@ -109,14 +109,15 @@ public class VolanteCobrosController {
             while ((linea = br.readLine()) != null) {
                 if (!linea.trim().isEmpty()) {
                     String[] partes = linea.split(":");
-                    if (partes.length >= 6) {
+                    if (partes.length >= 6 && partes[5].equals("false"))
+                    {
                         try {
                             int id = Integer.parseInt(partes[0].trim());
                             String fecha = partes[1].trim();
                             String idCliente = partes[2].trim();
                             double valor = Double.parseDouble(partes[3].trim());
                             String concepto = partes[4].trim();
-                            boolean status = Boolean.parseBoolean(partes[5].trim());
+                            boolean status = false;
 
                             listaCobros.add(new Cobro(id, fecha, idCliente, valor, concepto, status));
                         } catch (NumberFormatException e) {
