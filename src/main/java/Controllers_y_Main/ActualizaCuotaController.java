@@ -120,7 +120,7 @@ public class ActualizaCuotaController {
         for (String line : lines) {
             String[] parts = line.split(":");
             if (parts.length >= 12 && parts[0].equals(idCliente)) {
-                // Actualizar balance
+
                 double balance = Double.parseDouble(parts[10]);
                 balance -= valor;
                 parts[10] = String.format("%.1f", balance);

@@ -99,8 +99,8 @@ public class GenerarCobroControll {
                                 partes[9].trim(),
                                 partes[10].trim(),
                                 partes[11].trim(),
-                                partes[12].trim(),
-                                partes[13].trim()
+                                partes[13].trim(),
+                                partes[12].trim()
                         );
                         listaClientes.add(cliente);
                     }
@@ -157,8 +157,8 @@ public class GenerarCobroControll {
                             cliente.getCorreo(),
                             String.valueOf(nuevoBalance),
                             cliente.getValorCuota(),
-                            cliente.getTipo(),
-                            cliente.getStatus()
+                            cliente.getStatus(),
+                            cliente.getTipo()
                     );
                     listaClientes.set(i, clienteActualizado);
                     clientesActualizados.add(clienteActualizado);
@@ -213,6 +213,7 @@ public class GenerarCobroControll {
                         cliente.getValorCuota(),
                         cliente.getTipo(),
                         cliente.getStatus()
+
                 );
                 bw.write(linea);
                 bw.newLine();

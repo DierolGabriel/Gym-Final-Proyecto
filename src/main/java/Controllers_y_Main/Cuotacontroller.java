@@ -239,7 +239,7 @@ public class Cuotacontroller {
             while ((linea = br.readLine()) != null) {
                 if (!linea.trim().isEmpty()) {
                     String[] partes = linea.split(":");
-                    if (partes.length >= 14 && partes[12].equals("Activo") && partes[13].equals("Socio Activo"))
+                    if (partes.length >= 14 && partes[12].equals("Socio Activo") && partes[13].equals("Activo"))
                     {
                         Idcliente.getItems().add(partes[0].trim());
                     }

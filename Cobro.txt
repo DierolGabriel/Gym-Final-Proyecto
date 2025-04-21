@@ -1,2 +1,1 @@
-1:1/4/2025:001:1500:cobro de abril:false
-2:1/4/2025:002:2000:cobro de abril:false
+
