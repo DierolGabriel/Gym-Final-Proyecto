@@ -10,7 +10,6 @@ import java.io.IOException;
 
 public class MenuUsuarioController {
 
-
     @FXML
     private Button ActualizaCuota;
 
@@ -24,16 +23,10 @@ public class MenuUsuarioController {
     private Button ConClientes;
 
     @FXML
-    private Button ConCobroCliente;
+    private Button ConCobro;
 
     @FXML
-    private Button ConCobroFecha;
-
-    @FXML
-    private Button ConCuotaClientes;
-
-    @FXML
-    private Button ConCuotaFecha;
+    private Button ConCuota;
 
     @FXML
     private Button ConEntrenador;
@@ -83,6 +76,7 @@ public class MenuUsuarioController {
     @FXML
     private Button ManSalas;
 
+
     @FXML
     private TitledPane Mantenimiento;
 
@@ -93,21 +87,15 @@ public class MenuUsuarioController {
     private TitledPane Procesos;
 
     @FXML
-    void ActualizaCuota(ActionEvent event) throws IOException {
+    void ConCuota(ActionEvent event) throws IOException {
         MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.ActualizaCuota(new Stage());
+        menuAdmin.ConCuota(new Stage());
     }
 
     @FXML
-    void AdCuotas(ActionEvent event) throws IOException {
+    void ConCobro(ActionEvent event) throws IOException {
         MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.AdCuotas(new Stage());
-    }
-
-    @FXML
-    void GenerarCobro(ActionEvent event) throws IOException {
-        MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.GenerarCobro(new Stage());
+        menuAdmin.ConCobro(new Stage());
     }
 
     @FXML
@@ -117,34 +105,10 @@ public class MenuUsuarioController {
     }
 
     @FXML
-    void ConClientes(ActionEvent event) throws IOException {
+    void ConClientes(ActionEvent event) throws IOException
+    {
         MenuAdmin menuAdmin = new MenuAdmin();
         menuAdmin.ConClientes(new Stage());
-    }
-
-    @FXML
-    void ConClientesPendiente(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ConCobroCliente(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ConCobroFecha(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ConCuotaClientes(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ConCuotaFecha(ActionEvent event)
-    {
     }
 
     @FXML
@@ -225,10 +189,28 @@ public class MenuUsuarioController {
         menuAdmin.ReservaAct(new Stage());
     }
 
+
     @FXML
     void ManSalas(ActionEvent event) throws IOException {
         MenuAdmin menuAdmin = new MenuAdmin();
         menuAdmin.Salas(new Stage());
+    }
+
+    @FXML
+    void  GenerarCobro(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.GenerarCobro(new Stage());
+    }
+    @FXML
+    void  ActualizaCuota(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ActualizaCuota(new Stage());
+    }
+
+    @FXML
+    void  AdCuotas(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.AdCuotas(new Stage());
     }
 
 }

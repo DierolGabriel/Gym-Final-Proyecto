@@ -226,6 +226,11 @@
                   <Image url="@../Imagenes/catalogo-de-nombres-para-gimnasios-3213781001.jpg" />
                </image>
             </ImageView>
+            <ImageView fitHeight="411.0" fitWidth="424.0" layoutX="204.0" layoutY="186.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/pngtree-fitness-gym-logo-png-png-image_7964069-1066342935.png" />
+               </image>
+            </ImageView>
          </children></Pane>
     </center>
 

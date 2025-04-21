@@ -174,19 +174,11 @@
                            <VBox.margin>
                               <Insets left="-38.0" />
                            </VBox.margin></Button>
-                                <Button fx:id="ConCobroFecha" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCobroFecha" prefHeight="32.0" prefWidth="265.0" text="Cobro por rango de fecha">
+                                <Button fx:id="ConCobro" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCobro" prefHeight="32.0" prefWidth="265.0" text="Cobro por cliente">
                            <VBox.margin>
                               <Insets left="-38.0" />
                            </VBox.margin></Button>
-                                <Button fx:id="ConCobroCliente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCobroCliente" prefHeight="32.0" prefWidth="265.0" text="Cobro por cliente">
-                           <VBox.margin>
-                              <Insets left="-38.0" />
-                           </VBox.margin></Button>
-                                <Button fx:id="ConCuotaFecha" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCuotaFecha" prefHeight="32.0" prefWidth="265.0" text="Cuota por fecha">
-                           <VBox.margin>
-                              <Insets left="-38.0" />
-                           </VBox.margin></Button>
-                                <Button fx:id="ConCuotaClientes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCuotaClientes" prefHeight="32.0" prefWidth="265.0" text="Cuota por Clientes">
+                                <Button fx:id="ConCuota" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCuota" prefHeight="32.0" prefWidth="265.0" text="Cuota por fecha">
                            <VBox.margin>
                               <Insets left="-38.0" />
                            </VBox.margin></Button>
@@ -225,6 +217,11 @@
             <ImageView fitHeight="782.0" fitWidth="1179.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/catalogo-de-nombres-para-gimnasios-3213781001.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="372.0" fitWidth="367.0" layoutX="226.0" layoutY="208.0" opacity="0.48" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/pngtree-fitness-gym-logo-png-png-image_7964069-1066342935.png" />
                </image>
             </ImageView>
          </children></Pane>
