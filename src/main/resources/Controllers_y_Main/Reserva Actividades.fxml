@@ -5,20 +5,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="510.0" prefWidth="691.0" style="-fx-background-color: black; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" stylesheets="@../CSS/Reserva%20Actividades.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.ReservaActController">
+<Pane prefHeight="510.0" prefWidth="691.0" style="-fx-background-color: black; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" stylesheets="@../CSS/ReservaActividades.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.ReservaActController">
     <children>
         <!-- Título -->
-        <Text fill="WHITE" layoutX="256.0" layoutY="55.0" stroke="WHITE" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Reserva Actividades" />
+        <Text fill="WHITE" layoutX="243.0" layoutY="55.0" stroke="WHITE" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Reserva de Actividades" />
 
         <!-- Campo Id_Reserva_Actividad -->
-        <Text fill="WHITE" layoutX="104.0" layoutY="111.0" stroke="WHITE" text="Id_Reserva_Actividad" />
+        <Text fill="WHITE" layoutX="104.0" layoutY="111.0" stroke="WHITE" text="Id_Reserva de la Actividad" />
         <TextField fx:id="txtIdReservaActividad" layoutX="99.0" layoutY="116.0" onAction="#initialize" prefWidth="200.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
 
         <!-- Campo Fecha_Reserva -->
-        <Text fill="WHITE" layoutX="100.0" layoutY="168.0" stroke="WHITE" text="Fecha_Reserva" />
+        <Text fill="WHITE" layoutX="97.0" layoutY="170.0" stroke="WHITE" text="Fecha de la Reserva" />
         <DatePicker fx:id="fechaReservaPicker" disable="true" editable="false" layoutX="99.0" layoutY="176.0" prefWidth="200.0">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -32,44 +32,44 @@
          </cursor></DatePicker>
 
         <!-- Campo Id_Cliente_Res_Act -->
-        <Text fill="WHITE" layoutX="394.0" layoutY="295.0" stroke="WHITE" text="Id_Cliente_Res_Act" />
+        <Text fill="WHITE" layoutX="394.0" layoutY="303.0" stroke="WHITE" text="Id_Cliente" />
 
         <!-- Campo Id_Est_Reserva_Act -->
-        <Text fill="WHITE" layoutX="100.0" layoutY="295.0" stroke="WHITE" text="Id_Est_Reserva_Act" />
+        <Text fill="WHITE" layoutX="100.0" layoutY="303.0" stroke="WHITE" text="Id_Estados de Reserva" />
 
         <!-- Campo Id_Actividad -->
         <Text fill="WHITE" layoutX="392.0" layoutY="111.0" stroke="WHITE" text="Id_Actividad" />
 
         <!-- Campo Id_Res_Hor_Act -->
-        <Text fill="WHITE" layoutX="393.0" layoutY="200.0" stroke="WHITE" text="Id_Res_Hor_Act" />
+        <Text fill="WHITE" layoutX="393.0" layoutY="200.0" stroke="WHITE" text="Id_Horarios  Actividades" />
 
         <!-- Botón Guardar -->
-        <Button fx:id="Guardar" layoutX="280.0" layoutY="440.0" onAction="#Guardar" prefWidth="120.0" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Guardar">
+        <Button fx:id="Guardar" layoutX="280.0" layoutY="440.0" onAction="#guardar" prefWidth="120.0" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Guardar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="574.0" layoutY="48.0" prefHeight="25.0" prefWidth="99.0" />
-      <Button fx:id="Salir" layoutX="413.0" layoutY="440.0" onAction="#Salir" prefWidth="120.0" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Salir">
+      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="536.0" layoutY="48.0" prefHeight="37.0" prefWidth="137.0" />
+      <Button fx:id="Salir" layoutX="413.0" layoutY="440.0" onAction="#salir" prefWidth="120.0" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Salir">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="Limpiar" layoutX="149.0" layoutY="440.0" onAction="#Limpiar" prefWidth="120.0" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Limpiar">
+      <Button fx:id="Limpiar" layoutX="149.0" layoutY="440.0" onAction="#limpiar" prefWidth="120.0" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-weight: bold;" text="Limpiar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ComboBox fx:id="txtIdClienteResAct" disable="true" layoutX="392.0" layoutY="299.0" prefHeight="25.0" prefWidth="200.0">
+      <ComboBox fx:id="txtIdClienteResAct" disable="true" editable="true" layoutX="392.0" layoutY="307.0" prefHeight="25.0" prefWidth="200.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <ComboBox fx:id="txtIdEstadoReservaAct" disable="true" layoutX="99.0" layoutY="300.0" prefHeight="25.0" prefWidth="200.0">
+      <ComboBox fx:id="txtIdEstadoReservaAct" disable="true" editable="true" layoutX="99.0" layoutY="308.0" prefHeight="25.0" prefWidth="200.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <ComboBox fx:id="txtIdActividad" disable="true" layoutX="392.0" layoutY="118.0" prefHeight="25.0" prefWidth="200.0">
+      <ComboBox fx:id="txtIdActividad" disable="true" editable="true" layoutX="392.0" layoutY="118.0" prefHeight="25.0" prefWidth="200.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <ComboBox fx:id="txtIdResHorAct" disable="true" layoutX="392.0" layoutY="210.0" prefHeight="25.0" prefWidth="200.0">
+      <ComboBox fx:id="txtIdResHorAct" disable="true" editable="true" layoutX="392.0" layoutY="210.0" prefHeight="25.0" prefWidth="200.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>

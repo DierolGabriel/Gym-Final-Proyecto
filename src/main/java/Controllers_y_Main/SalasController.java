@@ -7,146 +7,118 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class SalasController {
 
+    @FXML private TextField idSala;
+    @FXML private TextField Nombre;
+    @FXML private TextArea Descripcion;
+    @FXML private ComboBox<String> IdLocalizacion;
+    @FXML private TextField Notificador;
+    @FXML private Button Guardar;
     @FXML private Button Limpiar;
     @FXML private Button Salir;
-    @FXML private TextArea Descripcion;
-    @FXML private Button Guardar;
-    @FXML private ComboBox<String> IdLocalizacion;
-    @FXML private TextField Nombre;
-    @FXML private TextField Notificador;
-    @FXML private TextField idSala;
+
+    private ObservableList<String> localizaciones = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
-        configurarListenerID();
+        configurarListeners();
         cargarLocalizaciones();
     }
 
-    private void configurarListenerID() {
-        idSala.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null && !newValue.isEmpty()) {
-                if (newValue.matches("\\d*"))
-                {
-                    buscarLocalizacion(newValue);
-                } else {
-                    idSala.setText(oldValue);
-                }
-            } else {
+    private void configurarListeners() {
+        idSala.textProperty().addListener((obs, oldValue, newValue) -> {
+            if (newValue == null || newValue.isEmpty()) {
                 limpiarCampos();
-                Notificador.setText("");
-                Descripcion.setText("");
-                IdLocalizacion.setValue(null);
-                Nombre.setText("");
-                Descripcion.setDisable(true);
-                Nombre.setDisable(true);
-                IdLocalizacion.setDisable(true);
+                return;
             }
+
+            if (!newValue.matches("\\d*")) {
+                idSala.setText(oldValue);
+                return;
+            }
+
+            buscarSala(newValue);
         });
     }
 
-    private void buscarLocalizacion(String id) {
-        File archivo = new File("Salas.txt");
-        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+    private void buscarSala(String id) {
+        try (BufferedReader br = new BufferedReader(new FileReader("Salas.txt"))) {
+            boolean encontrado = false;
             String linea;
+
             while ((linea = br.readLine()) != null) {
                 String[] partes = linea.split(":");
-                if (partes.length >= 4 && partes[1].equals(id))
-                {
+                if (partes.length >= 4 && partes[1].equals(id)) {
                     cargarDatos(partes);
                     Notificador.setText("Modificando");
-                    activar();
-                    return;
+                    activarCampos();
+                    encontrado = true;
+                    break;
                 }
-            }if (idSala.getText().isEmpty())
-            {
-            limpiarCampos();
             }
-            else
-            {
-                activar();
+
+            if (!encontrado) {
+                activarCampos();
                 Notificador.setText("Creando");
-                Descripcion.setText("");
-                IdLocalizacion.setValue(null);
-                Nombre.setText("");
+                limpiarDatosEdicion();
             }
         } catch (IOException e) {
-            mostrarAlerta("Error al buscar");
+            mostrarAlerta("Error al buscar sala", Alert.AlertType.ERROR);
         }
     }
 
-    private void cargarDatos(String[] datos)
-    {
-        IdLocalizacion.setValue(datos[0]);
-        Nombre.setText(datos[2]);
-        Descripcion.setText(datos[3]);
-    }
-
     private void cargarLocalizaciones() {
+        localizaciones.clear();
         File archivo = new File("Localización.txt");
-        if (!archivo.exists()) return;
+
+        if (!archivo.exists()) {
+            mostrarAlerta("Archivo de localizaciones no encontrado", Alert.AlertType.WARNING);
+            return;
+        }
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
-            IdLocalizacion.getItems().clear();
             String linea;
             while ((linea = br.readLine()) != null) {
                 if (!linea.trim().isEmpty()) {
                     String[] partes = linea.split(":");
                     if (partes.length >= 1) {
-                        IdLocalizacion.getItems().add(partes[0].trim());
+                        localizaciones.add(partes[0].trim());
                     }
                 }
             }
+            IdLocalizacion.setItems(localizaciones);
         } catch (IOException e) {
-            mostrarAlerta("Error al cargar localizaciones: " + e.getMessage(), Alert.AlertType.ERROR);
+            mostrarAlerta("Error al cargar localizaciones", Alert.AlertType.ERROR);
         }
     }
 
     @FXML
-    void Guardar(ActionEvent event) {
-        if (!validarCamposCompletos()) {
-            mostrarAlerta("Todos los campos deben estar llenos", Alert.AlertType.ERROR);
+    private void Guardar(ActionEvent event) {
+        if (!validarCampos()) {
             return;
         }
-
-        if (!existeLocalizacion(IdLocalizacion.getValue())) {
-            mostrarAlerta("Selecione una id de Localización", Alert.AlertType.ERROR);
-            return;
-        }
-
-        int idSalaNum;
-        try {
-            idSalaNum = Integer.parseInt(idSala.getText().trim());
-        } catch (NumberFormatException e) {
-            mostrarAlerta("El ID de sala debe ser un número entero", Alert.AlertType.ERROR);
-            return;
-        }
-
-        File archivo = new File("Salas.txt");
-        List<String> lineas = new ArrayList<>();
-        boolean existeRegistro = false;
 
         try {
-            if (archivo.exists()) {
-                try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            List<String> lineas = new ArrayList<>();
+            boolean existeRegistro = false;
+            int idSalaNum = Integer.parseInt(idSala.getText().trim());
+
+            if (new File("Salas.txt").exists()) {
+                try (BufferedReader br = new BufferedReader(new FileReader("Salas.txt"))) {
                     String linea;
                     while ((linea = br.readLine()) != null) {
                         if (!linea.trim().isEmpty()) {
                             String[] partes = linea.split(":");
-                            if (partes.length >= 2) {
-                                try {
-                                    int idActual = Integer.parseInt(partes[0].trim());
-                                    if (idActual == idSalaNum)
-                                    {
-                                        lineas.add(crearLineaSala());
-                                        existeRegistro = true;
-                                        continue;
-                                    }
-                                } catch (NumberFormatException ignored) {}
+                            if (partes.length >= 2 && partes[1].equals(String.valueOf(idSalaNum))) {
+                                lineas.add(crearLineaSala());
+                                existeRegistro = true;
+                            } else {
+                                lineas.add(linea);
                             }
-                            lineas.add(linea);
                         }
                     }
                 }
@@ -156,7 +128,7 @@ public class SalasController {
                 lineas.add(crearLineaSala());
             }
 
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter("Salas.txt"))) {
                 for (String linea : lineas) {
                     bw.write(linea);
                     bw.newLine();
@@ -165,30 +137,73 @@ public class SalasController {
 
             mostrarAlerta("Datos guardados exitosamente", Alert.AlertType.INFORMATION);
             limpiarCampos();
-
+        } catch (NumberFormatException e) {
+            mostrarAlerta("El ID de sala debe ser un número", Alert.AlertType.ERROR);
         } catch (IOException e) {
             mostrarAlerta("Error al guardar: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
+    private void cargarDatos(String[] datos) {
+        IdLocalizacion.setValue(datos[0]);
+        Nombre.setText(datos[2]);
+        Descripcion.setText(datos[3]);
+    }
+
+    private void activarCampos() {
+        Nombre.setDisable(false);
+        Descripcion.setDisable(false);
+        IdLocalizacion.setDisable(false);
+    }
+
+    private void limpiarCampos() {
+        idSala.setText("");
+        Notificador.setText("");
+        limpiarDatosEdicion();
+        desactivarCamposEdicion();
+    }
+
+    private void limpiarDatosEdicion() {
+        Nombre.setText("");
+        Descripcion.setText("");
+        IdLocalizacion.setValue(null);
+    }
+
+    private void desactivarCamposEdicion() {
+        Nombre.setDisable(true);
+        Descripcion.setDisable(true);
+        IdLocalizacion.setDisable(true);
+    }
+
+    private boolean validarCampos() {
+        if (IdLocalizacion.getValue() == null || idSala.getText().trim().isEmpty() ||
+                Nombre.getText().trim().isEmpty() || Descripcion.getText().trim().isEmpty()) {
+            mostrarAlerta("Todos los campos deben estar llenos", Alert.AlertType.ERROR);
+            return false;
+        }
+
+        if (!existeLocalizacion(IdLocalizacion.getValue())) {
+            mostrarAlerta("Seleccione una ID de Localización válida", Alert.AlertType.ERROR);
+            return false;
+        }
+
+        return true;
+    }
+
     private boolean existeLocalizacion(String id) {
-        File archivo = new File("Localización.txt");
-        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+        if (id == null) return false;
+
+        try (BufferedReader br = new BufferedReader(new FileReader("Localización.txt"))) {
             String linea;
             while ((linea = br.readLine()) != null) {
-                if (linea.startsWith(id + ":")) return true;
+                if (linea.startsWith(id + ":")) {
+                    return true;
+                }
             }
         } catch (IOException e) {
             mostrarAlerta("Error validando localización", Alert.AlertType.ERROR);
         }
         return false;
-    }
-
-    private boolean validarCamposCompletos() {
-        return IdLocalizacion.getValue() != null &&
-                !idSala.getText().trim().isEmpty() &&
-                !Nombre.getText().trim().isEmpty() &&
-                !Descripcion.getText().trim().isEmpty();
     }
 
     private String crearLineaSala() {
@@ -200,13 +215,6 @@ public class SalasController {
         );
     }
 
-    private void cargarDatosSala(String[] partes) {
-        Nombre.setText(partes[2]);
-        Descripcion.setText(partes[3]);
-        IdLocalizacion.setValue(partes[0]);
-        Notificador.setText("Modificando");
-    }
-
     private void mostrarAlerta(String mensaje, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle(tipo == Alert.AlertType.ERROR ? "Error" : "Información");
@@ -215,60 +223,17 @@ public class SalasController {
         alert.showAndWait();
     }
 
-    private String crearLineaEntrenador()
+    public void Salir(ActionEvent actionEvent)
     {
-        return String.join(":",
-                IdLocalizacion.getValue().trim(),
-                idSala.getText().trim(),
-                Nombre.getText().trim(),
-                Descripcion.getText().trim()
-        );
+        ((Stage) Notificador.getScene().getWindow()).close();
     }
 
-    @FXML
-    void Limpiar(ActionEvent event)
+    public void Limpiar(ActionEvent actionEvent)
     {
-        Descripcion.setText("");
-        IdLocalizacion.setValue("");
-        Nombre.setText("");
+        limpiarCampos();
         Notificador.setText("");
-        idSala.setText("");
-
-        Nombre.setDisable(true);
-        Descripcion.setDisable(true);
-        IdLocalizacion.setDisable(true);
-    }
-
-    @FXML
-    void Salir(ActionEvent event)
-    {
-        Stage stageActual = (Stage) idSala.getScene().getWindow();
-        stageActual.close();
-    }
-    public void activar()
-    {
-        Nombre.setDisable(false);
-        Descripcion.setDisable(false);
-        IdLocalizacion.setDisable(false);
-    }
-
-    private void limpiarCampos()
-    {
-        idSala.setText("");
-        Notificador.setText("");
-        Descripcion.setText("");
         IdLocalizacion.setValue(null);
-        Nombre.setText("");
-        Descripcion.setDisable(true);
-        Nombre.setDisable(true);
-        IdLocalizacion.setDisable(true);
-    }
-
-    private void mostrarAlerta(String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Información");
-        alert.setHeaderText(null);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
+        limpiarDatosEdicion();
+        desactivarCamposEdicion();
     }
 }

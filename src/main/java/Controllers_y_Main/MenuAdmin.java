@@ -91,7 +91,7 @@ public class MenuAdmin extends Application
     public void Reserva(Stage stage) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Reserva.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 493);
         stage.setTitle("Reserva");
         stage.setScene(scene);
         stage.show();

@@ -5,62 +5,62 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" stylesheets="@../CSS/reserva.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.ReservaController">
+<Pane prefHeight="493.0" prefWidth="600.0" style="-fx-background-color: black; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" stylesheets="@../CSS/reserva.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.ReservaController">
     <children>
         <!-- Títulos -->
         <Text fill="WHITE" layoutX="50.0" layoutY="50.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Reserva" />
 
         <!-- Campo Id_Reserva -->
-        <Text fill="WHITE" layoutX="49.0" layoutY="94.0" stroke="WHITE" text="Id_Reserva" />
-        <TextField fx:id="idReserva" layoutX="199.0" layoutY="77.0" onAction="#initialize" prefHeight="25.0" prefWidth="266.0">
+        <Text fill="WHITE" layoutX="49.0" layoutY="112.0" stroke="WHITE" text="Id_Reserva" />
+        <TextField fx:id="idReserva" layoutX="196.0" layoutY="89.0" onAction="#initialize" prefHeight="25.0" prefWidth="266.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
 
         <!-- Campo Id_Sala_Reserva -->
-        <Text fill="WHITE" layoutX="50.0" layoutY="130.0" stroke="WHITE" text="Id_Sala_Reserva" />
+        <Text fill="WHITE" layoutX="49.0" layoutY="162.0" stroke="WHITE" text="Id_Sala de la Reserva" />
 
         <!-- Campo Id_Cliente_Reserva -->
-        <Text fill="WHITE" layoutX="50.0" layoutY="167.0" stroke="WHITE" text="Id_Cliente_Reserva" />
+        <Text fill="WHITE" layoutX="48.0" layoutY="218.0" stroke="WHITE" text="Id_Cliente" />
 
         <!-- Campo Fecha_Reserva -->
-        <Text fill="WHITE" layoutX="49.0" layoutY="203.0" stroke="WHITE" text="Fecha_Reserva" />
-        <DatePicker fx:id="fechaReserva" disable="true" editable="false" layoutX="199.0" layoutY="188.0" prefHeight="25.0" prefWidth="183.0">
+        <Text fill="WHITE" layoutX="51.0" layoutY="271.0" stroke="WHITE" text="Fecha de Reserva" />
+        <DatePicker fx:id="fechaReserva" disable="true" editable="false" layoutX="200.0" layoutY="247.0" prefHeight="39.0" prefWidth="197.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></DatePicker>
 
         <!-- Campo Id_Horario_Reserva -->
-        <Text fill="WHITE" layoutX="49.0" layoutY="244.0" stroke="WHITE" text="Id_Horario_Reserva" />
+        <Text fill="WHITE" layoutX="46.0" layoutY="322.0" stroke="WHITE" text="Id_Horario de la Reserva" />
 
         <!-- Campo Id_Estado_Reserva -->
-        <Text fill="WHITE" layoutX="50.0" layoutY="281.0" stroke="WHITE" text="Id_Estado_Reserva" />
-      <Button fx:id="Guardar" layoutX="274.0" layoutY="328.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar">
+        <Text fill="WHITE" layoutX="49.0" layoutY="379.0" stroke="WHITE" text="Id_Estado de la Reserva" />
+      <Button fx:id="Guardar" layoutX="276.0" layoutY="439.0" mnemonicParsing="false" onAction="#guardar" text="Guardar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="Salir" layoutX="448.0" layoutY="328.0" mnemonicParsing="false" onAction="#Salir" text="Salir">
+      <Button fx:id="Salir" layoutX="418.0" layoutY="439.0" mnemonicParsing="false" onAction="#salir" text="Salir">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="Limpiar" layoutX="133.0" layoutY="328.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar">
+      <Button fx:id="Limpiar" layoutX="131.0" layoutY="439.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <TextField fx:id="Notificador" disable="true" editable="false" layoutX="467.0" layoutY="29.0" prefHeight="25.0" prefWidth="120.0" />
-      <ComboBox fx:id="idSalaReserva" layoutX="200.0" layoutY="113.0" prefHeight="25.0" prefWidth="266.0">
+      <ComboBox fx:id="idSalaReserva" editable="true" layoutX="196.0" layoutY="133.0" prefHeight="25.0" prefWidth="266.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <ComboBox fx:id="idHorarioReserva" layoutX="198.0" layoutY="227.0" prefHeight="25.0" prefWidth="266.0">
+      <ComboBox fx:id="idHorarioReserva" editable="true" layoutX="199.0" layoutY="293.0" prefHeight="25.0" prefWidth="266.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <ComboBox fx:id="IdEstadoReserva" layoutX="199.0" layoutY="264.0" prefHeight="25.0" prefWidth="266.0">
+      <ComboBox fx:id="IdEstadoReserva" editable="true" layoutX="198.0" layoutY="350.0" prefHeight="25.0" prefWidth="266.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <ComboBox fx:id="idClienteReserva" layoutX="200.0" layoutY="150.0" prefHeight="25.0" prefWidth="266.0">
+      <ComboBox fx:id="idClienteReserva" editable="true" layoutX="196.0" layoutY="189.0" prefHeight="25.0" prefWidth="266.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>

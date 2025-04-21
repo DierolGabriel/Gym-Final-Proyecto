@@ -24,7 +24,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
       <TextField fx:id="Notificador" disable="true" editable="false" layoutX="357.0" layoutY="52.0" prefHeight="37.0" prefWidth="117.0" />
-      <Button fx:id="Guardar" layoutX="177.0" layoutY="304.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar">
+      <Button fx:id="Guardar" layoutX="177.0" layoutY="304.0" mnemonicParsing="false" onAction="#guardar" text="Guardar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -32,7 +32,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="Limpiar" layoutX="60.0" layoutY="304.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar">
+      <Button fx:id="Limpiar" layoutX="60.0" layoutY="304.0" mnemonicParsing="false" onAction="#limpiar" text="Limpiar">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -40,7 +40,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></DatePicker>
-      <ComboBox fx:id="ComboActividades" disable="true" layoutX="178.0" layoutY="231.0" prefHeight="26.0" prefWidth="157.0">
+      <ComboBox fx:id="ComboActividades" disable="true" editable="true" layoutX="178.0" layoutY="231.0" prefHeight="26.0" prefWidth="157.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>

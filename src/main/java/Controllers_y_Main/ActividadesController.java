@@ -1,256 +1,289 @@
 package Controllers_y_Main;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
-import java.awt.event.ActionEvent;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class ActividadesController {
 
+    // Componentes FXML
     @FXML private TextField txtIdAct;
     @FXML private TextField txtNombreAct;
     @FXML private TextField txtDescripcionAct;
     @FXML private ComboBox<String> txtIdEntrenadorAct;
     @FXML private ComboBox<String> txtIdLocalizacionAct;
-    @FXML private Label lblEstado;
+    @FXML private TextField lblEstado;
     @FXML private Button Limpiar;
     @FXML private Button Salir;
 
-    private final String archivoActividades ="Actividades.txt";
-    private final String archivoLocalizaciones ="Localización.txt";
-    private final String archivoEntrenadores = "Entrenadores.txt";
+    // Archivos
+    private final String ARCHIVO_ACTIVIDADES = "Actividades.txt";
+    private final String ARCHIVO_LOCALIZACIONES = "Localización.txt";
+    private final String ARCHIVO_ENTRENADORES = "Entrenadores.txt";
+
+    // Listas para combobox
+    private ObservableList<String> localizaciones = FXCollections.observableArrayList();
+    private ObservableList<String> entrenadores = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
-        crearArchivoSiNoExiste(archivoActividades);
-        crearArchivoSiNoExiste(archivoLocalizaciones);
-        crearArchivoSiNoExiste(archivoEntrenadores);
-        txtIdAct.setOnKeyReleased(event -> verificarActividad());
-        cargarActvidades();
-        Desactivar();
+        crearArchivosSiNoExisten();
+        configurarListeners();
+        cargarDatosCombobox();
+        desactivarCampos();
     }
 
-    private void cargarActvidades() {
-        File archivo = new File("Entrenadores.txt");
-        if (!archivo.exists()) return;
+    private void crearArchivosSiNoExisten() {
+        crearArchivo(ARCHIVO_ACTIVIDADES);
+        crearArchivo(ARCHIVO_LOCALIZACIONES);
+        crearArchivo(ARCHIVO_ENTRENADORES);
+    }
 
+    private void crearArchivo(String rutaArchivo) {
+        try {
+            new File(rutaArchivo).createNewFile();
+        } catch (IOException e) {
+            mostrarAlerta("Error al crear " + rutaArchivo, Alert.AlertType.ERROR);
+        }
+    }
+
+    private void configurarListeners() {
+        txtIdAct.textProperty().addListener((obs, oldValue, newValue) -> {
+            if (newValue == null || newValue.isEmpty()) {
+                limpiarYDesactivar();
+                return;
+            }
+            buscarActividad(newValue.trim());
+        });
+    }
+
+    private void cargarDatosCombobox() {
+        cargarDatosArchivo(ARCHIVO_ENTRENADORES, entrenadores, txtIdEntrenadorAct);
+        cargarDatosArchivo(ARCHIVO_LOCALIZACIONES, localizaciones, txtIdLocalizacionAct);
+    }
+
+    private void cargarDatosArchivo(String archivo, ObservableList<String> lista, ComboBox<String> comboBox) {
+        lista.clear();
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
-            txtIdEntrenadorAct.getItems().clear();
             String linea;
             while ((linea = br.readLine()) != null) {
                 if (!linea.trim().isEmpty()) {
                     String[] partes = linea.split(":");
                     if (partes.length >= 1) {
-                        txtIdEntrenadorAct.getItems().add(partes[0].trim());
+                        lista.add(partes[0].trim());
                     }
                 }
             }
+            comboBox.setItems(lista);
         } catch (IOException e) {
-            mostrarAlerta("Error al cargar Entrenadores: " + e.getMessage());
+            mostrarAlerta("Error al cargar " + archivo, Alert.AlertType.ERROR);
         }
+    }
 
-        File archivo2 = new File("Localización.txt");
-        if (!archivo.exists()) return;
-
-        try (BufferedReader br = new BufferedReader(new FileReader(archivo2))) {
-            txtIdLocalizacionAct.getItems().clear();
+    private void buscarActividad(String id) {
+        try (BufferedReader br = new BufferedReader(new FileReader(ARCHIVO_ACTIVIDADES))) {
+            boolean encontrado = false;
             String linea;
+
             while ((linea = br.readLine()) != null) {
-                if (!linea.trim().isEmpty()) {
-                    String[] partes = linea.split(":");
-                    if (partes.length >= 1)
-                    {
-                        txtIdLocalizacionAct.getItems().add(partes[0].trim());
-                    }
-                }
-            }
-        } catch (IOException e) {
-            mostrarAlerta("Error al cargar localizaciones: " + e.getMessage());
-        }
-    }
-
-    private void crearArchivoSiNoExiste(String rutaArchivo) {
-        File archivo = new File(rutaArchivo);
-        if (!archivo.exists()) {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo)))
-            {
-            } catch (IOException e) {
-                mostrarAlerta("Error al crear " + rutaArchivo);
-            }
-        }
-    }
-
-    private void verificarActividad() {
-        String id = txtIdAct.getText().trim();
-        if (id.isEmpty()) return;
-
-        File archivo = new File(archivoActividades);
-        if (!archivo.exists()) return;
-
-        boolean encontrado = false;
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
-            String linea;
-            while ((linea = reader.readLine()) != null) {
                 String[] datos = linea.split(":");
                 if (datos.length >= 5 && datos[0].equals(id)) {
-                    txtNombreAct.setText(datos[1]);
-                    txtDescripcionAct.setText(datos[2]);
-                    txtIdLocalizacionAct.setValue(datos[3]);
-                    txtIdEntrenadorAct.setValue(datos[4]);
-                    lblEstado.setText("Estado: Modificando");
-                    Activar();
-                    lblEstado.setStyle("-fx-text-fill: orange;");
+                    cargarDatosActividad(datos);
+                    lblEstado.setText("Modificando");
+                    activarCampos();
                     encontrado = true;
                     break;
                 }
             }
-        } catch (IOException e) {
-            mostrarAlerta("Error al leer Actividades.txt");
-        }
 
-        if (!encontrado) {
-            limpiarCampos(false);
-            lblEstado.setText("Estado: Creando");
-            Activar();
-            lblEstado.setStyle("-fx-text-fill: green;");
+            if (!encontrado) {
+                limpiarCamposEdicion();
+                lblEstado.setText("Creando");
+                activarCampos();
+            }
+        } catch (IOException e) {
+            mostrarAlerta("Error al buscar actividad", Alert.AlertType.ERROR);
         }
     }
 
-    private void limpiarCampos(boolean incluirId) {
-        if (incluirId) txtIdAct.clear();
+    private void cargarDatosActividad(String[] datos) {
+        txtNombreAct.setText(datos[1]);
+        txtDescripcionAct.setText(datos[2]);
+        txtIdLocalizacionAct.setValue(datos[3]);
+        txtIdEntrenadorAct.setValue(datos[4]);
+    }
+
+    @FXML
+    private void guardarActividad() {
+        if (!validarCampos()) {
+            return;
+        }
+
+        // Validar que los IDs de los ComboBox existan
+        if (!idLocalizacionExiste(txtIdLocalizacionAct.getValue())) {
+            mostrarAlerta("La localización seleccionada no existe", Alert.AlertType.ERROR);
+            return;
+        }
+
+        if (!idEntrenadorExiste(txtIdEntrenadorAct.getValue())) {
+            mostrarAlerta("El entrenador seleccionado no existe", Alert.AlertType.ERROR);
+            return;
+        }
+
+        String lineaNueva = crearLineaActividad();
+        List<String> lineas = new ArrayList<>();
+        boolean actualizado = false;
+
+        try {
+            // Leer y actualizar registros existentes
+            if (new File(ARCHIVO_ACTIVIDADES).exists()) {
+                try (BufferedReader br = new BufferedReader(new FileReader(ARCHIVO_ACTIVIDADES))) {
+                    String linea;
+                    while ((linea = br.readLine()) != null) {
+                        if (!linea.trim().isEmpty()) {
+                            String[] datos = linea.split(":");
+                            if (datos.length > 0 && datos[0].equals(txtIdAct.getText().trim())) {
+                                lineas.add(lineaNueva);
+                                actualizado = true;
+                            } else {
+                                lineas.add(linea);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Agregar nuevo registro si no existía
+            if (!actualizado) {
+                lineas.add(lineaNueva);
+            }
+
+            // Escribir todos los registros
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARCHIVO_ACTIVIDADES))) {
+                for (String linea : lineas) {
+                    bw.write(linea);
+                    bw.newLine();
+                }
+            }
+
+            mostrarAlerta("Actividad guardada correctamente", Alert.AlertType.INFORMATION);
+            limpiarYDesactivar();
+        } catch (IOException e) {
+            mostrarAlerta("Error al guardar actividad", Alert.AlertType.ERROR);
+        }
+    }
+
+    private boolean idLocalizacionExiste(String idLocalizacion) {
+        if (idLocalizacion == null) return false;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(ARCHIVO_LOCALIZACIONES))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (!linea.trim().isEmpty()) {
+                    String[] partes = linea.split(":");
+                    if (partes.length > 0 && partes[0].trim().equals(idLocalizacion)) {
+                        return true;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            mostrarAlerta("Error al validar localización", Alert.AlertType.ERROR);
+        }
+        return false;
+    }
+
+    private boolean idEntrenadorExiste(String idEntrenador) {
+        if (idEntrenador == null) return false;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(ARCHIVO_ENTRENADORES))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (!linea.trim().isEmpty()) {
+                    String[] partes = linea.split(":");
+                    if (partes.length > 0 && partes[0].trim().equals(idEntrenador)) {
+                        return true;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            mostrarAlerta("Error al validar entrenador", Alert.AlertType.ERROR);
+        }
+        return false;
+    }
+
+
+    private String crearLineaActividad() {
+        return String.join(":",
+                txtIdAct.getText().trim(),
+                txtNombreAct.getText().trim(),
+                txtDescripcionAct.getText().trim(),
+                txtIdLocalizacionAct.getValue().trim(),
+                txtIdEntrenadorAct.getValue().trim()
+        );
+    }
+
+    private boolean validarCampos() {
+        if (txtIdAct.getText().trim().isEmpty() ||
+                txtNombreAct.getText().trim().isEmpty() ||
+                txtDescripcionAct.getText().trim().isEmpty() ||
+                txtIdLocalizacionAct.getValue() == null ||
+                txtIdEntrenadorAct.getValue() == null) {
+
+            mostrarAlerta("Todos los campos son obligatorios", Alert.AlertType.ERROR);
+            return false;
+        }
+        return true;
+    }
+
+
+
+    private void limpiarYDesactivar() {
+        txtIdAct.clear();
+        limpiarCamposEdicion();
+        desactivarCampos();
+        lblEstado.setText("");
+    }
+
+    private void limpiarCamposEdicion() {
         txtNombreAct.clear();
         txtDescripcionAct.clear();
         txtIdLocalizacionAct.setValue(null);
         txtIdEntrenadorAct.setValue(null);
     }
 
-    private void agregarNuevoRegistro(String archivoRuta, String id, String descripcion) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivoRuta, true))) {
-            writer.write(id + ":" + descripcion + "\n");
-            System.out.println("Se agregó " + id + " en " + archivoRuta);
-        } catch (IOException e) {
-            mostrarAlerta("Error al escribir en " + archivoRuta);
-        }
+    private void activarCampos() {
+        txtNombreAct.setDisable(false);
+        txtDescripcionAct.setDisable(false);
+        txtIdLocalizacionAct.setDisable(false);
+        txtIdEntrenadorAct.setDisable(false);
     }
 
-    @FXML
-    private void guardarActividad()
-    {
-        if (camposVacios())
-        {
-            mostrarAlerta("Todos los campos son obligatorios.");
-            return;
-        }
-
-        String idLocalizacion = txtIdLocalizacionAct.getValue().trim();
-        String idEntrenador = txtIdEntrenadorAct.getValue().trim();
-
-        String id = txtIdAct.getText().trim();
-        String lineaNueva = String.join(":",
-                id,
-                txtNombreAct.getText().trim(),
-                txtDescripcionAct.getText().trim(),
-                idLocalizacion,
-                idEntrenador
-        );
-
-        File archivo = new File(archivoActividades);
-        boolean actualizado = false;
-        StringBuilder nuevoContenido = new StringBuilder();
-
-        if (archivo.exists()) {
-            try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
-                String linea;
-                while ((linea = reader.readLine()) != null) {
-                    String[] datos = linea.split(":");
-                    if (datos[0].equals(id)) {
-                        nuevoContenido.append(lineaNueva).append("\n");
-                        actualizado = true;
-                    } else {
-                        nuevoContenido.append(linea).append("\n");
-                    }
-                }
-            } catch (IOException e) {
-                mostrarAlerta("Error al actualizar archivo.");
-                return;
-            }
-        }
-
-        if (!actualizado) {
-            nuevoContenido.append(lineaNueva).append("\n");
-        }
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {
-            writer.write(nuevoContenido.toString());
-            mostrarAlerta("Actividad guardada correctamente.");
-            lblEstado.setStyle("-fx-text-fill: blue;");
-            limpiarCampos(true);
-            Desactivar();
-
-        } catch (IOException e) {
-            mostrarAlerta("Error al guardar en Actividades.txt");
-        }
+    private void desactivarCampos() {
+        txtNombreAct.setDisable(true);
+        txtDescripcionAct.setDisable(true);
+        txtIdLocalizacionAct.setDisable(true);
+        txtIdEntrenadorAct.setDisable(true);
     }
 
-    private boolean camposVacios() {
-        return txtIdAct.getText().isEmpty()
-                || txtNombreAct.getText().isEmpty()
-                || txtDescripcionAct.getText().isEmpty()
-                || txtIdLocalizacionAct.getValue().isEmpty()
-                || txtIdEntrenadorAct.getValue().isEmpty();
-    }
-
-    private void mostrarAlerta(String mensaje) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Mensaje");
+    private void mostrarAlerta(String mensaje, Alert.AlertType tipo) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(tipo == Alert.AlertType.ERROR ? "Error" : "Información");
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
 
-    @FXML
-    void Salir(javafx.event.ActionEvent actionEvent)
-    {
-        Stage stageActual = (Stage) txtDescripcionAct.getScene().getWindow();
-        stageActual.close();
+    public void Salir(ActionEvent actionEvent) {
+        ((Stage) txtIdAct.getScene().getWindow()).close();
     }
 
-    @FXML
-    void Limpiar(javafx.event.ActionEvent actionEvent)
-    {
-    txtIdAct.setText("");
-    txtNombreAct.setText("");
-    txtDescripcionAct.setText("");
-    txtIdLocalizacionAct.setValue(null);
-    txtIdEntrenadorAct.setValue(null);
-    txtNombreAct.setDisable(true);
-    txtDescripcionAct.setDisable(true);
-    txtIdLocalizacionAct.setDisable(true);
-    txtIdEntrenadorAct.setDisable(true);
-    txtDescripcionAct.setDisable(true);
-    lblEstado.setText("Estado:");
+    public void Limpiar(ActionEvent actionEvent) {
+        limpiarYDesactivar();
     }
-
-    void Activar()
-    {
-        txtNombreAct.setDisable(false);
-        txtDescripcionAct.setDisable(false);
-        txtIdLocalizacionAct.setDisable(false);
-        txtIdEntrenadorAct.setDisable(false);
-        txtDescripcionAct.setDisable(false);
-    }
-
-    void Desactivar()
-    {
-        txtNombreAct.setDisable(true);
-        txtDescripcionAct.setDisable(true);
-        txtIdLocalizacionAct.setDisable(true);
-        txtIdEntrenadorAct.setDisable(true);
-        txtDescripcionAct.setDisable(true);
-    }
-
-
 }

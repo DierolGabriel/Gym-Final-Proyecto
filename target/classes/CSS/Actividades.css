@@ -37,13 +37,12 @@
 /* COMBOBOX ESTILO GLASS */
 .combo-box {
     -fx-background-color: rgba(255, 255, 255, 0.07);
-    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-border-color: rgba(255, 255, 255, 0.2);
     -fx-border-radius: 12;
     -fx-background-radius: 12;
     -fx-font-size: 13px;
     -fx-text-fill: white;
 }
-
 .combo-box-popup .list-cell {
     -fx-background-color: Black; /* Fondo de cada ítem */
     -fx-text-fill: #006064; /* Color del texto */
