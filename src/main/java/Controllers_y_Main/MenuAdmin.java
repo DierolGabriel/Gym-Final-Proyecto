@@ -187,8 +187,8 @@ public class MenuAdmin extends Application
     public void ActualizaCuota(Stage stage) throws  IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Actualiza Cuota.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1123, 723);
-        stage.setTitle("Actualiza Cuota");
+        Scene scene = new Scene(fxmlLoader.load(), 432, 307);
+        stage.setTitle("Actualizar Cuota");
         stage.setScene(scene);
         stage.show();
     }

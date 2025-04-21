@@ -328,8 +328,9 @@ public class Cuotacontroller {
         String idCliente = Idcliente.getValue().trim();
         String valor = Valor.getText().trim();
         String fecha = Fecha.getValue().format(DateTimeFormatter.ofPattern("d/M/yyyy"));
+        String Status = "false";
 
-        String linea = String.join(":", idCuota, idCliente, valor, fecha);
+        String linea = String.join(":", idCuota, idCliente, valor, fecha, Status);
 
 
         File archivo = new File(ARCHIVO_CUOTAS);

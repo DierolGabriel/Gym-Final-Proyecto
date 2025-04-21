@@ -1,3 +1,3 @@
-001:Dierol:Diaz Perez:Sarante:Calle 99 Esq. Rompe iun dedo:13/1/2006:2134879:0992134897:6/4/2025:Dierol@gmail.com:4500.0:1500:Activo:Socio Activo
-002:Juan:Martinez:Torrez:calle santiago:16/4/2025:90341:09872:20/4/2025:Juan@gmail.com:6000.0:2000:Activo:Socio Activo
-003:pedro:gfds:dsfg:asdf:18/4/2025:1234:126534:20/4/2025:Pedro@gmail.com::1234:Pasivo:Invitado
+001:Dierol:Diaz Perez:Sarante:Calle 99 Esq. Rompe iun dedo:13/1/2006:2134879:0992134897:6/4/2025:Dierol@gmail.com:0.0:1500:Activo:Socio Activo
+002:Juan:Martinez:Torrez:calle santiago:16/4/2025:90341:09872:20/4/2025:Juan@gmail.com:0.0:2000:Activo:Socio Activo
+003:pedro:gfds:dsfg:asdf:18/4/2025:1234:126534:20/4/2025:Pedro@gmail.com::1234:Invitado:Pasivo
