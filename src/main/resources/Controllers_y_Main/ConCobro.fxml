@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="516.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Consultas.ConCobro">
+   <children>
+      <Pane prefHeight="516.0" prefWidth="718.0" style="-fx-background-color: Black;" stylesheets="@../CSS/ConEntrenador.css">
+         <children>
+            <Text fill="WHITE" layoutX="226.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consulta de cobros" wrappingWidth="271.052734375">
+               <font>
+                  <Font name="Arial Black" size="25.0" />
+               </font></Text>
+            <TableView fx:id="Table" layoutX="9.0" layoutY="135.0" prefHeight="370.0" prefWidth="705.0">
+              <columns>
+                <TableColumn fx:id="IDCobro" prefWidth="75.0" style="-fx-background-color: Black;" text="Id cobro" />
+                <TableColumn fx:id="Fecha" prefWidth="150.0" style="-fx-background-color: Black;" text="fecha de cobro" />
+                  <TableColumn fx:id="IDcliente" prefWidth="75.0" style="-fx-background-color: Black;" text="Id cliente" />
+                  <TableColumn minWidth="0.0" prefWidth="0.0" style="-fx-background-color: Black;" text="Id de Cliente" />
+                  <TableColumn fx:id="valor" prefWidth="110.0" style="-fx-background-color: Black;" text="Valor " />
+                  <TableColumn fx:id="concepto" prefWidth="177.0" style="-fx-background-color: Black;" text="Concepto " />
+                  <TableColumn fx:id="status" minWidth="9.0" prefWidth="116.0" style="-fx-background-color: Black;" text="Status" />
+              </columns>
+            </TableView>
+            <TextField fx:id="Consultar" layoutX="14.0" layoutY="79.0" onAction="#Consultar" promptText="Consultar" />
+            <Button fx:id="Salir" layoutX="668.0" layoutY="11.0" mnemonicParsing="false" onAction="#Salir" prefHeight="35.0" prefWidth="36.0" text="X" />
+            <Text fill="WHITE" layoutX="194.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filtrar">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Text>
+            <RadioButton fx:id="Filtro1" layoutX="193.0" layoutY="89.0" mnemonicParsing="false" text="Por Clientes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="Grupo1" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="Filtro2" layoutX="315.0" layoutY="89.0" mnemonicParsing="false" text="Por Fecha" toggleGroup="$Grupo1" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

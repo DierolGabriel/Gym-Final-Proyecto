@@ -201,11 +201,20 @@ public class MenuAdmin extends Application
         stage.show();
     }
 
-    public void ConCuotaFecha(Stage stage) throws  IOException
+    public void ConCuota(Stage stage) throws  IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Cuota_por_fecha.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1123, 723);
-        stage.setTitle("Cuota por fecha");
+        FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("ConCuota.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 546, 516);
+        stage.setTitle("Cuota");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void ConCobro(Stage stage) throws  IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("ConCobro.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 718, 516);
+        stage.setTitle("Cobro");
         stage.setScene(scene);
         stage.show();
     }

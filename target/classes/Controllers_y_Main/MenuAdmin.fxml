@@ -181,19 +181,11 @@
                            <VBox.margin>
                               <Insets left="-38.0" />
                            </VBox.margin></Button>
-                                <Button fx:id="ConCobroFecha" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCobroFecha" prefHeight="32.0" prefWidth="265.0" text="Cobro por rango de fecha">
+                                <Button fx:id="ConCobro" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCobro" prefHeight="32.0" prefWidth="265.0" text="Cobro">
                            <VBox.margin>
                               <Insets left="-38.0" />
                            </VBox.margin></Button>
-                                <Button fx:id="ConCobroCliente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCobroCliente" prefHeight="32.0" prefWidth="265.0" text="Cobro por cliente">
-                           <VBox.margin>
-                              <Insets left="-38.0" />
-                           </VBox.margin></Button>
-                                <Button fx:id="ConCuotaFecha" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCuotaFecha" prefHeight="32.0" prefWidth="265.0" text="Cuota por fecha">
-                           <VBox.margin>
-                              <Insets left="-38.0" />
-                           </VBox.margin></Button>
-                                <Button fx:id="ConCuotaClientes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCuotaClientes" prefHeight="32.0" prefWidth="265.0" text="Cuota por Clientes">
+                                <Button fx:id="ConCuota" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ConCuota" prefHeight="32.0" prefWidth="265.0" text="Cuota">
                            <VBox.margin>
                               <Insets left="-38.0" />
                            </VBox.margin></Button>

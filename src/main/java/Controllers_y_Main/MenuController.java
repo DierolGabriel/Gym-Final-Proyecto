@@ -10,18 +10,11 @@ import java.io.IOException;
 
 public class MenuController {
 
-
-    @FXML
-    private Button ConCuotaFecha;
-
-    @FXML
-    private Button AdCuotas;
-
     @FXML
     private Button ActualizaCuota;
 
     @FXML
-    private Button GenerarCobro;
+    private Button AdCuotas;
 
     @FXML
     private Button ConActividades;
@@ -30,16 +23,10 @@ public class MenuController {
     private Button ConClientes;
 
     @FXML
-    private Button ConClientesPendiente;
+    private Button ConCobro;
 
     @FXML
-    private Button ConCobroCliente;
-
-    @FXML
-    private Button ConCobroFecha;
-
-    @FXML
-    private Button ConCuotaClientes;
+    private Button ConCuota;
 
     @FXML
     private Button ConEntrenador;
@@ -58,6 +45,9 @@ public class MenuController {
 
     @FXML
     private TitledPane Consultas;
+
+    @FXML
+    private Button GenerarCobro;
 
     @FXML
     private Button ManActividades;
@@ -99,6 +89,18 @@ public class MenuController {
     private TitledPane Procesos;
 
     @FXML
+    void ConCuota(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ConCuota(new Stage());
+    }
+
+    @FXML
+    void ConCobro(ActionEvent event) throws IOException {
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.ConCobro(new Stage());
+    }
+
+    @FXML
     void ConActividades(ActionEvent event) throws IOException {
         MenuAdmin menuAdmin = new MenuAdmin();
         menuAdmin.ConActividades(new Stage());
@@ -109,24 +111,6 @@ public class MenuController {
     {
         MenuAdmin menuAdmin = new MenuAdmin();
         menuAdmin.ConClientes(new Stage());
-    }
-
-
-    @FXML
-    void ConCobroCliente(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ConCobroFecha(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ConCuotaClientes(ActionEvent event) {
-
-
-
     }
 
     @FXML
@@ -237,9 +221,4 @@ public class MenuController {
         menuAdmin.AdCuotas(new Stage());
     }
 
-    @FXML
-    void  ConCuotaFecha(ActionEvent event) throws IOException {
-        MenuAdmin menuAdmin = new MenuAdmin();
-        menuAdmin.ConCuotaFecha(new Stage());
-    }
 }
