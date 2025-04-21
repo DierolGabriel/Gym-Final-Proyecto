@@ -171,7 +171,7 @@ public class MenuAdmin extends Application
     public void ConClientes(Stage stage) throws  IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("ConClientes.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1123, 723);
+        Scene scene = new Scene(fxmlLoader.load(), 1470, 723);
         stage.setTitle("Consulta de Clientes");
         stage.setScene(scene);
         stage.show();

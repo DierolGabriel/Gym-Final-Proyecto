@@ -168,8 +168,6 @@ public class Cuotacontroller {
                 cargarCobrosCliente(newValue);
             }
         });
-
-
         cargarClientes();
 
 
@@ -216,6 +214,7 @@ public class Cuotacontroller {
                 activarCampos();
                 modificando = false;
             }
+
 
         } catch (IOException e) {
             mostrarAlerta("Error al leer el archivo de cuotas: " + e.getMessage());

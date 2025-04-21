@@ -38,6 +38,7 @@ public class ConClientesController {
     @FXML private TableColumn<Cliente, String> colCorreo;
     @FXML private TableColumn<Cliente, String> colCorreo2;
     @FXML private TableColumn<Cliente, String> colCorreo21;
+    @FXML private CheckBox Filtro5;
 
     private static final String ARCHIVO_CLIENTES = "Clientes.txt";
     private ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
@@ -80,6 +81,7 @@ public class ConClientesController {
                 Consultar(null);
             }
         });
+
     }
 
     private void cargarClientes() {
@@ -126,8 +128,9 @@ public class ConClientesController {
     @FXML
     void Consultar(ActionEvent event) {
         String filtro = TextField.getText().trim().toLowerCase();
+        boolean soloBalancePendiente = Filtro5.isSelected();
 
-        if (filtro.isEmpty()) {
+        if (filtro.isEmpty() && !soloBalancePendiente) {
             Table.setItems(listaClientes);
             return;
         }
@@ -135,32 +138,51 @@ public class ConClientesController {
         ObservableList<Cliente> clientesFiltrados = FXCollections.observableArrayList();
 
         for (Cliente cliente : listaClientes) {
-            if (Filtro1.isSelected()) {
-                // Filtrar por ID
-                if (cliente.getId().toLowerCase().contains(filtro)) {
-                    clientesFiltrados.add(cliente);
+            boolean coincideConFiltro = false;
+
+            // Aplicar filtros de radio buttons
+            if (filtro.isEmpty()) {
+                coincideConFiltro = true; // Si no hay texto, mostrar todos (si el checkbox está activo)
+            } else if (Filtro1.isSelected() && cliente.getId().toLowerCase().contains(filtro)) {
+                coincideConFiltro = true;
+            } else if (Filtro2.isSelected() && cliente.getNombre().toLowerCase().contains(filtro)) {
+                coincideConFiltro = true;
+            } else if (Filtro3.isSelected() && cliente.getTipo().toLowerCase().contains(filtro)) {
+                coincideConFiltro = true;
+            } else if (Filtro4.isSelected() && cliente.getStatus().toLowerCase().contains(filtro)) {
+                coincideConFiltro = true;
+            }
+
+            // Aplicar filtro de balance pendiente (si está activo)
+            if (soloBalancePendiente) {
+                try {
+                    double balance = Double.parseDouble(cliente.getBalance());
+                    if (balance <= 0) {
+                        continue; // Saltar clientes con balance <= 0
+                    }
+                } catch (NumberFormatException e) {
+                    continue; // Saltar clientes con balance no numérico
                 }
-            } else if (Filtro2.isSelected()) {
-                // Filtrar por Nombre
-                if (cliente.getNombre().toLowerCase().contains(filtro)) {
-                    clientesFiltrados.add(cliente);
-                }
-            } else if (Filtro3.isSelected()) {
-                // Filtrar por Tipo
-                if (cliente.getTipo().toLowerCase().contains(filtro)) {
-                    clientesFiltrados.add(cliente);
-                }
-            } else if (Filtro4.isSelected()) {
-                // Filtrar por Status
-                if (cliente.getStatus().toLowerCase().contains(filtro)) {
-                    clientesFiltrados.add(cliente);
-                }
+            }
+
+            // Si coincide con los filtros y pasa el filtro de balance (si aplica)
+            if ((filtro.isEmpty() || coincideConFiltro) && (!soloBalancePendiente || (soloBalancePendiente && tieneBalancePendiente(cliente))))
+            {
+                clientesFiltrados.add(cliente);
             }
         }
 
         Table.setItems(clientesFiltrados);
     }
 
+    private boolean tieneBalancePendiente(Cliente cliente) {
+        try {
+            double balance = Double.parseDouble(cliente.getBalance());
+            return balance > 0;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
     @FXML
     void Limpiar(ActionEvent event) {
         TextField.clear();
