@@ -65,7 +65,7 @@ public class ActualizaCuotaController {
                 procesarCuota(cuota);
             }
 
-            showAlert("Éxito", "Proceso de actualización de cuotas completado correctamente.");
+            showAlert("Éxito", "Se han actualizado las cuotas correctamente.");
 
         } catch (IOException e) {
             showAlert("Error", "Ocurrió un error al procesar los archivos: " + e.getMessage());

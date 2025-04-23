@@ -50,7 +50,7 @@
             <TableColumn fx:id="ValorCobro" prefWidth="117.0" style="-fx-background-color: black;" text="Valor Cobro" />
             <TableColumn fx:id="ConceptoCobro" prefWidth="174.0" style="-fx-background-color: black;" text="Concepto Cobro" />
             <TableColumn fx:id="Status" prefWidth="100.0" style="-fx-background-color: black;" text="Status" />
-            <TableColumn fx:id="Seleccionado" minWidth="0.0" prefWidth="85.0" style="-fx-background-color: black;" text="Selección" />
+            <TableColumn fx:id="Seleccionado" editable="false" minWidth="0.0" prefWidth="85.0" style="-fx-background-color: black;" text="Selección" />
          </columns>
          <placeholder>
             <Label text="Este Cliente no tiene Cobros por pagar" />

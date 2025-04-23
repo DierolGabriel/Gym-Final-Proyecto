@@ -123,9 +123,9 @@ public class GenerarCobroControll {
         String mes = obtenerNombreMes(fechaSeleccionada.getMonthValue());
         String fechaFormateada = fechaSeleccionada.format(DateTimeFormatter.ofPattern("d/M/yyyy"));
 
-        // Verificar si ya existe un cobro para este mes
-        if (existeCobroParaMes(mes)) {
-            mostrarAlerta("Ya se ha generado un cobro para el mes de " + mes);
+
+        if (existeCobroParaMes(mes, fechaSeleccionada.getYear())) {
+            mostrarAlerta("Ya se ha generado un cobro para " + mes + " del año " + fechaSeleccionada.getYear());
             return;
         }
 
@@ -229,7 +229,7 @@ public class GenerarCobroControll {
         mostrarPestanaCobros();
     }
 
-    private boolean existeCobroParaMes(String mes) {
+    private boolean existeCobroParaMes(String mes, int año) {
         File archivoCobros = new File(ARCHIVO_COBROS);
 
         if (!archivoCobros.exists()) {
@@ -241,16 +241,26 @@ public class GenerarCobroControll {
             while ((linea = br.readLine()) != null) {
                 if (!linea.trim().isEmpty()) {
                     String[] partes = linea.split(":");
-                    if (partes.length >= 5 && partes[4].equals("cobro de " + mes)) {
-                        return true;
+                    if (partes.length >= 2) {
+                        // Obtener el año de la fecha del cobro (partes[1] es la fecha en formato d/M/yyyy)
+                        String[] fechaParts = partes[1].split("/");
+                        if (fechaParts.length == 3) {
+                            int añoCobro = Integer.parseInt(fechaParts[2]);
+                            if (partes.length >= 5 && partes[4].equals("cobro de " + mes) && añoCobro == año) {
+                                return true;
+                            }
+                        }
                     }
                 }
             }
         } catch (IOException e) {
             mostrarAlerta("Error al verificar cobros existentes: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            mostrarAlerta("Error en el formato de fecha: " + e.getMessage());
         }
         return false;
     }
+
 
     private void mostrarPestanaCobros() throws IOException {
         MenuAdmin menuAdmin = new MenuAdmin();

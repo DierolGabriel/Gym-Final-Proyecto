@@ -8,7 +8,7 @@
 <Pane prefHeight="510.0" prefWidth="691.0" style="-fx-background-color: black; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" stylesheets="@../CSS/ReservaActividades.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.ReservaActController">
     <children>
         <!-- Título -->
-        <Text fill="WHITE" layoutX="256.0" layoutY="55.0" stroke="WHITE" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Reserva Actividades" />
+        <Text fill="WHITE" layoutX="243.0" layoutY="55.0" stroke="WHITE" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Reserva de Actividades" />
 
         <!-- Campo Id_Reserva_Actividad -->
         <Text fill="WHITE" layoutX="104.0" layoutY="111.0" stroke="WHITE" text="Id_Reserva de la Actividad" />
