@@ -30,7 +30,7 @@
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </Text>
-            <RadioButton fx:id="Filtro1" layoutX="193.0" layoutY="89.0" mnemonicParsing="false" text="Por Clientes">
+            <RadioButton fx:id="Filtro1" layoutX="193.0" layoutY="89.0" mnemonicParsing="false" selected="true" text="Por Clientes">
                <toggleGroup>
                   <ToggleGroup fx:id="Grupo1" />
                </toggleGroup>

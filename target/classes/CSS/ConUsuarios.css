@@ -96,3 +96,7 @@
     -fx-text-fill: white;
     -fx-border-color: #664848;
 }
+
+.button:hover {
+    -fx-background-color: red;
+}

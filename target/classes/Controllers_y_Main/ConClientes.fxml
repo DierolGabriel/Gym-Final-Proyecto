@@ -7,7 +7,10 @@
 <AnchorPane prefHeight="723.0" prefWidth="1470.0" style="-fx-background-color: Black;" stylesheets="@../CSS/ConEntrenador.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Consultas.ConClientesController">
    <children>
       <TextField fx:id="TextField" layoutX="16.0" layoutY="123.0" onAction="#Consultar" promptText="Consultar" />
-      <Button fx:id="Limpiar" layoutX="1457.0" layoutY="23.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="26.0" prefWidth="26.0" text="X" textFill="RED" />
+      <Button fx:id="Limpiar" layoutX="1438.0" layoutY="23.0" mnemonicParsing="false" onAction="#Salir" prefHeight="44.0" prefWidth="46.0" text="X" textFill="RED">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
       <RadioButton fx:id="Filtro1" layoutX="202.0" layoutY="132.0" mnemonicParsing="false" selected="true" text="ID">
          <toggleGroup>
             <ToggleGroup fx:id="Grupo1" />
