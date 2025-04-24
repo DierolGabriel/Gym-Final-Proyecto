@@ -104,13 +104,34 @@ public class ActualizaCuotaController {
         // Actualizar cliente
         actualizarCliente(cuota.getIdCliente(), cuota.getValor());
 
-        // Actualizar cobros del cliente
-        boolean todosCobrosPagados = actualizarCobros(cuota.getIdCliente(), cuota.getValor());
+        // Leer la cuota para ver qué cobros están asociados
+        List<String> cobrosAsociados = getCobrosAsociadosACuota(cuota.getIdCuota());
 
-        // Actualizar status de cuota si todos los cobros están pagados
+        // Actualizar solo los cobros que están asociados a esta cuota
+        boolean todosCobrosPagados = actualizarCobros(cuota.getIdCliente(), cuota.getValor(), cobrosAsociados);
+
+        // Actualizar status de cuota si todos los cobros asociados están pagados
         if (todosCobrosPagados) {
             actualizarStatusCuota(cuota.getIdCuota());
         }
+    }
+
+
+    private List<String> getCobrosAsociadosACuota(String idCuota) throws IOException {
+        List<String> cobrosAsociados = new ArrayList<>();
+        List<String> lines = Files.readAllLines(Paths.get(CUOTA_FILE));
+
+        for (String line : lines) {
+            String[] parts = line.split(":");
+            if (parts.length >= 5 && parts[0].equals(idCuota)) {
+                // Aquí podríamos tener un campo adicional que indique qué cobros están asociados
+                // Por ahora asumiremos que todos los cobros del cliente están asociados
+                // Esto debería modificarse según tu estructura de datos real
+                cobrosAsociados.add(parts[1]); // idCliente
+                break;
+            }
+        }
+        return cobrosAsociados;
     }
 
     private void actualizarCliente(String idCliente, double valor) throws IOException {
@@ -133,7 +154,7 @@ public class ActualizaCuotaController {
         Files.write(Paths.get(CLIENTES_FILE), newLines);
     }
 
-    private boolean actualizarCobros(String idCliente, double valor) throws IOException {
+    private boolean actualizarCobros(String idCliente, double valor, List<String> cobrosAsociados) throws IOException {
         List<String> lines = Files.readAllLines(Paths.get(COBRO_FILE));
         List<String> newLines = new ArrayList<>();
         boolean todosPagados = true;
@@ -143,15 +164,15 @@ public class ActualizaCuotaController {
             if (parts.length >= 6 && parts[2].equals(idCliente)) {
                 double valorCobro = Double.parseDouble(parts[3]);
                 boolean status = Boolean.parseBoolean(parts[5]);
+                String idCobro = parts[0];
 
-                if (!status) {
+                // Solo actualizar cobros que están asociados a cuotas
+                if (!status && cobrosAsociados.contains(idCobro)) {
                     valorCobro -= valor;
-                    if (valorCobro <= 0)
-                    {
+                    if (valorCobro <= 0) {
                         valorCobro = 0;
                         status = true;
-                    }
-                    else {
+                    } else {
                         todosPagados = false;
                     }
 

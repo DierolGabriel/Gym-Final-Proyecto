@@ -309,12 +309,17 @@ public class Cuotacontroller {
         // Calcular el total solo de los cobros seleccionados
         double totalSeleccionado = 0.0;
         List<Cobro> cobrosSeleccionados = new ArrayList<>();
+        List<String> cobrosSeleccionadosIds = new ArrayList<>();
+
         for (Cobro cobro : cobrosData) {
             if (cobro.isSeleccionado()) {
                 totalSeleccionado += cobro.getValorCobro();
                 cobrosSeleccionados.add(cobro);
+                cobrosSeleccionadosIds.add(String.valueOf(cobro.getIdCobro()));
             }
         }
+
+        String cobrosAsociados = String.join(",", cobrosSeleccionadosIds);
 
         // Verificar que el valor en el campo Valor coincida con la suma
         try {
@@ -333,9 +338,7 @@ public class Cuotacontroller {
         String valor = Valor.getText().trim();
         String fecha = Fecha.getValue().format(DateTimeFormatter.ofPattern("d/M/yyyy"));
         String Status = "false";
-
-        String linea = String.join(":", idCuota, idCliente, valor, fecha, Status);
-
+        String linea = String.join(":", idCuota, idCliente, valor, fecha, Status, cobrosAsociados);
 
         File archivo = new File(ARCHIVO_CUOTAS);
         List<String> lineas = new ArrayList<>();
@@ -371,7 +374,7 @@ public class Cuotacontroller {
             }
 
             // Actualizar status
-            actualizarCobrosSeleccionados(idCliente);
+            actualizarCobrosSeleccionados(idCliente, cobrosSeleccionados);
 
             mostrarAlerta("Cuota " + (existe ? "modificada" : "creada") + " exitosamente");
             Notificador.setText(existe ? "Modificado" : "Creado");
@@ -382,7 +385,7 @@ public class Cuotacontroller {
         }
     }
 
-    private void actualizarCobrosSeleccionados(String idCliente) throws IOException {
+    private void actualizarCobrosSeleccionados(String idCliente, List<Cobro> cobrosSeleccionados) throws IOException {
         File archivoCobros = new File(ARCHIVO_COBROS);
         if (!archivoCobros.exists()) return;
 
@@ -394,10 +397,10 @@ public class Cuotacontroller {
                 if (!linea.trim().isEmpty()) {
                     String[] partes = linea.split(":");
                     if (partes.length >= 6 && partes[2].equals(idCliente)) {
-                        // Buscar si este cobro está seleccionado
-                        for (Cobro cobro : cobrosData) {
-                            if (cobro.getIdCobro() == Integer.parseInt(partes[0]) && cobro.isSeleccionado()) {
-                                // Actualizar solo los cobros seleccionados
+                        // Buscar si este cobro está en la lista de seleccionados
+                        for (Cobro cobro : cobrosSeleccionados) {
+                            if (cobro.getIdCobro() == Integer.parseInt(partes[0])) {
+                                // Actualizar solo este cobro
                                 partes[5] = "true"; // Cambiar status a true
                                 linea = String.join(":", partes);
                                 break;

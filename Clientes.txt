@@ -1,4 +1,4 @@
-001:Dierol:Diaz:Sarante:Calle 99:13/1/2006:2134879:0992134897:6/4/2025:Dierol@gmail.com:1500.0:1500:Socio Activo:Activo
-002:Juan:Martinez:Torrez:calle santiago:16/4/2025:90341:09872:20/4/2025:Juan@gmail.com:4000.0:2000:Socio Activo:Activo
-003:pedro:gfds:dsfg:asdf:18/4/2025:1234:126534:20/4/2025:Pedro@gmail.com::1234:Pasivo:Invitado
+001:Dierol:Diaz:Sarante:Calle 99:13/1/2006:2134879:0992134897:6/4/2025:Dierol@gmail.com:0.0:1500:Socio Activo:Activo
+002:Juan:Martinez:Torrez:calle santiago:16/4/2025:90341:09872:20/4/2025:Juan@gmail.com:0.0:2000:Socio Activo:Activo
+003:pedro:gfds:dsfg:asdf:18/4/2025:1234:126534:20/4/2025:Pedro@gmail.com::1234:Invitado:Pasivo
 25:Cliente:Martinez:De lupe:calle #25 casa #6:14/6/2024:6213456:10982123:23/4/2025:Cliente@gmail.com::1000:Socio Activo:Pasivo
