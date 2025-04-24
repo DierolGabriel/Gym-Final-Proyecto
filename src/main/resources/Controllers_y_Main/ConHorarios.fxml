@@ -6,13 +6,11 @@
 
 <AnchorPane prefHeight="625.0" prefWidth="819.0" style="-fx-background-color: Black;" stylesheets="@../CSS/ConUsuarios.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Consultas.ConHorariosController">
    <children>
-      <Label layoutX="274.0" layoutY="24.0" text="Consulta de Horarios">
-         <font>
-            <Font size="28.0" />
-         </font>
-      </Label>
       <TextField fx:id="TextField" layoutX="21.0" layoutY="128.0" onAction="#Consultar" promptText="Consultar" />
-      <Button fx:id="Limpiar" layoutX="758.0" layoutY="31.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="26.0" prefWidth="26.0" text="X" textFill="RED" />
+      <Button fx:id="Limpiar" layoutX="745.0" layoutY="23.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="43.0" prefWidth="46.0" style="-fx-background-color: Red; -fx-text-fill: white;" text="X" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="16.0" />
+         </font></Button>
       <RadioButton fx:id="Filtro1" layoutX="223.0" layoutY="135.0" mnemonicParsing="false" selected="true" text="ID">
          <toggleGroup>
             <ToggleGroup fx:id="Grupo1" />
@@ -31,5 +29,10 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <Text fill="WHITE" layoutX="280.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consulta de Horarios">
+         <font>
+            <Font name="Arial Black" size="23.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

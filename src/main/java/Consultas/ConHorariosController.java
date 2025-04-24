@@ -133,8 +133,7 @@ public class ConHorariosController {
                     horariosFiltrados.add(horario);
                 }
             } else if (Filtro2.isSelected()) {
-                // Filtrar por ID Actividad
-                if (horario.getIdActividad().toLowerCase().contains(filtro)) {
+                if (horario.getDia().toLowerCase().contains(filtro)) {
                     horariosFiltrados.add(horario);
                 }
             }

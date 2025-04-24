@@ -165,7 +165,6 @@
     -fx-effect: dropshadow(gaussian, rgba(229, 9, 20, 0.4), 5, 0.3, 0, 2);
 }
 
-/* BOTONES HOVER */
 .button:hover {
-    -fx-background-color: #ff1a1a;
+    -fx-background-color: red;
 }
