@@ -29,7 +29,7 @@
             <Font name="Arial Bold" size="17.0" />
          </font>
       </Text>
-      <ComboBox fx:id="Idcliente" disable="true" layoutX="129.0" layoutY="199.0" prefHeight="25.0" prefWidth="172.0" />
+      <ComboBox fx:id="Idcliente" disable="true" editable="true" layoutX="129.0" layoutY="194.0" onAction="#validarIdClienteManual" onKeyReleased="#validarIdClienteManual" prefHeight="25.0" prefWidth="172.0" />
       <Text fill="WHITE" layoutX="23.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor a cobrar">
          <font>
             <Font name="Arial Bold" size="17.0" />

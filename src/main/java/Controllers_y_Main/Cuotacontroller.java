@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.awt.event.KeyEvent;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -307,9 +308,11 @@ public class Cuotacontroller {
 
         // Calcular el total solo de los cobros seleccionados
         double totalSeleccionado = 0.0;
+        List<Cobro> cobrosSeleccionados = new ArrayList<>();
         for (Cobro cobro : cobrosData) {
             if (cobro.isSeleccionado()) {
                 totalSeleccionado += cobro.getValorCobro();
+                cobrosSeleccionados.add(cobro);
             }
         }
 
@@ -317,7 +320,7 @@ public class Cuotacontroller {
         try {
             double valorIngresado = Double.parseDouble(Valor.getText().trim());
             if (Math.abs(valorIngresado - totalSeleccionado) > 0.01) {
-                mostrarAlerta("El valor ingresado no coincide con la suma de cobros seleccionados");
+                mostrarAlerta("El valor no coincide con la suma de cobros seleccionados");
                 return;
             }
         } catch (NumberFormatException e) {
@@ -391,12 +394,15 @@ public class Cuotacontroller {
                 if (!linea.trim().isEmpty()) {
                     String[] partes = linea.split(":");
                     if (partes.length >= 6 && partes[2].equals(idCliente)) {
+                        // Buscar si este cobro está seleccionado
                         for (Cobro cobro : cobrosData) {
-                            if (cobro.getIdCobro() == Integer.parseInt(partes[0])) {
+                            if (cobro.getIdCobro() == Integer.parseInt(partes[0]) && cobro.isSeleccionado()) {
+                                // Actualizar solo los cobros seleccionados
+                                partes[5] = "true"; // Cambiar status a true
+                                linea = String.join(":", partes);
                                 break;
                             }
                         }
-                        linea = String.join(":", partes);
                     }
                     lineasActualizadas.add(linea);
                 }
@@ -410,6 +416,64 @@ public class Cuotacontroller {
             }
         }
     }
+    public void validarIdClienteManual(ActionEvent actionEvent)
+    {
+        if (Idcliente.isEditable() && Idcliente.getEditor().getText() != null) {
+            String idIngresado = Idcliente.getEditor().getText().trim();
+            if (!idIngresado.isEmpty()) {
+                boolean existe = false;
+
+                // Buscar en la lista de clientes cargados
+                for (String id : Idcliente.getItems()) {
+                    if (id.equals(idIngresado)) {
+                        existe = true;
+                        break;
+                    }
+                }
+
+                // Si no está en la lista, buscar en el archivo
+                if (!existe) {
+                    existe = verificarIdClienteEnArchivo(idIngresado);
+                }
+
+                if (existe) {
+                    Idcliente.setValue(idIngresado);
+                    cargarNombreCliente(idIngresado);
+                    cargarCobrosCliente(idIngresado);
+                } else {
+                    Nombre.clear();
+                    cobrosData.clear();
+                    mostrarAlerta("El ID del cliente no existe o no tiene cobros pendientes");
+                }
+            }
+        }
+    }
+
+    private boolean verificarIdClienteEnArchivo(String idCliente) {
+        File archivo = new File(ARCHIVO_CLIENTES);
+        if (!archivo.exists()) return false;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (!linea.trim().isEmpty()) {
+                    String[] partes = linea.split(":");
+                    if (partes.length >= 14 && partes[0].equals(idCliente) &&
+                            partes[12].equals("Socio Activo") && partes[13].equals("Activo")) {
+                        // Si encontramos el ID y es un socio activo, lo añadimos al ComboBox
+                        if (!Idcliente.getItems().contains(idCliente)) {
+                            Idcliente.getItems().add(idCliente);
+                        }
+                        return true;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            mostrarAlerta("Error al verificar cliente: " + e.getMessage());
+        }
+        return false;
+    }
+
 
     @FXML
     void Limpiar(ActionEvent event) {
