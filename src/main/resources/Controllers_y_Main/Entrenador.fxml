@@ -3,7 +3,6 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="641.0" prefWidth="477.0" style="-fx-background-color: black;" stylesheets="@../CSS/Entrenador.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.EntrenadorController">
@@ -52,26 +51,10 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label blendMode="ADD" depthTest="ENABLE" layoutX="137.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="204.0" text="Mantenimineto de Entrenadores">
+      <Text fill="WHITE" layoutX="54.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mantenimineto de Entrenadores" wrappingWidth="372.5205078125">
          <font>
-            <Font name="Arial Black" size="18.0" />
+            <Font name="Arial Black" size="21.0" />
          </font>
-         <textFill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </RadialGradient>
-         </textFill>
-      </Label>
+      </Text>
    </children>
 </AnchorPane>

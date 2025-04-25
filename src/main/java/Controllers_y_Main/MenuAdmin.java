@@ -40,7 +40,7 @@ public class MenuAdmin extends Application
     public void Localizacion(Stage stage) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Localizacion.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 601, 212);
+        Scene scene = new Scene(fxmlLoader.load(), 602, 264);
         stage.setTitle("Localizacion");
         stage.setScene(scene);
         stage.show();
@@ -200,6 +200,7 @@ public class MenuAdmin extends Application
         stage.setScene(scene);
         stage.show();
     }
+
 
     public void ConCuota(Stage stage) throws  IOException
     {

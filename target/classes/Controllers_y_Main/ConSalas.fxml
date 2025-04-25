@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -12,8 +13,14 @@
          <toggleGroup>
             <ToggleGroup fx:id="Grupo1" />
          </toggleGroup>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </RadioButton>
-      <RadioButton fx:id="Filtro2" layoutX="343.0" layoutY="137.0" mnemonicParsing="false" text="ID Localización" toggleGroup="$Grupo1" />
+      <RadioButton fx:id="Filtro2" layoutX="343.0" layoutY="137.0" mnemonicParsing="false" text="ID Localización" toggleGroup="$Grupo1">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
       <Label layoutX="217.0" layoutY="115.0" text="Filtros:" />
       <TableView fx:id="Table" layoutX="22.0" layoutY="167.0" prefHeight="437.0" prefWidth="798.0">
          <columns>

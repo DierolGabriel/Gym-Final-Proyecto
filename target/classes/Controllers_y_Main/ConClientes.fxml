@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -15,10 +16,22 @@
          <toggleGroup>
             <ToggleGroup fx:id="Grupo1" />
          </toggleGroup>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </RadioButton>
-      <RadioButton fx:id="Filtro2" layoutX="261.0" layoutY="133.0" mnemonicParsing="false" text="Nombre" toggleGroup="$Grupo1" />
-      <RadioButton fx:id="Filtro3" layoutX="352.0" layoutY="133.0" mnemonicParsing="false" text="Tipo" toggleGroup="$Grupo1" />
-      <RadioButton fx:id="Filtro4" layoutX="420.0" layoutY="132.0" mnemonicParsing="false" text="Status" toggleGroup="$Grupo1" />
+      <RadioButton fx:id="Filtro2" layoutX="261.0" layoutY="133.0" mnemonicParsing="false" text="Nombre" toggleGroup="$Grupo1">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
+      <RadioButton fx:id="Filtro3" layoutX="352.0" layoutY="133.0" mnemonicParsing="false" text="Tipo" toggleGroup="$Grupo1">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
+      <RadioButton fx:id="Filtro4" layoutX="420.0" layoutY="132.0" mnemonicParsing="false" text="Status" toggleGroup="$Grupo1">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
       <Label layoutX="188.0" layoutY="110.0" text="Filtros:" />
       <TableView fx:id="Table" layoutY="181.0" prefHeight="536.0" prefWidth="1470.0">
          <columns>
@@ -41,7 +54,10 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <CheckBox fx:id="Filtro5" layoutX="494.0" layoutY="133.0" mnemonicParsing="false" text="Solo clientes con balance pendiente" textFill="WHITE" />
+      <CheckBox fx:id="Filtro5" layoutX="494.0" layoutY="133.0" mnemonicParsing="false" text="Solo clientes con balance pendiente" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
       <Text fill="WHITE" layoutX="308.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consulta de Clientes">
          <font>
             <Font name="Arial Black" size="25.0" />
