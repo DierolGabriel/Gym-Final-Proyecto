@@ -14,8 +14,13 @@ public class Mainlogin extends Application
     public void start(Stage stage) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 594, 613);
+        // Cargar el FXML sin especificar el tamaño de la escena (ajustará al tamaño del AnchorPane)
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Login");
+
+        // Establecer el tamaño de la ventana según el tamaño de AnchorPane en FXML (1200x800)
+        stage.setWidth(1200);  // Establecer el ancho
+        stage.setHeight(800);  // Establecer la altura
         stage.setScene(scene);
         stage.show();
     }

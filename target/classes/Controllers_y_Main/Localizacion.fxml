@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane prefHeight="264.0" prefWidth="602.0" style="-fx-background-color: black;" stylesheets="@../CSS/Localizacion.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.LocalizacionController">
+<Pane prefHeight="246.0" prefWidth="652.0" style="-fx-background-color: black;" stylesheets="@../CSS/Localizacion.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers_y_Main.LocalizacionController">
     <children>
-        <Text fill="WHITE" layoutX="100.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id_Localizacion" />
-        <TextField fx:id="Localizacion" layoutX="207.0" layoutY="97.0" />
-        <Text fill="WHITE" layoutX="110.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" />
-        <TextField fx:id="Tipo" disable="true" layoutX="207.0" layoutY="137.0" />
-      <Button fx:id="Guardar" layoutX="240.0" layoutY="200.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
-      <Button fx:id="Salir" layoutX="356.0" layoutY="200.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
-      <Button fx:id="Limpiar" layoutX="122.0" layoutY="200.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
-      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="410.0" layoutY="92.0" prefHeight="25.0" prefWidth="113.0" />
-      <Text fill="WHITE" layoutX="96.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mantenimiento de Localización">
-         <font>
-            <Font name="Arial Black" size="21.0" />
-         </font>
-      </Text>
+      <Pane fx:id="pane1" layoutX="24.0" layoutY="17.0" prefHeight="212.0" prefWidth="589.0" style="-fx-background-color: black;" stylesheets="@../CSS/paneglass.css" />
+        <Text fill="WHITE" layoutX="152.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id_Localizacion" />
+        <TextField fx:id="Localizacion" layoutX="259.0" layoutY="64.0" />
+        <Text fill="WHITE" layoutX="162.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" />
+        <TextField fx:id="Tipo" disable="true" layoutX="259.0" layoutY="104.0" />
+        <Text fill="WHITE" layoutX="265.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localizacion">
+            <font>
+                <Font name="Arial Black" size="20.0" />
+            </font>
+        </Text>
+      <Button fx:id="Guardar" layoutX="292.0" layoutY="167.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" />
+      <Button fx:id="Salir" layoutX="408.0" layoutY="167.0" mnemonicParsing="false" onAction="#Salir" text="Salir" />
+      <Button fx:id="Limpiar" layoutX="174.0" layoutY="167.0" mnemonicParsing="false" onAction="#Limpiar" text="Limpiar" />
+      <TextField fx:id="Notificador" disable="true" editable="false" layoutX="463.0" layoutY="64.0" prefHeight="25.0" prefWidth="113.0" />
     </children>
 </Pane>

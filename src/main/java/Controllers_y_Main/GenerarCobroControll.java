@@ -173,8 +173,6 @@ public class GenerarCobroControll {
                     cobrosEntries.add(cobroLine);
                     nuevoIdCobro++;
                 } catch (NumberFormatException e) {
-                    mostrarAlerta("Error en el balance o valor de cuota del cliente " + cliente.getId());
-                    return;
                 }
             }
         }

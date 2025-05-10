@@ -31,7 +31,7 @@ public class MenuAdmin extends Application
     public void Usuarios(Stage stage) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Usuarios.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 867, 621);
         stage.setTitle("Usuarios");
         stage.setScene(scene);
         stage.show();
@@ -40,7 +40,7 @@ public class MenuAdmin extends Application
     public void Localizacion(Stage stage) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Localizacion.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 602, 264);
+        Scene scene = new Scene(fxmlLoader.load(), 625, 264);
         stage.setTitle("Localizacion");
         stage.setScene(scene);
         stage.show();
@@ -57,7 +57,7 @@ public class MenuAdmin extends Application
     public void Actividades(Stage stage) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Actividades.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 477, 641);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 570);
         stage.setTitle("Actividades");
         stage.setScene(scene);
         stage.show();
@@ -135,7 +135,7 @@ public class MenuAdmin extends Application
     public void ConLocalizacion(Stage stage) throws  IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Mainlogin.HelloApplication.class.getResource("Con Localizacion.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 738, 542);
+        Scene scene = new Scene(fxmlLoader.load(), 984, 729);
         stage.setTitle("Consulta de Localizacion");
         stage.setScene(scene);
         stage.show();

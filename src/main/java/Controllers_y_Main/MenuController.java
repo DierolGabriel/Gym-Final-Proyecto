@@ -3,14 +3,18 @@ package Controllers_y_Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class MenuController {
 
+    public Text Reloj;
     @FXML
+
     private Button ActualizaCuota;
 
     @FXML
@@ -87,6 +91,7 @@ public class MenuController {
 
     @FXML
     private TitledPane Procesos;
+
 
     @FXML
     void ConCuota(ActionEvent event) throws IOException {
@@ -219,6 +224,15 @@ public class MenuController {
     void  AdCuotas(ActionEvent event) throws IOException {
         MenuAdmin menuAdmin = new MenuAdmin();
         menuAdmin.AdCuotas(new Stage());
+    }
+
+    @FXML
+    public void initialize()
+    {
+     String hora = java.time.LocalTime.now().toString();
+        hora = hora.substring(0, 5);
+        String[] partes = hora.split(":");
+     Reloj.setText(hora + "AM");
     }
 
 }

@@ -77,7 +77,7 @@
          </cursor></TextField>
 
       <Text fill="WHITE" layoutX="98.0" layoutY="392.0" stroke="WHITE" text="Balance" />
-      <TextField fx:id="txtBalance" disable="true" editable="false" layoutX="163.0" layoutY="369.0" prefHeight="25.0" prefWidth="177.0">
+      <TextField fx:id="txtBalance" disable="true" editable="false" layoutX="163.0" layoutY="369.0" prefHeight="25.0" prefWidth="177.0" text="0.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>

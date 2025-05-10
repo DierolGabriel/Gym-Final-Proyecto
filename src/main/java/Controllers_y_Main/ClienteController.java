@@ -157,6 +157,10 @@ public class ClienteController {
         String fechaIngreso = fechaIngresoPicker.getValue().format(DateTimeFormatter.ofPattern("d/M/yyyy"));
         String correo = txtCorreo.getText().trim();
         String balance = txtBalance.getText().trim();
+        if(balance.isEmpty())
+        {
+            balance = "0.0";
+        }
         String valorCuota = txtValorCuota.getText().trim();
         String tipoCliente = SocioActivo.isSelected() ? "Socio Activo" : "Invitado";
         String statusCliente = Activo.isSelected() ? "Activo" : "Pasivo";
@@ -201,7 +205,8 @@ public class ClienteController {
                     bw.newLine();
                 }
             }
-            JOptionPane.showMessageDialog(null, "Cliente guardado exitosamente");
+            mostrarAlerta("Cliente guardado exitosamente");
+            limpiarCampos(true);
 
         } catch (IOException e) {
             mostrarAlerta("Error al guardar el cliente: " + e.getMessage());
